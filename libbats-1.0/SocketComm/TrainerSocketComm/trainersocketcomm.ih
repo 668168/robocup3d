@@ -1,0 +1,6 @@
+#include "trainersocketcomm.hh"
+#include "../../WorldModel/worldmodel.hh"
+
+using namespace bats;
+using namespace std;
+

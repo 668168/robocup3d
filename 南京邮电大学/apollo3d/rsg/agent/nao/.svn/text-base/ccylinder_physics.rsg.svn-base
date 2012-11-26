@@ -1,0 +1,19 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+    (templ $radius $length $totalMass)
+
+    (nd Body
+        (setName ccylinderBody)
+        (setCappedCylinderTotal $totalMass $radius $length)
+
+        (importScene rsg/agent/nao/dragcontroller.rsg)
+    )
+
+    (nd CCylinderCollider
+        (setParams $radius $length)
+
+        (importScene rsg/agent/nao/contactjointhandler.rsg)
+    )
+ )

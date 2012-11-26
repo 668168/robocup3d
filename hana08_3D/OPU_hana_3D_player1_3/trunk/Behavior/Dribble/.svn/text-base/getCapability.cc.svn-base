@@ -1,0 +1,64 @@
+#include "dribble.ih"
+
+Behavior::ConfidenceInterval Dribble::getCapability(rf<State> s, rf<Goal> g)
+{
+//    Vector3D pos = g->getVector("Pos");
+    WorldModel& wm = WorldModel::getInstance();
+
+    Vector3D ballPos = wm.getObjectPosition(Types::BALL).getMu();
+    Vector3D goalPos1 = wm.getObjectPosition(Types::GOAL1THEM).getMu();
+    Vector3D goalPos2 = wm.getObjectPosition(Types::GOAL2THEM).getMu();
+//    Vector3D goalPos = (goalPos1 + goalPos2) / 2.0;
+//    goalPos.setZ(0);
+    ballPos.setZ(0);
+//    Vector3D straight(1,0,0);
+/*
+    double angletoGoal1 = straight.angle(goalPos1) / M_PI * 180.0;
+    if(goalPos1.getY() < 0)
+	angletoGoal1 *= -1;
+
+    double angletoGoal2 = straight.angle(goalPos2) / M_PI * 180.0;
+    if(goalPos2.getY() < 0)
+	angletoGoal2 *= -1;
+
+    double angletoBall = straight.angle(ballPos) / M_PI * 180.0;
+    if(ballPos.getY() < 0)
+	angletoBall *= -1;
+*/
+//    std::cout << "Dribble::getCapability : pos.X=" << pos.getX() << ", pos.Y=" << pos.getY() << ", pos.Z=" << pos.getZ() << std::endl;
+
+//     std::cout << "input" << std::endl;
+//     int num;
+//     std::cin >> num;
+//     std::cout << num << std::endl;
+
+//    std::cout << "GOAL1: " << angletoGoal1 << ", goal1pos( " << goalPos1.getX() << ", " << goalPos1.getY() << ", " << goalPos1.getZ() << ")" << std::endl;
+//    std::cout << "GOAL2: " << angletoGoal2 << ", goal2pos( " << goalPos2.getX() << ", " << goalPos2.getY() << ", " << goalPos2.getZ() << ")" << std::endl;
+//    std::cout << "BALL : " << angletoBall  << ", ballpos ( " << ballPos.getX() << ", " << ballPos.getY() << ", " << ballPos.getZ() << ")" <<  std::endl;
+//    std::cout << ". so, ";
+
+//     if(((angletoGoal1 < angletoBall && angletoBall < angletoGoal2) 
+//        || (angletoGoal1 > angletoBall && angletoBall > angletoGoal2))
+//        /* && goalPos.length() > 10 */)
+
+//    double ballX = ballPos.getX();
+//    double ballabsY = fabs(ballPos.getY());
+
+//    double goal1Y = goalPos1.getY();
+//    double goal2Y = goalPos2.getY();
+
+//    if(d_curStep >= 1 && ballPos.length() > 0.6)
+//		return ConfidenceInterval(0.0, 0.2);
+
+//	std::cout << " In Dribble ballPos = (" << ballPos.getX() << ", " << ballPos.getY() << ")" << std::endl; 
+
+    if((ballPos.getX() < 0.4 && ballPos.getX() > 0) && fabs(ballPos.getY()) < 0.1) // zenpou ball
+//    	&& goalPos1.getY() * goalPos2.getY() < 0 )
+//       && ( fabs(angletoGoal1) < 90 && fabs(angletoGoal2) < 90 ) )
+    {
+		std::cout << "Dribble: (0.7, 0.0)" << std::endl;
+		return ConfidenceInterval(0.7, 0.0);
+    }
+    std::cout << "Dribble: (0.0, 0.2)" << std::endl;
+    return  ConfidenceInterval(0.0, 0.2);
+}

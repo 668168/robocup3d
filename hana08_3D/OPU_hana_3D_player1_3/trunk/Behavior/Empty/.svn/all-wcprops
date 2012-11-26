@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/Empty
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/generateGoal.cc
+END
+Empty.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/Empty.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/Empty/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/getCurrentState.cc
+END
+conf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/conf.cc
+END
+ccResolutions
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/ccResolutions
+END
+empty.hh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/empty.hh
+END
+empty.ih
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Empty/empty.ih
+END

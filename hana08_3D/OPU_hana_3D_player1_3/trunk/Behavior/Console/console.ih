@@ -1,0 +1,15 @@
+#include "console.hh"
+
+
+#include <sstream>
+
+
+#include "Input/input.hh"
+#include "Preprocessor/foreach.hh"
+
+
+#define DEBUGLEVEL 0
+#include "debug.hh"
+
+using namespace bats;
+using namespace std;

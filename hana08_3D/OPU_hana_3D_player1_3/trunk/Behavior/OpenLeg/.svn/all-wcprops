@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/13/littlegreenbats_new/trunk/Behavior/OpenLeg
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/OpenLeg/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/OpenLeg/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/OpenLeg/getCapability.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/OpenLeg/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/OpenLeg/getCurrentState.cc
+END
+openleg.hh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/OpenLeg/openleg.hh
+END
+openleg.ih
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/OpenLeg/openleg.ih
+END
+OpenLeg.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/OpenLeg/OpenLeg.cc
+END

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Net
+END
+timeval.hh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/timeval.hh
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/.dirstamp
+END
+client.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/client.cc
+END
+socketaddress.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/socketaddress.cc
+END
+server.hh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/server.hh
+END
+timeval.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/timeval.cc
+END
+socket.hh
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Net/socket.hh
+END
+server.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/server.cc
+END
+client.hh
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/client.hh
+END
+socket.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Net/socket.cc
+END
+socketaddress.hh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Net/socketaddress.hh
+END

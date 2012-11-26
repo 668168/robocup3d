@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src
+END
+src.kdevelop
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/src.kdevelop
+END
+src.kdevelop.pcs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/src.kdevelop.pcs
+END
+Doxyfile
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Doxyfile
+END
+saeid.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/saeid.cpp
+END
+src.kdevelop.filelist
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/src.kdevelop.filelist
+END
+src.kdevses
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/src.kdevses
+END
+saeid.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/saeid.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/CMakeLists.txt
+END

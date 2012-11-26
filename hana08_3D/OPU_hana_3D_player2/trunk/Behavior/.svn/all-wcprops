@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/hana08_3D/!svn/ver/41/littlegreenbats_new_2/trunk/Behavior
+END
+doNextStep.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/36/littlegreenbats_new_2/trunk/Behavior/doNextStep.cc
+END
+addToSlot.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/addToSlot.cc
+END
+setGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/setGoal.cc
+END
+Behavior.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/Behavior.cc
+END
+generateConf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/generateConf.cc
+END
+doCurrentStep.cc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/doCurrentStep.cc
+END
+createBehaviors.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/createBehaviors.cc
+END
+achieveGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/36/littlegreenbats_new_2/trunk/Behavior/achieveGoal.cc
+END
+behavior.hh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/behavior.hh
+END
+behavior.ih
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/behavior.ih
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/.dirstamp
+END
+buildTree.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/buildTree.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/update.cc
+END
+reset.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/reset.cc
+END
+doLastChosen.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/doLastChosen.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/static.cc
+END
+getMyParams.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/getMyParams.cc
+END

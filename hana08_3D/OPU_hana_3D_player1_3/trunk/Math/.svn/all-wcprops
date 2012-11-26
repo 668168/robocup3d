@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math
+END
+linePointClosestToPoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/linePointClosestToPoint.cc
+END
+distanceLinePoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/distanceLinePoint.cc
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/.dirstamp
+END
+calcRealX.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/calcRealX.cc
+END
+calcperpend.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/calcperpend.cc
+END
+toFieldCoords.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/toFieldCoords.cc
+END
+intersectVectorPlane.cc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/intersectVectorPlane.cc
+END
+math.hh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/math.hh
+END
+atSameSideOf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/atSameSideOf.cc
+END
+basicmath.hh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/basicmath.hh
+END
+cartesianToPolar.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/cartesianToPolar.cc
+END
+polarToCartesian.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Math/polarToCartesian.cc
+END

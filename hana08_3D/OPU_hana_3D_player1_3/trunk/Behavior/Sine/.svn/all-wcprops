@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/22/littlegreenbats_new/trunk/Behavior/Sine
+END
+calcAngles.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Sine/calcAngles.cc
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Sine/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Sine/generateGoal.cc
+END
+Sine.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Behavior/Sine/Sine.cc
+END
+updateFactor.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Behavior/Sine/updateFactor.cc
+END
+reset.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Sine/reset.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/Sine/update.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Sine/static.cc
+END
+sine.hh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/22/littlegreenbats_new/trunk/Behavior/Sine/sine.hh
+END
+sine.ih
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Sine/sine.ih
+END

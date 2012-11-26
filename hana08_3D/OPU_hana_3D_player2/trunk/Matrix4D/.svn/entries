@@ -1,0 +1,69 @@
+8
+
+dir
+43
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D/littlegreenbats_new_2/trunk/Matrix4D
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D
+
+
+
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+33cc309f-e38f-ca4e-aaf3-b9465a6fa55b
+
+.dirstamp
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+operator_ins.cc
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+d81b101deafbf24ea1c85edfe6d2779a
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+.deps
+dir
+
+matrix4d.hh
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+ebf04d8ac85f8f89fd4a963ae3b67ba6
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+

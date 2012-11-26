@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/canKickLeft
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickLeft/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickLeft/generateGoal.cc
+END
+cankickleft.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickLeft/cankickleft.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/canKickLeft/getCapability.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickLeft/static.cc
+END
+cankickleft.hh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickLeft/cankickleft.hh
+END
+cankickleft.ih
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickLeft/cankickleft.ih
+END

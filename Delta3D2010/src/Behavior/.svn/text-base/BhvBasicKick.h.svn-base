@@ -1,0 +1,64 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#ifndef BHVBASICKICK_H
+#define BHVBASICKICK_H
+#include "../salt/vector.h"
+#include "SoccerBehavior.h"
+#include "BhvBasicWalk.h"
+#include "../Skills/Kick.h"
+#include "../Effectors/AngularMotor.h"
+
+class BhvBasicKick: public SoccerBehavior {
+
+private:
+     
+     bool  isBallKickable()const;
+
+     bool  isNewKick()const;
+
+     bool  isKickDone()const;
+
+     bool  isLeftHold()const;
+
+     void  reset();
+
+     static unsigned int mStartCycle;
+
+     static unsigned int mLastCycleRun;
+     
+     static bool  mIsLeftHold;
+
+     const VisionSense&        ball;
+
+
+public:
+
+     static bool done;   
+        
+     BhvBasicKick():ball(WorldModel::instance().getPolarBallPos())
+     { 
+          done=false;
+     }
+
+     virtual bool  execute();
+ };
+
+
+#endif // BHVBASICKICK_H

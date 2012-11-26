@@ -1,0 +1,67 @@
+#include "turnto.ih"
+
+Behavior::ConfidenceInterval TurnTo::getCapability(rf<State> s, rf<Goal> g)
+{
+	rf<StateVarNode> angleNode = rf_cast<StateVarNode>(g->findDeep("Angle"));
+	StateVar angleVar = angleNode->getVar();
+	double angle = angleVar.second.mean();
+
+	rf<StateVarNode> walktoNode = rf_cast<StateVarNode>(g->findDeep("WalkTo"));
+	if (walktoNode)
+	{
+		return ConfidenceInterval(0.5, 0.2);
+	}
+
+	Vector3D pos = g->getVector("Pos");
+	pos.setZ(0.0);
+
+	if(fabs(angle) < 10.0 && pos.length() < 0.3){
+		std::cout << "TurnTo:(-1.0, 0.0)" << std::endl;
+		return ConfidenceInterval(-1.0, 0.0);
+	}
+//	if(pos.getX() < 0.3 && pos.getX() > 0 && pos.getY() < 0.1){
+//		std::cout << "TurnTo:(-1.0, 0.0)" << std::endl;
+//		return ConfidenceInterval(-1.0, 0.0);
+//	}
+	else{
+		std::cout << "TurnTo:(0.5, 0.2)" << std::endl;
+    	return ConfidenceInterval(0.5, 0.2);
+	}
+
+/*
+  rf<StateVarNode> angleNode = rf_cast<StateVarNode>(g->findDeep("Angle"));
+  if (!angleNode)
+  {
+    _debugLevel1("TurnTo doesn't understand!");
+    std::cout << "TurnTo doesn't understand!" << std::endl;
+    return ConfidenceInterval(-1.0, 0.0);
+  }
+  StateVar angleVar = angleNode->getVar();
+  double angleToBall = angleVar.second.mean();
+//  std::cout << "In TunTo::getCapability()" << std::endl;
+//  std::cout << "  angle got from angleNode = " << angleToBall << std::endl;
+  
+//  WorldModel& wm = WorldModel::getInstance();
+//  Vector3D ballPos = wm.getObjectPosition(Types::BALL).getMu();
+//  ballPos.setZ(0);
+//  Vector3D straight(1, 0, 0);
+
+//  std::cout << "In TunTo::getCapability()" << std::endl;
+//  std::cout << "  ballPos = (" << ballPos.getX() << ", " << ballPos.getY() << ", " << ballPos.getZ() << ")" << std::endl;
+//  std::cout << "  ballPos.angle(straight) = " << ballPos.angle(straight) << ", straight.length() = " << straight.length() << std::endl;
+//  std::cout << "  ballPos.dotProduct(straight) = " << ballPos.dotProduct(straight) << ", ballPos.length() = " << ballPos.length() << std::endl;
+//  std::cout << "  dp/(l*l) = " << ballPos.dotProduct(straight) / (ballPos.length() * straight.length()) << std::endl;
+//  std::cout << "  acos() = " << acos(ballPos.dotProduct(straight) / (ballPos.length() * straight.length())) << std::endl;
+  
+//  double angleToBall = straight.angle(ballPos) / M_PI * 180;
+  double angle = 10.0;
+  std::cout << "In TunTo::getCapability()" << std::endl;
+  std::cout << "  angleToBall = " << angleToBall << std::endl;
+  
+  if(angleToBall < -angle || angleToBall > angle)
+    return ConfidenceInterval(0.8, 0.0);
+  else
+    return ConfidenceInterval(0.0, 0.2);
+
+  */
+}

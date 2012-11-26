@@ -1,0 +1,1165 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#include "WorldModel.h"
+
+#include "../Behavior/BhvBasicStandup.h"
+#include <assert.h>
+
+WorldModel :: WorldModel()
+{
+    mCurentCycle=0;
+    mCurrentAction = ACT_WALK;
+    setupJointMap();
+    setupJointEffectorMap();
+    setupObjectToSenseMap();
+    setupPlayModeMap();
+    names[0] = "he1";
+    names[1] = "he2";
+    names[2] = "lle1";
+    names[3] = "rle1";
+    names[4] = "lle2";
+    names[5] = "rle2";
+    names[6] = "lle3";
+    names[7] = "rle3";
+    names[8] = "lle4";
+    names[9] = "rle4";
+    names[10] = "lle5";
+    names[11] = "rle5";
+    names[12] = "lle6";
+    names[13] = "rle6";
+    names[14] = "lae1";
+    names[15] = "rae1";
+    names[16] = "lae2";
+    names[17] = "rae2";
+    names[18] = "lae3";
+    names[19] = "rae3";
+    names[20] = "lae4";
+    names[21] = "rae4";
+}
+
+WorldModel :: ~WorldModel()
+{
+
+}
+
+
+WorldModel& WorldModel::instance()
+{
+   static WorldModel sInstance;
+   return sInstance;
+}
+
+
+///**********************************************************************
+///*************************WorldModel Update****************************
+void WorldModel::update(string& input)
+{
+///    std::cout<<"head 2= "<<getHJoint(JID_HEAD_2).angle;
+    setupVisionObjectMap();
+    mTotalFlagSeen       = 0;
+    if (getTime() >0.02) mCurentCycle++;
+    if (getSimulationTime()>0.02) mCurentSimulationCycle++;
+    parse(input);
+    calcVisionObjectLocalPos();
+    Kinematic::instance().updateLink(mVisionPerceptorMatrix);
+    Realpos();
+    if ( mTotalFlagSeen >= 2)
+    {
+     mLastLocalize = getTime();
+     setBallPos();
+    }
+    //cout<<"my position is :"<<getMyPos()<<endl;
+   // cout<<"ball position is:"<<getBallPos()<<endl;
+    // cout<<"ball polar position is:"<<getPolarBallPos()<<endl;
+      
+}
+///*********************Ending WorldModel Update************************
+///**********************************************************************
+
+void WorldModel::setupJointEffectorMap()
+{
+
+    mJointEffectorMap.clear();
+    mJointEffectorMap[JID_ROOT]  = "root";
+
+    ///Head
+    
+    mJointEffectorMap[JID_HEAD_1]  = "he1";
+    mJointEffectorMap[JID_HEAD_2]  = "he2";
+    
+    ///Arms
+    
+    mJointEffectorMap[JID_LARM_1] = "lae1"; 
+    mJointEffectorMap[JID_LARM_2] = "lae2";
+    mJointEffectorMap[JID_LARM_3] = "lae3";
+    mJointEffectorMap[JID_LARM_4] = "lae4";
+
+    mJointEffectorMap[JID_RARM_1] = "rae1" ;
+    mJointEffectorMap[JID_RARM_2] = "rae2";
+    mJointEffectorMap[JID_RARM_3] = "rae3";
+    mJointEffectorMap[JID_RARM_4] = "rae4";
+
+    ///Legs
+    mJointEffectorMap[JID_LLEG_1] = "lle1";
+    mJointEffectorMap[JID_LLEG_2] = "lle2";
+    mJointEffectorMap[JID_LLEG_3] = "lle3";
+    mJointEffectorMap[JID_LLEG_4] = "lle4";
+    mJointEffectorMap[JID_LLEG_5] = "lle5";
+    mJointEffectorMap[JID_LLEG_6] = "lle6";
+
+    mJointEffectorMap[JID_RLEG_1] = "rle1";
+    mJointEffectorMap[JID_RLEG_2] = "rle2";
+    mJointEffectorMap[JID_RLEG_3] = "rle3";
+    mJointEffectorMap[JID_RLEG_4] = "rle4";
+    mJointEffectorMap[JID_RLEG_5] = "rle5";
+    mJointEffectorMap[JID_RLEG_6] = "rle6";
+
+}
+
+
+
+void WorldModel::setupJointMap()
+{
+    mJointIDMap.clear();
+
+    ///Head
+    mJointIDMap["hj2"]  = JID_HEAD_2;
+    mJointIDMap["hj1"]  = JID_HEAD_1;
+
+    ///Arms
+    mJointIDMap["laj1"] = JID_LARM_1;
+    mJointIDMap["laj2"] = JID_LARM_2;
+    mJointIDMap["laj3"] = JID_LARM_3;
+    mJointIDMap["laj4"] = JID_LARM_4;
+
+    mJointIDMap["raj1"] = JID_RARM_1;
+    mJointIDMap["raj2"] = JID_RARM_2;
+    mJointIDMap["raj3"] = JID_RARM_3;
+    mJointIDMap["raj4"] = JID_RARM_4;
+
+    ///Legs
+    mJointIDMap["llj1"] = JID_LLEG_1;
+    mJointIDMap["llj2"] = JID_LLEG_2;
+    mJointIDMap["llj3"] = JID_LLEG_3;
+    mJointIDMap["llj4"] = JID_LLEG_4;
+    mJointIDMap["llj5"] = JID_LLEG_5;
+    mJointIDMap["llj6"] = JID_LLEG_6;
+
+    mJointIDMap["rlj1"] = JID_RLEG_1;
+    mJointIDMap["rlj2"] = JID_RLEG_2;
+    mJointIDMap["rlj3"] = JID_RLEG_3;
+    mJointIDMap["rlj4"] = JID_RLEG_4;
+    mJointIDMap["rlj5"] = JID_RLEG_5;
+    mJointIDMap["rlj6"] = JID_RLEG_6;
+
+    ///FRP setup
+    mFRPIDMap["lf"]     = FID_LF;
+    mFRPIDMap["rf"]     = FID_RF;
+}
+
+void WorldModel::setupVisionObjectMap()
+{
+     mVisionObjectMap.clear();
+    if ( getTeamSide()==TS_LEFT )
+    {
+       mVisionObjectMap["F1L"]  = FLAG_1_L;//0
+       mVisionObjectMap["F1R"]  = FLAG_1_R;//1
+       mVisionObjectMap["F2L"]  = FLAG_2_L;//2
+       mVisionObjectMap["F2R"]  = FLAG_2_R;//3
+       mVisionObjectMap["G1L"]  = GOAL_1_L;//4
+       mVisionObjectMap["G1R"]  = GOAL_1_R;//5
+       mVisionObjectMap["G2L"]  = GOAL_2_L;//6
+       mVisionObjectMap["G2R"]  = GOAL_2_R;//7
+       mVisionObjectMap["B"]    = BALL;//8
+
+      mVisionObjectMap["TEAMMATE1"]   = TEAMMATE_1;
+      mVisionObjectMap["TEAMMATE2"]   = TEAMMATE_2;
+      mVisionObjectMap["TEAMMATE3"]   = TEAMMATE_3;
+      mVisionObjectMap["TEAMMATE4"]   = TEAMMATE_4;
+      mVisionObjectMap["TEAMMATE5"]   = TEAMMATE_5;
+      mVisionObjectMap["TEAMMATE6"]   = TEAMMATE_6;
+      mVisionObjectMap["TEAMMATE7"]   = TEAMMATE_7;
+      mVisionObjectMap["TEAMMATE8"]   = TEAMMATE_8;
+      mVisionObjectMap["TEAMMATE9"]   = TEAMMATE_9;
+      mVisionObjectMap["TEAMMATE10"]  = TEAMMATE_10;
+      mVisionObjectMap["TEAMMATE11"]  = TEAMMATE_11;
+
+      mVisionObjectMap["OPPONENT1"]   = OPPONENT_1;
+      mVisionObjectMap["OPPONENT2"]   = OPPONENT_2;
+      mVisionObjectMap["OPPONENT3"]   = OPPONENT_3;
+      mVisionObjectMap["OPPONENT4"]   = OPPONENT_4;
+      mVisionObjectMap["OPPONENT5"]   = OPPONENT_5;
+      mVisionObjectMap["OPPONENT6"]   = OPPONENT_6;
+      mVisionObjectMap["OPPONENT7"]   = OPPONENT_7;
+      mVisionObjectMap["OPPONENT8"]   = OPPONENT_8;
+      mVisionObjectMap["OPPONENT9"]   = OPPONENT_9;
+      mVisionObjectMap["OPPONENT10"]  = OPPONENT_10;
+      mVisionObjectMap["OPPONENT11"]  = OPPONENT_11;
+ }
+ 
+ else if( getTeamSide()==TS_RIGHT )
+ {
+     mVisionObjectMap["F1L"]  = FLAG_2_R;//0
+     mVisionObjectMap["F1R"]  = FLAG_2_L;//1
+     mVisionObjectMap["F2L"]  = FLAG_1_R;//2
+     mVisionObjectMap["F2R"]  = FLAG_1_L;//3
+     mVisionObjectMap["G1L"]  = GOAL_2_R;//4
+     mVisionObjectMap["G1R"]  = GOAL_2_L;//5
+     mVisionObjectMap["G2L"]  = GOAL_1_R;//6
+     mVisionObjectMap["G2R"]  = GOAL_1_L;//7
+     mVisionObjectMap["B"]    = BALL;//8
+
+     mVisionObjectMap["TEAMMATE1"]   = TEAMMATE_1;
+     mVisionObjectMap["TEAMMATE2"]   = TEAMMATE_2;
+     mVisionObjectMap["TEAMMATE3"]   = TEAMMATE_3;
+     mVisionObjectMap["TEAMMATE4"]   = TEAMMATE_4;
+     mVisionObjectMap["TEAMMATE5"]   = TEAMMATE_5;
+     mVisionObjectMap["TEAMMATE6"]   = TEAMMATE_6;
+     mVisionObjectMap["TEAMMATE7"]   = TEAMMATE_7;
+     mVisionObjectMap["TEAMMATE8"]   = TEAMMATE_8;
+     mVisionObjectMap["TEAMMATE9"]   = TEAMMATE_9;
+     mVisionObjectMap["TEAMMATE10"]  = TEAMMATE_10;
+     mVisionObjectMap["TEAMMATE11"]  = TEAMMATE_11;
+
+     mVisionObjectMap["OPPONENT1"]   = OPPONENT_1;
+     mVisionObjectMap["OPPONENT2"]   = OPPONENT_2;
+     mVisionObjectMap["OPPONENT3"]   = OPPONENT_3;
+     mVisionObjectMap["OPPONENT4"]   = OPPONENT_4;
+     mVisionObjectMap["OPPONENT5"]   = OPPONENT_5;
+     mVisionObjectMap["OPPONENT6"]   = OPPONENT_6;
+     mVisionObjectMap["OPPONENT7"]   = OPPONENT_7;
+     mVisionObjectMap["OPPONENT8"]   = OPPONENT_8;
+     mVisionObjectMap["OPPONENT9"]   = OPPONENT_9;
+     mVisionObjectMap["OPPONENT10"]  = OPPONENT_10;
+     mVisionObjectMap["OPPONENT11"]  = OPPONENT_11;
+ }
+}
+
+void WorldModel::setupPlayModeMap()
+{
+    mPlayModeMap.clear();
+
+    mPlayModeMap["BeforeKickOff"]     = PM_BeforeKickOff;
+    mPlayModeMap["KickOff_Left"]      = PM_KickOff_Left;
+    mPlayModeMap["KickOff_Right"]     = PM_KickOff_Right;
+    mPlayModeMap["PlayOn"]            = PM_PlayOn;
+    mPlayModeMap["KickIn_Left"]       = PM_KickIn_Left;
+    mPlayModeMap["KickIn_Right"]      = PM_KickIn_Right;
+    mPlayModeMap["corner_kick_left"]  = PM_CORNER_KICK_LEFT;
+    mPlayModeMap["corner_kick_right"] = PM_CORNER_KICK_RIGHT;
+    mPlayModeMap["goal_kick_left"]    = PM_GOAL_KICK_LEFT;
+    mPlayModeMap["goal_kick_right"]   = PM_GOAL_KICK_RIGHT;
+    mPlayModeMap["offside_left"]      = PM_OFFSIDE_LEFT;
+    mPlayModeMap["offside_right"]     = PM_OFFSIDE_RIGHT;
+    mPlayModeMap["GameOver"]          = PM_GameOver;
+    mPlayModeMap["Goal_Left"]         = PM_Goal_Left;
+    mPlayModeMap["Goal_Right"]        = PM_Goal_Right;
+    mPlayModeMap["free_kick_left"]    = PM_FREE_KICK_LEFT;
+    mPlayModeMap["free_kick_right"]   = PM_FREE_KICK_RIGHT;
+    mPlayModeMap["unknown"]           = PM_NONE;
+}
+
+void WorldModel::setupObjectToSenseMap()
+{
+    mObjectToSenseMap.clear();
+
+    const float flagHeight = 0.0f; // 0.375f
+    const float goalFlagX = FieldLength/2.0; // + mFieldInfo->goaldepth/2.0;
+    const float goalFlagHeight = GoalHeight/2.0;
+
+    mObjectToSenseMap[FLAG_1_L].realPos  = Vector3f(-FieldLength/2.0, +FieldWidth / 2.0, flagHeight);
+
+    mObjectToSenseMap[FLAG_1_R].realPos  = Vector3f(+FieldLength/2.0, +FieldWidth / 2.0, flagHeight);
+//    cout<<"flag 1 r: "<<mObjectToSenseMap[FLAG_1_R].realPos<<endl;
+    mObjectToSenseMap[FLAG_2_L].realPos  = Vector3f(-FieldLength/2.0, -FieldWidth/2.0,flagHeight);
+    mObjectToSenseMap[FLAG_2_R].realPos  = Vector3f(+FieldLength/2.0, -FieldWidth/2.0, flagHeight);
+    mObjectToSenseMap[GOAL_1_L].realPos  = Vector3f(-goalFlagX, +GoalWidth/2.0, goalFlagHeight);
+    mObjectToSenseMap[GOAL_1_R].realPos  = Vector3f(+goalFlagX, +GoalWidth/2.0, goalFlagHeight);
+    mObjectToSenseMap[GOAL_2_L].realPos  = Vector3f(-goalFlagX, -GoalWidth/2.0, goalFlagHeight);
+    mObjectToSenseMap[GOAL_2_R].realPos  = Vector3f(+goalFlagX, -GoalWidth/2.0, goalFlagHeight);
+}
+
+VisionSense WorldModel::getObject(const  EVisionObject ob )const
+{
+   TObjectToSenseMap::const_iterator iter = mObjectToSenseMap.find(ob);
+   return ((VisionSense) (*iter).second);
+}
+
+double WorldModel::getConfidence()const
+{
+    return (10.0 - (getTime() - mLastLocalize));
+}
+double WorldModel::getConfidence(const VisionSense&  obj)const
+{
+    return (10.0 - (getTime() - obj.lastTimeSeen));
+}
+
+double WorldModel::getConfidence(const EVisionObject  obj)const
+{
+    return getConfidence(getObject(obj));
+}
+
+unsigned WorldModel::getCurrentCycle()const
+{
+   return mCurentCycle;
+}
+
+unsigned WorldModel::getCurrentSimulationCycle()const
+{
+    return mCurentCycle;
+}
+
+/**get Real Position. It just works for Flags **/
+Vector3f WorldModel::getRealPos(const EVisionObject flag )const
+{
+    if(flag >= FLAG_1_L && flag <= GOAL_2_R)
+    {
+      TObjectToSenseMap::const_iterator iter =  mObjectToSenseMap.find(flag);
+    return (Vector3f((*iter).second.realPos));
+    }
+    ////std::cout <<"Invalid Flag!"<<std::endl;
+    return (Vector3f(-1000.0,-1000.0,-1000.0));
+}
+
+/**set uniform number for each agent*/
+bool WorldModel::setUnum(std::string num)
+{
+    mUnum = num;
+    return (mUnum == num);
+}
+
+std::string WorldModel::getUnum()const
+{
+    return mUnum;
+}
+
+/**get Ralative Position**/
+Vector3f  WorldModel::getRelPos(const EVisionObject obj)const
+{
+    TObjectToSenseMap::const_iterator iter = mObjectToSenseMap.find(obj);
+    if(iter == mObjectToSenseMap.end()) return Vector3f(0,0,0);
+
+    VisionSense Sense = (*iter).second;
+
+    return polToCart(Sense);
+}
+
+/**this method return current simulation time*/
+double WorldModel::getSimulationTime()const
+{
+    return mSimTime;
+}
+
+/**this method return current play time*/
+double WorldModel::getTime()const
+{
+    return mTime;
+}
+
+std::string WorldModel::getOpponentTeamName()const
+{
+    return mOppTeamName;
+}
+
+int WorldModel::getPart(Vector3f coordinate)const
+{
+    int part[13][9];
+    int counter=0; 
+    int x;
+    int y;
+
+    double tmpx = coordinate.x();
+    tmpx +=6;
+    x = int(tmpx)+1;
+    
+    
+    double tmpy = coordinate.y();
+    tmpy -=4;
+    tmpy=abs(tmpy);
+    y=int(tmpy)+1;
+
+    for(int col=1;col<=12;col++)
+        for(int row=1;row<=8;row++)
+        {
+            counter++;
+            part[col][row]=counter;
+        }      
+    
+    return part[x][y];
+}
+EFieldArea WorldModel::getArea(Vector3f coordinate)const
+{
+     int area[4][4];
+      int counter=0; 
+      int x;
+      int y;
+
+    double tmpx = coordinate.x();
+    if( -6 == tmpx || 6 == tmpx )
+        tmpx= tmpx - ( sign(tmpx)/10 );
+    tmpx +=6;
+    tmpx/=4;
+    x = int(tmpx)+1;
+    
+    
+    double tmpy = coordinate.y();
+    if( -4 == tmpy || 4 == tmpy )
+        tmpy= tmpy - ( sign(tmpy)/10 );
+    tmpy -=4;
+    tmpy=abs(tmpy);
+    tmpy /=2.66;
+    y= int(tmpy)+1;
+
+    for(int col=1;col<=3;col++)
+        for(int row=1;row<=3;row++)
+        {
+            counter++;
+            area[col][row]=counter;
+        }      
+    
+    return (EFieldArea)(area[x][y]);
+
+}
+
+/**localize With One Flag Sense**/
+
+bool  WorldModel::localizeWithOneFlag(EVisionObject flag, VisionSense flagSense, Vector3f& newPos)
+{
+    Vector3f flagPos = getRealPos(flag);
+    Vector3f rep = getRelPos(flag);
+    newPos       = flagPos - rep;
+    return true;
+
+    VisionSense tmpSense;
+    tmpSense.distance = flagSense.distance;
+    tmpSense.theta    = flagSense.theta + 180.0;
+    tmpSense.phi      = -flagSense.phi;
+
+    Vector3f flag2Proj = flagPos - newPos;
+    Vector3f pos2Flag  = polToCart(tmpSense);
+
+    newPos   = flagPos + pos2Flag;
+    return true;
+ }
+
+/**calculate the Object Local Position**/
+void WorldModel::calcVisionObjectLocalPos()
+{
+    for (int i = (int)(FLAG_1_L); i < (int)(OPPONENT_11); ++i)
+    {
+        VisionSense& vs = mObjectToSenseMap[static_cast<EVisionObject>(i)];
+
+        if (vs.distance < 0) continue;
+
+        float distance = vs.distance;
+        float theta    = gDegToRad(gNormalizeDeg(vs.theta + 90.0f));
+        float phi      = gDegToRad(gNormalizeDeg(vs.phi));
+
+        vs.localPos[0] = distance * gCos(phi) * gCos(theta);
+        vs.localPos[1] = distance * gCos(phi) * gSin(theta);
+        vs.localPos[2] = distance * gSin(phi);
+        if (i < static_cast<int>(BALL))
+            i % 2 == 0 ? ++mLeftFlagsSee : ++mRightFlagsSee;
+    }
+}
+
+Vector3f WorldModel::getBallPos()
+{   
+    return mBallPos;
+}
+/**get My position**/
+Vector3f WorldModel::getMyPos()
+{
+    return mMyPos;
+}
+
+EPlayMode WorldModel::getPlayMode()const
+{
+    return mPlayMode;
+}
+
+int WorldModel::getTotalFlagSeen()const
+{
+    return mTotalFlagSeen;
+}
+
+Vector3f  WorldModel::polToCart(const VisionSense vision)const
+ {
+    return Vector3f
+    (
+         vision.distance * cosDeg( vision.theta ) *
+         sinDeg(90.0f - vision.phi),
+         vision.distance * sinDeg(vision.theta) *
+         sinDeg(90.0f - vision.phi),
+         vision.distance * cosDeg(90.0f - vision.phi)
+    );
+ }
+
+HingeJointSense WorldModel::getHJoint( EJointID hJoint ) const
+ {
+    HingeJointSense tmp;
+    if( hJoint >= JID_HEAD_1 && hJoint <= JID_RLEG_6 )
+    {
+     THingeJointSenseMap::const_iterator iter = mHingeJointSenseMap.find( hJoint ); 
+     if (iter == mHingeJointSenseMap . end())
+       return tmp;
+
+     HingeJointSense sense = ( *iter ) . second;
+     return sense;
+     }
+     std::cout << "HJoint Not Valid" << std::endl; 
+     return tmp;
+  }
+
+HingeJointSense WorldModel::getHJoint( EJointID1 hJoint ) const
+ {
+    HingeJointSense tmp;
+    if( hJoint >= JID_HEAD_1 && hJoint <= JID_RLEG_6 )
+    {
+     THingeJointSenseMap::const_iterator iter = mHingeJointSenseMap.find( hJoint ); 
+     if (iter == mHingeJointSenseMap . end())
+       return tmp;
+
+     HingeJointSense sense = ( *iter ) . second;
+     return sense;
+     }
+     std::cout << "HJoint Not Valid" << std::endl; 
+     return tmp;
+  }
+
+FRPSense WorldModel::getFRP( EFRPID frp )const
+{
+    FRPSense tmp;
+    if( frp >= FID_RF && frp <= FID_LF )
+    {
+        TFRPSenseMap::const_iterator iter = mFRPSenseMap.find( frp );
+        if (iter == mFRPSenseMap . end())
+            return tmp;
+        FRPSense sense = ( *iter ) . second;
+        return sense;
+    }
+    std::cout << "FRP Not Valid" << std::endl;
+    return tmp;
+}
+
+ETeamSide WorldModel::getTeamSide()const
+{
+   return mTeamSide;
+}
+
+GyrSense WorldModel::getGyr()const
+{
+   return   mGyrSense;
+}
+
+// bool WorldModel::isBallKickable()const
+// {
+//     return (getObject(BALL).distance < MaxKickableDistance);
+// }
+
+bool  WorldModel::setFellDown (bool isFDown)
+{
+  return (mIsFellDown=isFDown);
+}
+
+
+bool WorldModel::isFellDown()const
+{
+  return ( FallDownRecognition::instance().isFallDown(WorldModel::instance().getCurrentCycle(),85) ||  mIsFellDown);
+}
+
+bool WorldModel::isStable()const
+{
+  static const float fTlorans = 0.5;
+  return ( mGyrSense.x > -fTlorans && mGyrSense.x < fTlorans &&
+           mGyrSense.y > -fTlorans && mGyrSense.y < fTlorans &&
+           mGyrSense.z > -fTlorans && mGyrSense.z < fTlorans );
+}
+
+bool  WorldModel::isIn(const Vector2f& point, const float& telorans )const
+{
+    float x = mMyPos.x();
+    float y = mMyPos.y();
+    return  ((x > (point.x() - telorans)) && (x < (point.x() + telorans)) &&
+             (y > (point.y() - telorans)) && (y < (point.y() + telorans)) );
+}
+
+///*******************************localize**************************
+
+void WorldModel::Realpos()
+{
+   ETeamSide side=getTeamSide();
+//   std::cout<<"team side ="<<side<<std::endl;
+   int i,j;
+   int array[8]={0};
+   for (int i=FLAG_1_L  ; i<=GOAL_2_R ; ++i)
+   {
+      EVisionObject tmpvision = EVisionObject(i);
+      if( 10 <=  getConfidence(mObjectToSenseMap[tmpvision] ) )
+      {
+          array[i]=1;
+          //std::cout<<"flag "<<i<<std::endl;
+      }
+    }
+    seTxy(array);
+    mMyPos = Vector3f(x,y, Mathematics::Rad2Deg(  Mathematics::normalizeAngle(  Mathematics::Deg2Rad(z) )     )      );
+}
+
+
+/**  set global X , Y  **/
+void WorldModel::seTxy(int array[])
+{ 
+       int i=-1 ,j=-1 ;
+       Vector3f vector; 
+       double tmpx, tmpy,tmpx1,tmpy1 ,tmpz,tmptheta=0,c_length;
+       std::vector<double> all(13);
+      if(array[0]==1 && array[1]==1)
+       {
+         i=0; j=1;
+         tmptheta=seTij(i,j);
+         
+
+          c_length=length(mObjectToSenseMap[FLAG_1_R].realPos,mObjectToSenseMap[FLAG_1_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(12,"c");
+
+
+         tmpy=seTh(FieldLength,tmptheta);
+         tmpx=seTx("i",tmpy);
+         tmpx1=seTx("j",tmpy);
+         if(mObjectToSenseMap[tmpvisionj].distance-mObjectToSenseMap[tmpvisioni].distance>(0))
+          {
+               
+//             x=(FieldLength / 2-tmpx1);
+//             y=FieldWidth/2-seTy("j",tmpx1);
+                tmpz=all[5]*(-1);
+                z=tmpz-all[11]+90;
+                x=FieldLength / 2-all[7] ;
+                y=FieldWidth/2-all[3];
+           }
+         else
+          {
+//             x=tmpx-FieldLength / 2;
+//             y=FieldWidth/2-seTy("i",tmpx);
+               z=all[4]-all[9]+90;
+               x=all[6]-FieldLength / 2;
+               y=FieldWidth/2-all[3];
+          }
+         z=z-getHJoint(JID_HEAD_1).angle;
+///         std::cout<<"0,1###"<<"x= "<<x<<std::endl<<"y=" <<y<< std::endl;
+///         std::cout<<"0,1###"<<"z= "<<z<<"tmpz###"<<tmpz<<"theta###"<<mObjectToSenseMap[tmpvisioni].theta<< std::endl; 
+       }
+
+
+     else if(array[2]==1 && array[3]==1)
+       {
+         i=2; j=3; 
+         tmptheta=seTij(i,j);
+            
+          c_length=length(mObjectToSenseMap[FLAG_2_R].realPos,mObjectToSenseMap[FLAG_2_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(12,"c");
+            
+            tmpy=seTh(FieldLength,tmptheta);
+//          tmpy1=seTy(
+         tmpx=seTx("i",tmpy);
+         tmpx1=seTx("j",tmpy);
+        if(mObjectToSenseMap[tmpvisionj].distance-mObjectToSenseMap[tmpvisioni].distance>(0))
+          {
+               
+//             x=(FieldLength / 2-tmpx1);
+//             y=FieldWidth/2-seTy("j",tmpx1);
+                tmpz=all[5];
+                z=tmpz-all[11]+270;
+                x=FieldLength/2-all[7];
+                y=all[3]-FieldWidth / 2;
+           }
+         else
+          {
+//             x=tmpx-FieldLength / 2;
+//             y=FieldWidth/2-seTy("i",tmpx);
+               tmpz=all[4]*(-1);
+               z=tmpz-all[9]+270;
+               x=all[6]-FieldLength/ 2;
+               y=all[3]-FieldWidth/ 2;
+          }
+       
+        // x=((FieldLength / 2-tmpx1)+(tmpx-FieldLength / 2))/2;
+         //y=tmpy-FieldWidth/2;
+         z=z-getHJoint(JID_HEAD_1).angle;
+///         std::cout<<"2,3###"<<"x= "<<x<<std::endl<<"y=" <<y<<sinDeg(tmptheta)<< std::endl<<"H#####"<<tmpy<<std::endl;
+         //tmpz=atan2Deg(tmpx1,tmpy);
+         //z=tmpz-mObjectToSenseMap[tmpvisionj].theta+270;
+///         std::cout<<"2,3###"<<"z= "<<z<<"tmpz###"<<tmpz<<"theta###"<<mObjectToSenseMap[tmpvisionj].theta<< std::endl; 
+       }
+   
+     else if(array[0]==1 && array[2]==1)
+       {
+         i=0 ; j=2;
+         tmptheta=seTij(i,j);
+        
+          c_length=length(mObjectToSenseMap[FLAG_1_R].realPos,mObjectToSenseMap[FLAG_2_R].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(8,"c");
+
+         tmpx=seTh(FieldWidth,tmptheta);
+         tmpy=seTx("j",tmpx);
+         tmpy1=seTx("i",tmpx);
+        if (mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(0))
+          {
+            y=all[7]-FieldWidth/2;
+            z=all[5]-all[11];
+            x=all[3]-FieldLength / 2;
+          }
+        else
+          {
+            y=all[6]*(-1)+FieldWidth/2;
+            tmpz=all[4]*(-1);
+            z=tmpz-all[9];
+            x=all[3]-FieldLength / 2;
+            
+          }
+
+         z=180+z;
+         z=z-getHJoint(JID_HEAD_1).angle;
+///         std::cout<<"0,2###"<<"x= "<<x<<std::endl<<"y=" <<y<< std::endl;
+///         std::cout<<"0,2###"<<"z= "<<z<< std::endl;
+        }
+    
+      else if(array[1]==1 && array[3]==1)
+       {
+          i=1 ; j=3;
+          tmptheta=seTij(i,j);
+          
+          c_length=length(mObjectToSenseMap[FLAG_1_R].realPos,mObjectToSenseMap[FLAG_2_R].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(8,"c");
+          
+          tmpx=seTh(FieldWidth,tmptheta);
+          tmpy=seTx("j",tmpx);
+          tmpy1=seTx("i",tmpx);
+          x=FieldLength / 2-all[3]; 
+          if(mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(0))
+            {
+              y=all[7]-FieldWidth/2;
+              tmpz=all[5]*(-1);
+              z= tmpz-all[11];
+              x=FieldLength / 2-all[3];
+///             cout<<"ZZZ"<<z<<std::endl;
+             }
+           else
+             {
+              y=all[6]*(-1)+FieldWidth/2;
+              x=FieldLength / 2-all[3];
+              z=all[4]-all[9];
+///              cout<<"ZZ"<<z<<std::endl;
+             }
+//          tmpz=atan2Deg(tmpy1,tmpx);
+//               z=tmpz-mObjectToSenseMap[tmpvisioni].theta;
+        z=z-getHJoint(JID_HEAD_1).angle;
+        if(z<0)
+        z+=360;
+//         for (int i=0; i<=12;i++)
+//          std::cout<<std::endl<<i<<"####"<<all[i]<<std::endl;
+///        std::cout<<"1,3###"<<"x= "<<x<<std::endl<<"y=" <<y<<sinDeg(tmptheta)<< std::endl;
+///        std::cout<<"1,3###"<<"z= "<<z<<"tmpz###"<<tmpz<<"theta###"<<mObjectToSenseMap[tmpvisioni].theta<< std::endl;
+       }
+     
+     else if(array[0]==1 && array[4]==1)
+       {
+         i=0 ; j=4 ;
+         tmptheta=seTij(i,j);
+        
+          c_length=length(mObjectToSenseMap[FLAG_1_L].realPos,mObjectToSenseMap[GOAL_1_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(3.3,"i");
+
+         tmpx=seTh((FieldWidth/2.0f-GoalWidth/2.0f),tmptheta);
+         tmpy=seTx("i",tmpx);
+         tmpy1=seTx("j",tmpx);
+         if(mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(-.5))
+           {
+             x=all[3]-6;
+             y=4-all[6];
+             tmpz=all[4]*(-1);
+             z=tmpz-all[9];
+             z=180+z;
+           }
+         else
+           {
+              x=all[3]-6;
+              y=all[7]+(1.05);
+              tmpz=all[5]-all[11];
+              z=180+tmpz;
+           }
+           z=z-getHJoint(JID_HEAD_1).angle;
+///         std::cout<<"0,4###"<<"x= "<<x<<std::endl<<"y=" <<y<<sinDeg(tmptheta)<< std::endl;
+///         std::cout<<"0,4###"<<"z= "<<z<<"tmpz###"<<tmpz<<"theta###"<<mObjectToSenseMap[tmpvisioni].theta<< std::endl;
+       }
+      else if(array[2]==1 && array[6]==1)
+       {
+         i=2 ; j=6 ;
+         tmptheta=seTij(i,j);
+         
+          c_length=length(mObjectToSenseMap[FLAG_1_L].realPos,mObjectToSenseMap[GOAL_1_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(3.3,"i");
+
+         tmpx=seTh((FieldWidth/2.0f-GoalWidth/2.0f),tmptheta);
+         tmpy=seTx("i",tmpx);
+         tmpy1=seTx("j",tmpx);
+         if(mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(-.5))
+           {
+              x=all[3]-FieldLength / 2;
+              y=all[6]-FieldWidth/2;
+              z=180+all[4]-all[9];
+            }
+         else
+            {
+              
+              x=all[3]-FieldLength / 2;
+              y=all[7]*(-1)+(-1.05);
+              tmpz=all[5]*(-1);
+              z=180+tmpz-all[11];
+            }
+         z=z-getHJoint(JID_HEAD_1).angle;
+///         std::cout<<"2,6###"<<"x= "<<x<<std::endl<<"y=" <<y<<sinDeg(tmptheta)<< std::endl;
+///         std::cout<<"2,6###"<<"z= "<<z<<"tmpz###"<<tmpz<<"theta###"<<mObjectToSenseMap[tmpvisioni].theta<< std::endl;
+
+       }
+
+    else if(array[1]==1 && array[5]==1)
+       {
+          i=1 ; j=5;
+          tmptheta=seTij(i,j);
+          
+         c_length=length(mObjectToSenseMap[FLAG_1_L].realPos,mObjectToSenseMap[GOAL_1_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(3.3,"i");
+
+          tmpx=seTh((FieldWidth/2.0f-GoalWidth/2.0f),tmptheta);
+          tmpy=seTx("i",tmpx);
+          tmpy1=seTx("j",tmpx);
+          if(mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(-.5))
+            {
+              x=FieldLength / 2-all[3];
+              y=FieldWidth/2-all[6];
+             z=all[4]-all[9];
+            }
+          else
+            {
+              x=FieldLength / 2-all[3];
+              y=all[7]+(1.05);
+              tmpz=all[5]*(-1);
+              z=tmpz-all[11];
+            }
+          z=z-getHJoint(JID_HEAD_1).angle;
+          if( z<0 )
+          z+=360;
+///          std::cout<<"1,5###"<<"x= "<<x<<std::endl<<"y=" <<y<<sinDeg(tmptheta)<< std::endl;
+///          std::cout<<"1,5###"<<"z= "<<z<<std::endl<<"tmpz###"<<tmpz<<std::endl<<"theta###"<<mObjectToSenseMap[tmpvisioni].theta<< std::endl;
+       }
+      
+     else if(array[3]==1 && array[7]==1)
+        { i=3 ; j=7;
+          tmptheta=seTij(i,j);
+         
+          c_length=length(mObjectToSenseMap[FLAG_1_L].realPos,mObjectToSenseMap[GOAL_1_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(3.3,"i");
+         
+          tmpx=seTh((FieldWidth/2.0f-GoalWidth/2.0f),tmptheta);
+          tmpy=seTx("i",tmpx);
+          tmpy1=seTx("j",tmpx);
+          if(mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(-.5))
+            {
+              x=FieldLength / 2-all[3];
+              y=all[6]-FieldWidth/2;
+              tmpz=(-1)*all[4];
+              z=tmpz-all[9];
+            }
+          else
+            {
+              x=FieldLength / 2-all[7];
+              y=all[7]*(-1)+(-1.05);
+              z=all[5]-all[11];
+            }
+          z=z-getHJoint(JID_HEAD_1).angle;
+          if( z<0 )
+          z+=360;
+///          std::cout<<"3,7###"<<"x= "<<x<<std::endl<<"y=" <<y<<sinDeg(tmptheta)<< std::endl;
+///          std::cout<<"3,7###"<<"z= "<<z<<"tmpz###"<<tmpz<<"theta###"<<mObjectToSenseMap[tmpvisioni].theta<< std::endl;
+          }
+
+      else if (array[4]==1 && array[6]==1)
+        {
+          i=4 ; j=6;
+          tmptheta=seTij(i,j);
+          
+          c_length=length(mObjectToSenseMap[GOAL_1_L].realPos,mObjectToSenseMap[GOAL_2_L].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(2.1,"g");
+
+          tmpx=seTh(GoalWidth,tmptheta);
+          tmpy=seTx("j",tmpx);
+          tmpy1=seTx("i",tmpx);
+          if(mObjectToSenseMap[tmpvisionj].distance-mObjectToSenseMap[tmpvisioni].distance>(0))
+           {
+             y=all[7]+(-1.05);
+             tmpz=all[5];
+             z=180+(tmpz-all[11]);
+            }
+          else
+            {
+             y=all[6]*(-1.0)+(1.05);
+             tmpz=all[4]*(-1);
+             z=180+(tmpz-all[9]);
+             }
+          x=all[3]-6;
+          z=z-getHJoint(JID_HEAD_1).angle;
+///          std::cout<<"4,6###"<<"x= "<<x<<std::endl<<"y=" <<y<< std::endl;
+///          std::cout<<"4,6###"<<"z= "<<z<<"tmpz###"<<tmpz<< std::endl;
+        }
+      
+     else if (array[5]==1 && array[7]==1)
+        {
+          i=5 ; j=7;
+          tmptheta=seTij(i,j);
+          
+          c_length=length(mObjectToSenseMap[GOAL_1_R].realPos,mObjectToSenseMap[GOAL_2_R].realPos);
+///          std::cout <<"c_lentgh####"<<c_length<<std::endl;
+          all=seTreal(2.1,"i");
+
+          tmpx=seTh(GoalWidth,tmptheta);
+          tmpy=seTx("j",tmpx);
+          tmpy1=seTx("i",tmpx);
+///          std::cout<<"tmpy && tmpy1= "<<tmpy<<" "<<tmpy1<<endl;
+          if(mObjectToSenseMap[tmpvisioni].distance-mObjectToSenseMap[tmpvisionj].distance>(0))
+           {
+             y=all[6]*(-1)+(1.05);
+             tmpz=all[4];
+             z=tmpz-all[9];
+           }
+          else
+           {
+             y=all[7]+(-1.05);
+             tmpz=all[5]*(-1);
+             z=tmpz-all[11];
+            }
+          x=6-all[3];
+          z=z-getHJoint(JID_HEAD_1).angle;
+          if( z<0 )
+          z+=360;
+///          std::cout<<"5,7###"<<"z= "<<z<<"tmpz###"<<tmpz<<std::endl;
+///          std::cout<<"5,7###"<<"x= "<<x<<std::endl<<"y=" <<y<< std::endl<<"sin####"<<sinDeg(tmptheta)<<std::endl<<"tmpx###"<<tmpx;
+        }
+        
+
+}
+
+/**set flag i & flag j **/
+double WorldModel::seTij(int i, int j)
+{
+ double tmptheta=0;
+ tmpvisioni = EVisionObject(i);
+ tmpvisionj = EVisionObject(j);
+// tmpvision1i=mObjectToSenseMap[tmpvisioni].distance
+//  mObjectToSenseMap[tmpvisioni].distance=sqrt(pow(mObjectToSenseMap[tmpvisioni].distance,2)-pow((mObjectToSenseMap[tmpvisioni].distance*sinDeg(mObjectToSenseMap[tmpvisioni].phi)),2));
+//  mObjectToSenseMap[tmpvisionj].distance=sqrt(pow(mObjectToSenseMap[tmpvisionj].distance,2)-pow((mObjectToSenseMap[tmpvisionj].distance*sinDeg(mObjectToSenseMap[tmpvisionj].phi)),2));
+ tmptheta=abs(mObjectToSenseMap[tmpvisioni].theta-mObjectToSenseMap[tmpvisionj].theta);
+ tmptheta=180-tmptheta;
+ return tmptheta;
+
+}
+
+/**set X **/
+double WorldModel::seTy(char c[], double tmp)
+{
+  if(c=="i")
+    return (sqrt((mObjectToSenseMap[tmpvisioni].distance*mObjectToSenseMap[tmpvisioni].distance)-(tmp*tmp)));
+  else
+    return (sqrt((mObjectToSenseMap[tmpvisionj].distance*mObjectToSenseMap[tmpvisionj].distance)-(tmp*tmp)));
+}
+
+/**set hight**/
+double WorldModel::seTh(double length,double tmptheta)
+{
+ return (sinDeg(tmptheta)*mObjectToSenseMap[tmpvisioni].distance*mObjectToSenseMap[tmpvisionj].distance/length);
+}
+/**set tmp Y **/
+double WorldModel::seTx(char a[] , double tmpy)
+{
+ double tmp;
+ if (a=="i")
+  { 
+    tmp=(mObjectToSenseMap[tmpvisioni].distance*mObjectToSenseMap[tmpvisioni].distance)-(tmpy*tmpy);
+   //std::cout<<"tmpx^2###"<<tmp<<std::cout;
+    if(tmp<0)
+    tmp=tmp*(-1);
+    return sqrt(tmp);
+  }
+ if (a=="j")
+  { 
+    tmp=(mObjectToSenseMap[tmpvisionj].distance*mObjectToSenseMap[tmpvisionj].distance)-(tmpy*tmpy);
+    //std::cout<<"tmpx^2###"<<tmp<<std::cout;
+   if(tmp<0)
+    tmp=tmp*(-1);
+    return sqrt(tmp);
+  }
+
+}
+double  WorldModel::length (Vector3f a, Vector3f b)
+{
+  Vector3f tmp;
+  tmp.x()=a.x()-b.x();
+  tmp.y()=a.y()-b.y();
+  tmp.z()=a.z()-b.z();
+  if( tmp.x()<tmp.y() )
+    return abs(tmp.y()); //sqrt(pow(tmp.y(),2)+pow(tmp.z(),2));
+  else
+    return abs(tmp.x()); //sqrt(pow(tmp.x(),2)+pow(tmp.z(),2)); 
+}
+std::vector<double> WorldModel::seTreal (double c_length, char c[])
+{
+  double costheta, tmpz=0.35 ,tmpz1=0.35;
+  if(c=="g")
+   {
+    tmpz=0.45;
+    tmpz1=0.45;
+   }
+  if(c=="i")
+   tmpz1=0.45;
+  std::vector <double> vector1(13);
+  vector1[0]=sqrt(pow(mObjectToSenseMap[tmpvisioni].distance,2)-pow(0.8-tmpz,2));//A
+  vector1[1]=sqrt(pow(mObjectToSenseMap[tmpvisionj].distance,2)-pow(0.8-tmpz1,2));//B
+  costheta=(pow(vector1[0],2)+pow(vector1[1],2)-pow(c_length,2))/(2*vector1[0]*vector1[1]);//cos theta
+///  std::cout<<"cost####"<<costheta<<std::endl;
+  vector1[2]=acosDeg(costheta);//theta
+  vector1[3]=(vector1[0]*vector1[1]*sinDeg(180-vector1[2]))/c_length;//h=x=tmpx
+  vector1[4]=acosDeg(vector1[3]/vector1[0]);//theta A
+  vector1[5]=acosDeg(vector1[3]/vector1[1]);//theta B
+  vector1[6]=sinDeg(vector1[4])*vector1[0];//y=tmpy A
+  vector1[7]=sinDeg(vector1[5])*vector1[1];//y=tmpy B
+  //vector1[6]=sqrt(pow(vector1[0],2)-pow(vector1[3],2));
+  //vector1[7]=sqrt(pow(vector1[1],2)-pow(vector1[3],2));
+  vector1[8]=sinDeg(mObjectToSenseMap[tmpvisioni].theta)*sinDeg(90-mObjectToSenseMap[tmpvisioni].phi);
+  vector1[9]=asinDeg(vector1[8]);//tmpz A
+  vector1[10]=sinDeg(mObjectToSenseMap[tmpvisionj].theta)*sinDeg(90-mObjectToSenseMap[tmpvisionj].phi);
+  vector1[11]=asinDeg(vector1[10]);//tmpz B
+  vector1[12]=vector1[5]*(-1);
+///  for (int i=0; i<=12;i++)
+///          std::cout<<std::endl<<i<<"####"<<vector1[i]<<std::endl;
+
+  return vector1;
+}  
+
+VisionSense WorldModel::getPolarBallPos()
+{
+  if( 10 <=  getConfidence(mObjectToSenseMap[BALL] ) )
+   {
+    //EVisionObject      tmpball;
+    v.theta=sinDeg(mObjectToSenseMap[BALL].theta)*sinDeg(90-mObjectToSenseMap[BALL].phi);
+    v.theta=asinDeg(v.theta);
+    v.theta+=getHJoint(JID_HEAD_1).angle;
+    v.distance=sqrt(abs(pow(mObjectToSenseMap[BALL].distance,2)-pow(.45,2)));//A distance
+    }
+   return v;
+ }
+
+void WorldModel::setBallPos ()
+{
+   
+  if( 10 <=  getConfidence(mObjectToSenseMap[BALL] ) )
+   {
+    EVisionObject      tmpball;
+    double balltheta;
+    tmpball=EVisionObject(BALL);
+    mBallTheta=sinDeg(mObjectToSenseMap[BALL].theta)*sinDeg(90-mObjectToSenseMap[BALL].phi);
+    mBallTheta=asinDeg(mBallTheta);
+    mBallTheta+=getHJoint(JID_HEAD_1).angle;// theta khodet ta tup
+    mBallDistance=sqrt(abs(pow(mObjectToSenseMap[tmpball].distance,2)-pow(.45,2)));//A distance
+    balltheta=mBallTheta+z;
+    mBallPos.x()=cosDeg(balltheta)*mBallDistance;
+    mBallPos.y()=sinDeg(balltheta)*mBallDistance;
+    mBallPos.z()=balltheta;// theta nesbat be markaze zamin
+///    cout<<"  ball x###"<<mBallPos.x()<<"  ball y###"<<mBallPos.y()<<"  ball z###"<<mBallPos.z()<< "  tmpdistance###"<<mBallDistance<<std::endl;
+    mBallPos=Vector3f( mBallPos.x()+getMyPos().x(),
+                  mBallPos.y()+getMyPos().y(),
+                  mBallPos.z()
+                );   
+    }
+}
+
+/////////////////////////
+/// Convert a Str to Its Number (Used In ACT && fix && ...)
+std::string WorldModel::num2Str(int i) {
+    return names[i];
+}
+
+double WorldModel::getJointAngle(EJointID1 name) {
+    return getHJoint(name).angle;
+}
+
+double WorldModel::getJointAngle(std::string name) {
+    if (name == "lae1") 
+       return instance().getHJoint(JID_LARM_1).angle;
+    if (name == "rae1") 
+       return instance().getHJoint(JID_RARM_1).angle;
+    if (name == "lae2") 
+       return instance().getHJoint(JID_LARM_2).angle;
+    if (name == "rae2") 
+       return instance().getHJoint(JID_RARM_2).angle;
+    if (name == "lae3") 
+       return instance().getHJoint(JID_LARM_3).angle;
+    if (name == "rae3") 
+       return instance().getHJoint(JID_RARM_3).angle;
+    if (name == "lae4") 
+       return instance().getHJoint(JID_LARM_4).angle;
+    if (name == "rle6") 
+       return WorldModel::instance().getHJoint(JID_RLEG_6).angle;
+    if (name == "lle6") 
+       return WorldModel::instance().getHJoint(JID_LLEG_6).angle;
+    if (name == "rle5") 
+       return WorldModel::instance().getHJoint(JID_RLEG_5).angle;
+    if (name == "lle5") 
+       return WorldModel::instance().getHJoint(JID_LLEG_5).angle;
+    if (name == "rle4") 
+       return WorldModel::instance().getHJoint(JID_RLEG_4).angle;
+    if (name == "lle4") 
+       return WorldModel::instance().getHJoint(JID_LLEG_4).angle;
+    if (name == "rle3") 
+       return WorldModel::instance().getHJoint(JID_RLEG_3).angle;
+    if (name == "lle3") 
+       return WorldModel::instance().getHJoint(JID_LLEG_3).angle;
+    if (name == "rle2") 
+       return WorldModel::instance().getHJoint(JID_RLEG_2).angle;
+    if (name == "lle2") 
+       return WorldModel::instance().getHJoint(JID_LLEG_2).angle;
+    if (name == "rle1") 
+       return WorldModel::instance().getHJoint(JID_RLEG_1).angle;
+    if (name == "lle1") 
+       return WorldModel::instance().getHJoint(JID_LLEG_1).angle;
+    if (name == "he2") 
+       return WorldModel::instance().getHJoint(JID_HEAD_2).angle;
+    if (name == "he1") 
+       return WorldModel::instance().getHJoint(JID_HEAD_1).angle;
+    if (name == "rae4") 
+       return WorldModel::instance().getHJoint(JID_RARM_4).angle;
+}

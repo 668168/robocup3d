@@ -1,0 +1,81 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#include "RoleDefensive.h"
+
+#include "../Behavior/BhvDribble.h"
+
+
+void RoleDefensive::execute()
+{
+   if (WorldModel::i().isFellDown())
+         doStandUp();
+//       else if (BhvBasicKick().execute())
+//             doKick();
+    else if ( WorldModel::i().getCurrentAction() == ACT_WALK)
+        doMove();
+    else
+        doStop();
+}
+
+void RoleDefensive::doKick()
+{
+   ///std::cout<<"RoleDefensice doKick execute"<<std::endl;
+   WorldModel::instance().setCurrentAction(ACT_KICK);
+};
+
+void RoleDefensive::doMove()
+{
+    BhvFocusBall().execute();
+    ///std::cout<<"RoleForward doMove execute"<<std::endl;
+    WorldModel& wm = WorldModel::instance();
+    wm.setCurrentAction(ACT_WALK);
+    if ( (wm.getBallPos().y() >= 0.7f) || (wm.getBallPos().x () > 5.0) )
+        BhvDribble( Vector3f(9.0f,0.0f,0.0f) ).execute();
+    else
+        BhvBasicWalk(Vector2f (wm.getBallPos().x() - 1.5f, 1.0f ) ).execute();
+};
+
+void RoleDefensive::doStandUp()
+{
+    ///std::cout<<"RoleForward doStandup execute"<<std::endl;
+    WorldModel::instance().setCurrentAction(ACT_STANDUP);
+    BhvBasicStandup().execute();};
+
+void RoleDefensive::doStop()
+{
+    ///std::cout<<"RoleForward doStop execute"<<std::endl;
+    WorldModel& wm   = WorldModel::instance();
+    Walk&       walk = Walk::instance();
+
+    if (walk.IsPrepareDone() && wm.isStable())
+    {
+        ///cout <<"RoleForward::doStop : 'prepare walk done' "<<endl;
+        wm.setCurrentAction(ACT_WALK);
+    }
+    else
+    {
+        ///cout <<"RoleForward::doStop : 'prepare walk done' "<<endl;
+        wm.setCurrentAction(ACT_NONE);
+        walk.setWalkPhase(Walk::PREPARE);
+        walk.Execute(0.0,0.0,SIDE_FORWARD);
+        Effectors::instance().setActionCommand();
+    }
+
+}

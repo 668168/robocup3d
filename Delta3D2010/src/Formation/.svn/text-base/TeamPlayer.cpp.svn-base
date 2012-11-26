@@ -1,0 +1,147 @@
+//
+// C++ Implementation: TeamPlayer
+//
+// Description: 
+//
+//
+// Author: delta3d team 2009 <deltateams2009@gmail.com>, (C) 2010
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+
+
+#include "TeamPlayer.h"
+#include "../Strategy/Strategy.h"
+
+TeamPlayer::TeamPlayer()
+{
+}
+
+TeamPlayer::~TeamPlayer()
+{
+}
+
+TeamPlayer& TeamPlayer::instance()
+{
+    static TeamPlayer sTeamPlayer;
+    return sTeamPlayer;
+}
+
+
+bool TeamPlayer::init()
+{
+
+}
+
+/** the paly-on mode, mainly loop */
+void TeamPlayer::playPlayOn()
+{
+   Strategy& strategy=Strategy::instance(); 
+     if(strategy.role)
+     {
+        strategy.role->execute();
+        std::cout<<"role "<<strategy.role->name()<<" is executed"<<std::endl;
+     }
+}
+
+/** before kick off */
+void TeamPlayer::playBeforeKickOff()
+{
+    playPlayOn();
+}
+
+/** kick off */
+void TeamPlayer::playOurKickOff()
+{
+    playPlayOn();
+}
+
+void TeamPlayer::playOppKickOff()
+{
+
+}
+
+
+/** kick in */
+void TeamPlayer::playOurKickIn()
+{
+    playPlayOn();
+}
+
+
+void TeamPlayer::playOppKickIn()
+{
+    
+}
+
+/** corner kick */
+void TeamPlayer::playOurCornerKick()
+{
+    playPlayOn();
+}
+
+
+void TeamPlayer::playOppCornerKick()
+{
+
+}
+
+/** goal kick */
+void TeamPlayer::playOurGoalKick()
+{
+    playPlayOn();
+}
+
+
+void TeamPlayer::playOppGoalKick()
+{
+    
+}
+
+
+/** offside */
+void TeamPlayer::playOurOffSide()
+{
+     playPlayOn();
+}
+
+
+void TeamPlayer::playOppOffSide()
+{
+    
+}
+
+
+/** game over */
+void TeamPlayer::playGameOver()
+{
+ 
+}
+
+
+/** Gooooooooooooooooal */
+void TeamPlayer::playOurGoal()
+{
+    playPlayOn();
+}
+
+
+void TeamPlayer::playOppGoal()
+{
+
+ 
+}
+
+
+/** free kick */
+void TeamPlayer::playOurFreeKick()
+{
+   playPlayOn();
+}
+
+    
+void TeamPlayer::playOppFreeKick()
+{
+
+}

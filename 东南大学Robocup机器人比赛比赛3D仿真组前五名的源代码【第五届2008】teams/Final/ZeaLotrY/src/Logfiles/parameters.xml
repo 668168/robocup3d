@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<list_param version="1.06">
+
+<param_bool name="accept_monitor_connections">1</param_bool>
+<param_string name="action_log_fn" filepath="1">%D/actions.log</param_string>
+<param_int name="action_log_level">0</param_int>
+<param_double name="agent_check_dist_max">5</param_double>
+<param_double name="agent_check_dist_min">0.5</param_double>
+<param_double name="agent_check_dist_mode">3</param_double>
+<param_bool name="agent_check_threshold_sec">1</param_bool>
+<param_bool name="agent_check_use_randomness">1</param_bool>
+<param_string name="agent_db_fn" filepath="1">/home/dennislu/ZeaLotrY/src/agentdb.list</param_string>
+<param_string name="agent_intercept_library" filepath="1">/usr/local/lib/spades/libspadesint.so</param_string>
+<param_int name="agent_packet_size">1024</param_int>
+<param_string name="agent_stderr_log_fpat" filepath="1">%D/agent%A-stderr.log</param_string>
+<param_string name="agent_stdout_log_fpat" filepath="1">%D/agent%A-stdout.log</param_string>
+<param_bool name="create_agent_logfiles">1</param_bool>
+<param_bool name="create_logfile_dir">1</param_bool>
+<param_int name="default_agent_input_fd">3</param_int>
+<param_int name="default_agent_output_fd">4</param_int>
+<param_string name="default_process_timer">fixed 0</param_string>
+<param_bool name="enable_ipc_message_reception">1</param_bool>
+<param_int name="engine_port">12000</param_int>
+<param_string name="file"></param_string>
+<param_bool name="help">0</param_bool>
+<param_int name="internal_tcp_packet_size">1024</param_int>
+<param_bool name="ipc_force_remove">0</param_bool>
+<param_double name="limited_rate_default_st_per_sec">1000</param_double>
+<param_double name="limited_rate_rebase_interval">2</param_double>
+<param_double name="load_send_interval">2</param_double>
+<param_vec_string name="log_channels">
+</param_vec_string>
+<param_string name="logfile_dir" filepath="1">/home/dennislu/ZeaLotrY/src/Logfiles</param_string>
+<param_int name="max_agentq_trailing_time">50</param_int>
+<param_int name="max_at_ref_depth">100</param_int>
+<param_double name="max_pause_mode_seconds">90</param_double>
+<param_double name="max_secs_for_agent_think">10</param_double>
+<param_int name="max_simtime_for_agent_think">1000</param_int>
+<param_int name="max_timenot_trailing_time">50</param_int>
+<param_int name="max_unnatural_lost_agents">10</param_int>
+<param_int name="min_responses_before_migration">10</param_int>
+<param_int name="monitor_interval">15</param_int>
+<param_string name="monitor_log_fn" filepath="1">%D/monitor.log</param_string>
+<param_int name="monitor_port">12001</param_int>
+<param_string name="parameters_out_fn" filepath="1">%D/parameters.xml</param_string>
+<param_int name="pause_mode_wait_sec">1</param_int>
+<param_int name="pause_mode_wait_usec">0</param_int>
+<param_double name="perfctr_max_wait_for_fd">1</param_double>
+<param_int name="port_bind_retries">3</param_int>
+<param_int name="port_bind_sleep_sec">2</param_int>
+<param_bool name="print_random_seed_to_stdout">0</param_bool>
+<param_int name="random_seed">-1</param_int>
+<param_bool name="record_think_times">0</param_bool>
+<param_int name="replay_think_buffer_size">64</param_int>
+<param_bool name="run_integrated_commserver">1</param_bool>
+<param_double name="secs_for_agent_shutdown">2</param_double>
+<param_int name="secs_for_socket_shutdown">5</param_int>
+<param_bool name="send_agent_arrive_time">1</param_bool>
+<param_bool name="send_agent_send_time">1</param_bool>
+<param_bool name="send_agent_think_times">0</param_bool>
+<param_int name="status_update_interval">5</param_int>
+<param_string name="text_event_log_fn" filepath="1">%D/event_text.log</param_string>
+<param_string name="think_times_file_pattern" filepath="1">%D/agent%A-ttimes.log</param_string>
+<param_double name="timeout_for_commserver_full_connect">15</param_double>
+<param_double name="timeout_for_event">60</param_double>
+<param_bool name="trace_on_error">1</param_bool>
+<param_bool name="use_migration">0</param_bool>
+<param_bool name="use_monitor_log">1</param_bool>
+<param_bool name="use_randomness">1</param_bool>
+<param_bool name="use_text_event_log">0</param_bool>
+<param_bool name="version">0</param_bool>
+<param_int name="wait_sec">3</param_int>
+<param_int name="wait_usec">0</param_int>
+<param_bool name="write_parameters">1</param_bool>
+</list_param>

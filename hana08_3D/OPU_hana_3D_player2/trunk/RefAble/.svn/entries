@@ -1,0 +1,52 @@
+8
+
+dir
+43
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D/littlegreenbats_new_2/trunk/RefAble
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D
+
+
+
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+33cc309f-e38f-ca4e-aaf3-b9465a6fa55b
+
+refable_old.hh
+file
+
+
+
+
+2008-07-12T18:29:02.000000Z
+440e920838d4444d2464a32e526a8df7
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+refable.hh
+file
+
+
+
+
+2008-07-12T18:29:02.000000Z
+f816cfdc4260d311a222222bd25f6a9f
+2008-07-10T17:29:12.713597Z
+30
+fujii
+

@@ -1,0 +1,10 @@
+#include "goodposition.hh"
+
+#include "worldmodel.hh"
+#include "math.hh"
+
+#define DEBUGLEVEL 1
+#include "debug.hh"
+
+using namespace bats;
+using namespace std;

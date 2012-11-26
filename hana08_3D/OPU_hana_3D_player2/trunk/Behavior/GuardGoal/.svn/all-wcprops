@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/generateGoal.cc
+END
+guardgoal.hh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/guardgoal.hh
+END
+guardgoal.ih
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/guardgoal.ih
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/getCapability.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/getCurrentState.cc
+END
+GuardGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GuardGoal/GuardGoal.cc
+END

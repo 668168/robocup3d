@@ -1,0 +1,113 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#ifndef KICK_H
+#define KICK_H
+
+#include "../Effectors/Effectors.h"
+#include "../WorldModel/WorldModel.h"
+
+using namespace std;
+
+class Kick
+{
+friend class BhvBasicKick;
+public:
+    enum TPhase{
+         FINAL,
+         PREPARE,
+         SHOOT
+    };
+    Kick();
+    ~Kick(){};
+
+    static Kick& instance                 (              );
+
+    static const Kick& i                  (              ){return instance();}
+
+    void   execute                        ( bool  isLeftHold);
+
+    bool   isDone();
+
+    void   reset();
+
+private:
+
+    bool                isShootDone        (             );
+
+    bool                isPrepareDone      (             );
+
+    bool                isFinalDone        (             );
+
+    float               mSlowGain;
+
+    TPhase              mPhase;
+
+    int                 mStartPhaseCycle;
+
+    bool                mLeftHold;
+
+    void                getPrepareMatrix   (             );
+
+    void                getShootMatrix     (             );
+
+    void                getFinalMatrix     (             );
+
+    void                kicking            (             );
+
+    //void                prepare            (             );
+
+    void                shoot              (             );
+
+    void                final              (             );
+
+    salt::Matrix        mTorsoMatrix;
+
+    salt::Matrix        mHoldFootMatrix;
+
+    salt::Matrix        mMoveFootMatrix;
+
+    void                ApplyJVel          ( bool left    );
+//////////////////////////////////
+
+   bool 		prepare();
+  
+   void 		importShootJoint(shootJoint& Shoot,bool leftFoot);
+
+   string 		sefr(bool &done, double &t, bool b);
+
+   int 			Kicking(std::string &cmd);
+
+   string 		fix();
+
+   string resetJointShoot(int nextcycle);
+    
+   string act(double a[][24], int m, int n, double &time, bool &t); 
+   
+   string moveJoint(string j, double val);
+   
+   double zeroe[22][24];
+
+   double zero[24][24];
+   
+   boost::shared_ptr<WorldModel> WM;
+
+};
+
+#endif // KICK_H

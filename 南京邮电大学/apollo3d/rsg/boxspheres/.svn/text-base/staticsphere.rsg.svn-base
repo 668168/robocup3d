@@ -1,0 +1,20 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $radius $material)
+
+ (nd Sphere
+       (setRadius $radius)
+       (setMaterial $material)
+       )
+
+ (nd SphereCollider
+       (setRadius $radius)
+
+       (nd ContactJointHandler
+	     (setContactBounceMode false)
+	     )
+
+       ) 
+ )

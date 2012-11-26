@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/KickTo
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/KickTo/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/KickTo/generateGoal.cc
+END
+kickto.hh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/KickTo/kickto.hh
+END
+kickto.ih
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/KickTo/kickto.ih
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/KickTo/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/KickTo/getCurrentState.cc
+END
+KickTo.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/KickTo/KickTo.cc
+END

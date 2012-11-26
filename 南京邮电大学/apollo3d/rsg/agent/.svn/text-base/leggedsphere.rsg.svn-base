@@ -1,0 +1,183 @@
+; -*- mode: lisp; -*-
+
+;
+; sphere with two legs (5DOF/leg)
+;
+
+(RSG 0 1)
+( 
+    ; create the sphere
+    (nd Transform
+        (setName body)
+        (setLocalPos 0 4 3)
+        (importScene rsg/boxspheres/sphere.rsg 1.25 0.75 matRed)
+        )
+
+    ; attach left thigh
+    (nd Transform
+        (setName leftthigh)
+        (setLocalPos 1.25 4 2.25)
+        (importScene rsg/boxspheres/box.rsg 0.5 0.5 1.0 1.0 matGrey)
+
+        ; install the joint to connect to the body
+        (nd UniversalJoint
+            (attach ../boxBody ../../body/sphereBody)
+            (setAnchor 0 0 0)
+            (setAxis1 1.0 0.0 0.0) ; move around the x-axis
+            (setAxis2 0.0 1.0 0.0) ; move around the y-axis
+
+            ; enable the joint motors
+            (setMaxMotorForce 0 100)
+            (setMaxMotorForce 1 100)
+
+            ; install a perceptor
+            (nd UniversalJointPerceptor
+                (setName lefthip)
+            )
+
+            ; install an effector to control the joint motors
+            (nd UniversalJointEffector
+                (setName lhe)
+            )
+        )
+    )
+
+    ; attach left shank
+    (nd Transform
+        (setName leftshank)
+        (setLocalPos 1.25 4 1)
+        (importScene rsg/boxspheres/box.rsg 0.5 0.5 1.0 1.0 matGrey)
+
+        ; install the joint to connect to the body
+        (nd HingeJoint
+            (attach ../boxBody ../../leftthigh/boxBody)
+            (setAnchor 0 0 0)
+            (setAxis 0) ; move around the x-axis
+
+            ; enable the joint motor
+            (setMaxMotorForce 0 100)
+
+            ; install a perceptor
+            (nd HingePerceptor
+                (setName leftknee)
+            )
+
+            ; install an effector to control the joint motor
+            (nd HingeEffector
+                (setName lke)
+            )
+        )
+    )
+
+    ; attach left foot
+    (nd Transform
+        (setName leftfoot)
+        (setLocalPos 1.25 4 0.125)
+        (importScene rsg/boxspheres/box.rsg 1.0 1.25 0.25 1.0 matGrey)
+
+        ; install the joint to connect to the body
+        (nd UniversalJoint
+            (attach ../boxBody ../../leftshank/boxBody)
+            (setAnchor 0 0 0)
+            (setAxis1 1.0 0.0 0.0) ; move around the x-axis
+            (setAxis2 0.0 1.0 0.0) ; move around the y-axis
+
+            ; enable the joint motors
+            (setMaxMotorForce 0 100)
+            (setMaxMotorForce 1 100)
+
+            ; install a perceptor
+            (nd UniversalJointPerceptor
+                (setName leftankle)
+            )
+
+            ; install an effector to control the joint motors
+            (nd UniversalJointEffector
+                (setName lae)
+            )
+        )
+    )
+
+    ; attach right thigh
+    (nd Transform
+        (setName rightthigh)
+        (setLocalPos -1.25 4 2.25)
+        (importScene rsg/boxspheres/box.rsg 0.5 0.5 1.0 1.0 matGrey)
+        (nd UniversalJoint
+            (attach ../boxBody ../../body/sphereBody)
+            (setAnchor 0 0 0)
+            (setAxis1 1.0 0.0 0.0) ; move around the x-axis
+            (setAxis2 0.0 1.0 0.0) ; move around the y-axis
+
+            ; enable the joint motors
+            (setMaxMotorForce 0 100)
+            (setMaxMotorForce 1 100)
+
+            ; install a perceptor
+            (nd UniversalJointPerceptor
+                (setName righthip)
+            )
+
+            ; install an effector to control the joint motors
+            (nd UniversalJointEffector
+                (setName rhe)
+            )
+        )
+    )
+
+    ; attach right shank
+    (nd Transform
+        (setName rightshank)
+        (setLocalPos -1.25 4 1)
+        (importScene rsg/boxspheres/box.rsg 0.5 0.5 1.0 1.0 matGrey)
+
+        ; install the joint to connect to the body
+        (nd HingeJoint
+            (attach ../boxBody ../../rightthigh/boxBody)
+            (setAnchor 0 0 0)
+            (setAxis 0) ; move around the x-axis
+
+            ; enable the joint motor
+            (setMaxMotorForce 0 100)
+
+            ; install a perceptor
+            (nd HingePerceptor
+                (setName rightknee)
+            )
+
+            ; install an effector to control the joint motor
+            (nd HingeEffector
+                (setName rke)
+            )
+        )
+    )
+
+    ; attach right foot
+    (nd Transform
+        (setName rightfoot)
+        (setLocalPos -1.25 4 0.125)
+        (importScene rsg/boxspheres/box.rsg 1.0 1.25 0.25 1.0 matGrey)
+
+        ; install the joint to connect to the body
+        (nd UniversalJoint
+            (attach ../boxBody ../../rightshank/boxBody)
+            (setAnchor 0 0 0)
+            (setAxis1 1.0 0.0 0.0) ; move around the x-axis
+            (setAxis2 0.0 1.0 0.0) ; move around the y-axis
+
+            ; enable the joint motors
+            (setMaxMotorForce 0 100)
+            (setMaxMotorForce 1 100)
+
+            ; install a perceptor
+            (nd UniversalJointPerceptor
+                (setName rightankle)
+            )
+
+            ; install an effector to control the joint motors
+            (nd UniversalJointEffector
+                (setName rae)
+            )
+        )
+    )
+)

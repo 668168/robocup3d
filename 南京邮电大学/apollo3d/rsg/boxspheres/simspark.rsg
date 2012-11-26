@@ -1,0 +1,61 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+; add lights
+ (nd Transform
+       (setLocalPos -10 10 20)
+       (nd Light
+	     (setDiffuse 1.0 1.0 1.0 1.0)
+	     (setSpecular 0.1 0.1 0.1 1.0)
+	     (setAmbient 0.5 0.5 0.5 1.0)
+	     )
+       )
+
+; create the arena
+(nd Transform
+      (setLocalPos 0 0 -1)
+      (importScene rsg/boxspheres/arena.rsg)
+      )
+
+
+; add boxes
+ (nd Transform
+       (setLocalPos -8 0 30)
+       (importScene rsg/boxspheres/box.rsg 3 4 5 2 matYellow)
+       )
+
+ (nd Transform
+       (setLocalPos -7 0 15)
+       (importScene rsg/boxspheres/box.rsg 2 2 2 2 matRedGlow)
+       (nd Light
+	     (setDiffuse 0.5 0 0 1)
+	     (setSpecular 0.2 0.2 0.2 1)
+	     (setAmbient 0 0 0 1.0)
+	     )
+       )
+
+; add capped cylinder
+ (nd Transform
+       (setLocalPos -4 0 20)
+       (importScene rsg/boxspheres/ccylinder.rsg 1 3 2 matBlue)
+       )
+
+ (nd Transform
+       (setLocalPos -6 3 20)
+       (importScene rsg/boxspheres/ccylinder.rsg 1 10 2 matWhite)
+       )
+
+; add two layer of spheres
+(nd Transform
+      (setLocalPos 0 0 0.6)
+      (importScene rsg/boxspheres/layer.rsg 1 1)
+      )
+
+
+(nd Transform
+      (setLocalPos 0 0 2)
+      (importScene rsg/boxspheres/layer.rsg 1 1)
+      )
+
+)

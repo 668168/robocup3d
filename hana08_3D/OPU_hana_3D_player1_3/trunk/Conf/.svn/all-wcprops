@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Conf
+END
+xmlnodeset.hh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/xmlnodeset.hh
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/.dirstamp
+END
+conf.hh
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/conf.hh
+END
+conf.ih
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/conf.ih
+END
+getparam.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Conf/getparam.cc
+END
+parseConf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/parseConf.cc
+END
+xmlnode.hh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Conf/xmlnode.hh
+END
+getParams.cc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Conf/getParams.cc
+END
+getsection.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/Conf/getsection.cc
+END
+selectxpath.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/selectxpath.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Conf/static.cc
+END

@@ -1,0 +1,143 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ ;;
+ ;; define constants, copy values from the ScriptServer Soccer namespace
+ ;;
+
+ (def $FieldLength (eval Soccer.FieldLength))
+ (def $FieldWidth  (eval Soccer.FieldWidth))
+ (def $FieldHeight (eval Soccer.FieldHeight))
+ (def $GoalDepth   (eval Soccer.GoalDepth))
+
+ ;; height of the field ground plane
+ (def $FieldMaterial matGrass)
+
+ ;; calc some helper vars
+ (def $FieldBase 0)
+ (def $FieldHalfLength (eval $FieldLength / 2.0))
+ (def $FieldHalfHeight (eval $FieldHeight / 2.0))
+ (def $FieldHalfWidth  (eval $FieldWidth / 2.0))
+ (def $GoalHalfDepth   (eval $GoalDepth / 2.0))
+ (def $FieldTextureSize (eval $FieldLength / 12.0 ))
+
+ ;;
+ ;; construct playing field
+ ;;
+
+ ;; add lights
+ (nd Transform
+       (setLocalPos -10 10 10)
+       (nd Light
+	     (setDiffuse 1.0 1.0 1.0 1.0)
+	     (setSpecular 0.1 0.1 0.1 1.0)
+	     (setAmbient 0.8 0.8 0.8 1.0)
+	     )
+
+       )
+
+ ;; add lights
+ (nd Transform
+       (setLocalPos 10 -10 10)
+       (nd Light
+	     (setDiffuse 1.0 1.0 1.0 1.0)
+	     (setSpecular 0.1 0.1 0.1 1.0)
+	     (setAmbient 0.0 0.0 0.0 1.0)
+	     )
+       )
+
+ ;; create the base plane
+ (nd Transform
+       (setLocalPos 0 0 $FieldBase)
+
+	(setLocalRotation 90 180 0)
+	(nd StaticMesh
+          	(load 'models/naosoccerfield.obj')
+		(setScale $FieldTextureSize
+			  $FieldTextureSize
+			  $FieldTextureSize)
+      	)
+
+       (nd PlaneCollider
+	     (setParams 0 0 1.0 0)
+	     (nd ContactJointHandler
+		   (setContactBounceMode false)
+
+		   (setContactSlipMode true)
+		   (setContactSlip 0.1 0.1)
+
+		   (setContactSoftERPMode true)
+		   (setContactSoftERP 0.2)
+
+		   (setContactSoftCFM true)
+		   (setContactSoftCFM 0.01)
+		   )
+	     )
+       )
+
+; create box collider around playing field
+ (nd BoxCollider
+       (setName FieldBox)
+       (setPosition 0 0 $FieldHalfHeight)
+       (setBoxLengths $FieldLength $FieldWidth $FieldHeight)
+       (nd RecorderHandler 
+	     (setName recorder)
+	     )
+       )
+
+ ;; create the left goal
+; (def $LeftGoalX (eval -1* (eval $FieldHalfLength + $GoalHalfDepth)))
+; (importScene rsg/agent/nao/goal.rsg
+;	      leftgoal
+;	      $LeftGoalX 0 0
+;	      G1L G2L
+;	      matYellow)
+
+ ;; create the right goal
+; (def $RightGoalX (eval -1 * $LeftGoalX))
+; (importScene rsg/agent/nao/goal.rsg
+;	      rightgoal
+;	      $RightGoalX 0 180
+;	      G2R G1R
+;	      matBlue)
+
+ ;;
+ ;; add flags
+ ;;
+
+ ;; mark the soccer field with 4 field flags (no visualization)
+ (importScene rsg/agent/flag_no_viz.rsg
+	      (eval -1 * $FieldHalfLength)  
+	      $FieldHalfWidth
+	      0
+	      F1L
+	      )
+
+ (importScene rsg/agent/flag_no_viz.rsg
+	      (eval -1 * $FieldHalfLength) 
+	      (eval -1 * $FieldHalfWidth)
+	      0
+	      F2L
+	      )
+
+ (importScene rsg/agent/flag_no_viz.rsg
+	      $FieldHalfLength 
+	      $FieldHalfWidth 
+	      0
+	      F1R
+	      )
+
+ (importScene rsg/agent/flag_no_viz.rsg
+	      $FieldHalfLength 
+	      (eval -1 * $FieldHalfWidth) 
+	      0 
+	      F2R
+	      )
+
+;;
+;; add the ball
+;;
+; (importScene rsg/agent/ball.rsg)
+
+ )

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util
+END
+assert.hh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/assert.hh
+END
+showconf.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/showconf.sh
+END
+dobehave.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/dobehave.xsl
+END
+confgen.cc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/confgen.cc
+END
+config.hh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/config.hh
+END
+headerreplace.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/headerreplace.rb
+END
+svn-commit.pl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/svn-commit.pl
+END
+EP.py
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/EP.py
+END
+ccResolutions
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/ccResolutions
+END
+createbehavior.pl
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/createbehavior.pl
+END
+EP4soccer.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/EP4soccer.py
+END
+EP4soccer3tournament.py
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/util/EP4soccer3tournament.py
+END

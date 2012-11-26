@@ -1,0 +1,67 @@
+#include "behavior.hh"
+#include "batsexception.hh"
+#include <algorithm>
+#include <iostream>
+#include "worldmodel.hh"
+#include "logger.hh"
+
+using namespace bats;
+using namespace std;
+
+typedef AST::Node::NodeVector NodeVector;
+
+
+// Behaviors
+//   Primitive
+#include "movejoint.hh"
+#include "movehingejoint.hh"
+#include "moveuniversaljoint.hh"
+#include "beam.hh"
+
+
+//   Rest
+#include "Wait/wait.hh"
+#include "Empty/empty.hh"
+#include "MoveJointTo/movejointto.hh"
+#include "ScriptPlayer/scriptplayer.hh"
+#include "Sine/sine.hh"
+#include "WalkTo/walkto.hh"
+#include "canKickLeft/cankickleft.hh"
+#include "canKickRight/cankickright.hh"
+#include "canTurnLeft/canturnleft.hh"
+#include "canTurnRight/canturnright.hh"
+#include "Console/console.hh"
+#include "BeamTo/beamto.hh"
+#include "GoodPositionAngle/goodpositionangle.hh"
+#include "GoodPosition/goodposition.hh"
+#include "MiniWalkForward/miniwalkforward.hh"
+#include "MiniWalkBackward/miniwalkbackward.hh"
+#include "StrafeLeft/strafeleft.hh"
+#include "StrafeRight/straferight.hh"
+#include "GetUpFromBelly/getupfrombelly.hh"
+#include "GetUpFromBack/getupfromback.hh"
+#include "GetFromSide/getfromside.hh"
+#include "WalkStraightTo/walkstraightto.hh"
+#include "TurnTo/turnto.hh"
+#include "KickTo/kickto.hh"
+#include "Score/score.hh"
+#include "Challenge1/challenge1.hh"
+#include "GuardGoal/guardgoal.hh"
+#include "StrafeToBall/strafetoball.hh"
+#include "KeeperGetUp/keepergetup.hh"
+#include "FallForward/fallforward.hh"
+#include "FallBackward/fallbackward.hh"
+#include "FallRightSide/fallrightside.hh"
+#include "FallLeftSide/fallleftside.hh"
+#include "OpenLeg/openleg.hh"
+#include "WaveBothArms/wavebotharms.hh"
+#include "Dribble/dribble.hh"
+#include "Guard/guard.hh"
+#include "Intercept/intercept.hh"
+#include "Dive/dive.hh"
+
+
+#define DEBUGLEVEL 1
+#include "debug.hh"
+
+

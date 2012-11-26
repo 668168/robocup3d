@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<conf xmlns:xi="http://www.w3.org/2003/XInclude">  
+  <xi:include href="gamepad_pc.xml" />
+
+  <player id="0" class="playableplayer" />
+  <player id="1" class="playableplayer" />
+  <player id="2" class="playableplayer" />
+  <player id="3" class="playableplayer" />
+  <player id="4" class="playableplayer" />
+  <player id="5" class="playableplayer" />
+  <player id="6" class="playableplayer" />
+  <player id="7" class="playableplayer" />
+  <player id="8" class="playableplayer" />
+  <player id="9" class="playableplayer" />
+  <player id="10" class="playableplayer" />
+  <player id="11" class="playableplayer" />
+</conf>
+

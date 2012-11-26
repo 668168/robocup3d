@@ -1,0 +1,17 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $lenX $lenY $lenZ $material)
+ (nd Box
+       (setExtents $lenX $lenY $lenZ)
+       (setMaterial $material)
+       )
+
+ (nd BoxCollider
+       (setBoxLengths $lenX $lenY $lenZ)
+       (nd ContactJointHandler
+	     (setContactBounceMode false)
+	     )
+       )
+)

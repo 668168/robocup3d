@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/getCapability.cc
+END
+canturnright.hh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/canturnright.hh
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/update.cc
+END
+canturnright.ih
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/canturnright.ih
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/static.cc
+END
+canturnright.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/canTurnRight/canturnright.cc
+END

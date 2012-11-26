@@ -1,0 +1,7 @@
+#include "talent.hh"
+
+
+//#define DEBUGLEVEL 0
+#include "debug.hh"
+
+using namespace bats;

@@ -1,0 +1,275 @@
+//
+// C++ Implementatson: Player
+//
+// Descriptson: 
+//
+//
+// Author: delta3d team 2009 <deltateams2009@gmail.com>, (C) 2010
+//
+// Copyright: See COPYING file that comes with this distributson
+//
+//
+
+
+#include "Player.h"
+
+
+Player::Player()
+{
+}
+
+Player::~Player()
+{
+}
+
+bool Player::init()
+{
+  Connection &con=Connection::instance();
+   
+   if (! con.init())  
+   {
+ 	 con.done();
+         return false;
+   }
+   else
+   {
+        con.sendMessage("(scene rsg/agent/nao/nao.rsg)");
+        sleep(1);
+        con.sendMessage("(init (unum " +
+                                            WorldModel::instance().getUnum() +
+                                            ")(teamname Delta3D))");
+        return true;
+    }
+ 
+}
+
+bool Player::beam()
+{
+   Formation& formation = Formation::instance();
+   Connection &con=Connection::instance();
+   
+   std::string num= WorldModel::i().getUnum();
+    stringstream ss;
+    TPlayerTypeMap::iterator iter =
+                         formation.mPlayerTypeMap.find(num);
+    if(iter == formation.mPlayerTypeMap.end())
+    {
+       std::cout<<"Error: player not found in formation"<<std::cout;
+       return false;
+    }
+    ss<<"(beam "<<formation.mFormationDataMap[(*iter).second].beamPos<<")";
+    cout<<" beam our agent in: "<<ss.str();
+    con.sendMessage( ss.str() );
+    return true;
+}
+
+bool Player::beforKickOfBeam()
+{
+   Formation& formation = Formation::instance();
+   Connection &con=Connection::instance();
+   
+   std::string num= WorldModel::i().getUnum();
+    stringstream ss;
+    TPlayerTypeMap::iterator iter =
+                         formation.mPlayerTypeMap.find(num);
+    if(iter == formation.mPlayerTypeMap.end())
+    {
+       std::cout<<"Error: player not found in formation"<<std::cout;
+       return false;
+    }
+    ss<<"(beam "<<formation.mFormationDataMap[(*iter).second].beforeKickOff<<")";
+    cout<<" beam our agent in: "<<ss.str();
+    con.sendMessage( ss.str() );
+    return true;
+}
+
+void Player::think()
+{    
+  static int count=0;
+  static int counter=0;
+  if(mustBeam())
+  {
+    
+   if( (count % 10)==0 )
+       beam();
+   
+   count++;
+   if(count>10)
+       count=0;
+  }
+  
+  if(mustBeforKickOfBeam())
+  {  
+       if( (counter % 10)==0 )
+          beforKickOfBeam();
+   
+       counter++;
+       if(counter>10)
+           counter=0;
+  }
+  
+  
+    switch ( WorldModel::instance().getPlayMode() )
+    {
+        case PM_BeforeKickOff :
+            return playBeforeKickOff();
+            break;
+        case PM_KickOff_Left:
+        case PM_KickOff_Right:
+            return playKickOff();
+            break;
+        case PM_PlayOn:
+            return playPlayOn();
+            break;
+        case PM_KickIn_Left:
+        case PM_KickIn_Right:
+            return playKickIn();
+            break;
+        case PM_CORNER_KICK_LEFT:
+        case PM_CORNER_KICK_RIGHT:
+            return playCornerKick();
+            break;
+        case PM_GOAL_KICK_LEFT:
+        case PM_GOAL_KICK_RIGHT:
+            return playGoalKick();
+            break;
+        case PM_OFFSIDE_LEFT:
+        case PM_OFFSIDE_RIGHT:
+            return playOffSide();
+            break;       
+        case PM_GameOver:
+            return playGameOver();
+            break;
+        case PM_Goal_Left:
+        case PM_Goal_Right:
+            return playGoal();
+            break;
+        case PM_FREE_KICK_LEFT:
+        case PM_FREE_KICK_RIGHT:
+            return playFreeKick();
+            break;
+        default:
+            cerr<<"[WARNING] Player can not handle this Play Mode!\n";
+            break;
+    }
+}
+
+void Player::playKickOff()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_KickOff_Left == pm )
+         || ( TS_RIGHT == ts && PM_KickOff_Right == pm ) )
+    {
+        return playOurKickOff();
+    } 
+    else 
+    {
+        return playOppKickOff();
+    }
+}
+
+void Player::playKickIn()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_KickIn_Left == pm )
+         || ( TS_RIGHT == ts && PM_KickIn_Right == pm ) )
+    {
+        return playOurKickIn();
+    } 
+    else 
+    {
+        return playOppKickIn();
+    }
+}
+
+void Player::playCornerKick()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_CORNER_KICK_LEFT == pm )
+         || ( TS_RIGHT == ts && PM_CORNER_KICK_RIGHT == pm ) )
+    {
+        return playOurCornerKick();
+    } else {
+        return playOppCornerKick();
+    }
+}
+
+void Player::playGoalKick()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_GOAL_KICK_LEFT == pm )
+         || ( TS_RIGHT == ts && PM_GOAL_KICK_RIGHT == pm ) )
+    {
+        return playOurGoalKick();
+    } else {
+        return playOppGoalKick();
+    }
+}
+
+void Player::playOffSide()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_OFFSIDE_LEFT == pm )
+         || ( TS_RIGHT == ts && PM_OFFSIDE_RIGHT == pm ) )
+    {
+        return playOurOffSide();
+    } else {
+        return playOppOffSide();
+    }
+}
+
+void Player::playGoal()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_Goal_Left == pm )
+         || ( TS_RIGHT == ts && PM_Goal_Right == pm ) )
+    {
+        return playOurGoal();
+    } else {
+        return playOppGoal();
+    }
+}
+
+void Player::playFreeKick()
+{
+    ETeamSide ts = WorldModel::instance().getTeamSide();
+    EPlayMode pm = WorldModel::instance().getPlayMode();
+    if ( ( TS_LEFT == ts && PM_FREE_KICK_LEFT == pm )
+         || ( TS_RIGHT == ts && PM_FREE_KICK_RIGHT == pm ) )
+    {
+        return playOurFreeKick();
+    } else {
+        return playOppFreeKick();
+    }
+}
+
+bool Player::mustBeam()
+{
+
+   EPlayMode pm = WorldModel::instance().getPlayMode();
+   if(
+      PM_Goal_Left     == pm ||
+      PM_Goal_Right    == pm 
+     )
+        return true;
+   
+   return false;
+  
+}
+
+bool Player::mustBeforKickOfBeam()
+{
+   EPlayMode pm = WorldModel::instance().getPlayMode();
+   if(PM_BeforeKickOff == pm)
+        return true;
+   
+   return false;
+
+
+}

@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao
+END
+ccylinder_physics_nocollider.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/ccylinder_physics_nocollider.rsg
+END
+sphere_physics.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/sphere_physics.rsg
+END
+box_physics.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/box_physics.rsg
+END
+ccylinder_appearance.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/ccylinder_appearance.rsg
+END
+contactjointhandler.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/contactjointhandler.rsg
+END
+hingejoint.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/hingejoint.rsg
+END
+naoneckhead.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/naoneckhead.rsg
+END
+sphere_physics_nocollider.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/sphere_physics_nocollider.rsg
+END
+box_physics_nocollider.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/box_physics_nocollider.rsg
+END
+touchperceptorhandler.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/touchperceptorhandler.rsg
+END
+naoleg.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/naoleg.rsg
+END
+sphere_appearance.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/sphere_appearance.rsg
+END
+box_appearance.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/box_appearance.rsg
+END
+universaljoint.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/universaljoint.rsg
+END
+naoarm.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/naoarm.rsg
+END
+nao.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/nao.rsg
+END
+soccer.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/soccer.rsg
+END
+ccylinder_physics.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/ccylinder_physics.rsg
+END
+dragcontroller.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/dragcontroller.rsg
+END
+goal.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/goal.rsg
+END
+box_physics_with_handler.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/agent/nao/box_physics_with_handler.rsg
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hana08_3D/!svn/ver/35/littlegreenbats_new/trunk/Behavior/Score
+END
+Score.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/12/littlegreenbats_new/trunk/Behavior/Score/Score.cc
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Score/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/Score/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/35/littlegreenbats_new/trunk/Behavior/Score/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Score/getCurrentState.cc
+END
+score.hh
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Score/score.hh
+END
+score.ih
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/Score/score.ih
+END

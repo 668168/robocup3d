@@ -1,0 +1,46 @@
+#include "walkto.ih"
+
+rf<Behavior::Goal> WalkTo::generateGoal(unsigned step, unsigned slot)
+{
+  WorldModel& wm = WorldModel::getInstance();
+  Vector3D pos, straight(1,0,0);
+  double angleToPos;
+
+  rf<Goal> goal = new Goal();
+  rf<OrNode> dis = goal->addDisjunct();
+  rf<AndNode> con = dis->addConjunct();
+      
+  switch (step)
+  {
+      case 0:  // turn to
+      pos = d_goal->getVector("Pos"); // target position
+      pos.setZ(0);
+//	  std::cout << "In WalkTo::generateGoal\n  Pos = (" << pos.getX() << ", " << pos.getY() << ", " << pos.getZ() << ")" << std::endl;
+
+	  if(pos.length() > 0.3){
+      	angleToPos = straight.angle(pos) / M_PI * 180.0;
+//	      std::cout << "  " << straight.angle(pos) << std::endl;
+      	if (pos.getY() < 0)
+      	  angleToPos = -angleToPos;
+      }
+	  else{
+		pos = wm.getObjectPosition(Types::BALL).getMu();
+		pos.setZ(0.0);
+		angleToPos = straight.angle(pos) / M_PI * 180.0;
+      	if (pos.getY() < 0)
+      	  angleToPos = -angleToPos;
+	  }
+      _debugLevel4(ident() << " " << pos << " " << angleToPos);
+//      std::cout << "  angleToPos = " << angleToPos << std::endl;
+      
+      con->addVar("Angle", angleToPos, angleToPos);   
+	  con->addVar("Pos", pos); 
+	  con->addVar("WalkTo", 0, 0);
+      return goal;
+      
+      case 1: // walk straight to
+      return d_goal;
+  }
+  
+  return 0;
+}

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<behaviors>
+      <!--
+          HEAD_1,   ///< Torso to head, X-Axis
+          
+          LLEG1,    ///< Torso to left hip, Z-Axis
+          LLEG2,    ///< Left hip to Left thigh, X-Axis
+          LLEG3,    ///< Left hip to Left thigh, Y-Axis
+          LLEG4,    ///< Left thigh to Left shank, X-Axis
+          LLEG5,    ///< Left shank to Left foot, X-Axis
+          LLEG6,    ///< Left shank to Left foot, Y-Axis
+          
+          RLEG1,    ///< Torso to right hip, Z-Axis
+          RLEG2,    ///< Right hip to Right thigh, X-Axis
+          RLEG3,    ///< Right hip to Right thigh, Y-Axis
+          RLEG4,    ///< Right thigh to Right shank, X-Axis
+          RLEG5,    ///< Right shank to Right foot, X-Axis
+          RLEG6,    ///< Right shank to Right foot, Y-Axis
+          
+          LARM1,    ///< Torso to Left shoulder, X-Axis
+          LARM2,    ///< Torso to Left shoulder, Y-Axis
+          LARM3,    ///< Left shoulder to Left upper arm, Z-Axis
+          LARM4,    ///< Left upper arm to Left lower arm, X-Axis
+          
+          RARM1,    ///< Torso to Right shoulder, X-Axis
+          RARM2,    ///< Torso to Right shoulder, Y-Axis
+          RARM3,    ///< Right shoulder to Right upper arm, Z-Axis
+          RARM4     ///< Right upper arm to Right lower arm, X-Axis
+      -->
+      <behavior type="MoveJoint" id="moveHead">
+	     	<param>
+	     	  <joint>0</joint>
+        </param>        
+      </behavior>
+      
+      
+      
+      <behavior type="MoveJoint" id="moveLeftHip">
+	     	<param>
+	     	  <joint>1</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftThighX">
+	     	<param>
+	     	  <joint>2</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftThighY">
+	     	<param>
+	     	  <joint>3</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftKnee">
+	     	<param>
+	     	  <joint min="-160" max="10">4</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftAnkleX">
+	     	<param>
+	     	  <joint>5</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftAnkleY">
+	     	<param>
+	     	  <joint>6</joint>
+        </param>        
+      </behavior>
+      
+      
+      
+      <behavior type="MoveJoint" id="moveRightHip">
+	     	<param>
+	     	  <joint>7</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightThighX">
+	     	<param>
+	     	  <joint>8</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightThighY">
+	     	<param>
+	     	  <joint>9</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightKnee">
+	     	<param>
+	     	  <joint min="-160" max="10">10</joint>
+
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightAnkleX">
+	     	<param>
+	     	  <joint>11</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightAnkleY">
+	     	<param>
+	     	  <joint>12</joint>
+        </param>        
+      </behavior>
+      
+
+
+      
+      <behavior type="MoveJoint" id="moveLeftShoulderX">
+	     	<param>
+	     	  <joint>13</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftShoulderY">
+	     	<param>
+	     	  <joint>14</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftShoulderZ">
+	     	<param>
+	     	  <joint>15</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveLeftElbow">
+	     	<param>
+	     	  <joint>16</joint>
+        </param>        
+      </behavior>
+      
+
+
+      <behavior type="MoveJoint" id="moveRightShoulderX">
+	     	<param>
+	     	  <joint>17</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightShoulderY">
+	     	<param>
+	     	  <joint>18</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightShoulderZ">
+	     	<param>
+	     	  <joint>19</joint>
+        </param>        
+      </behavior>
+      
+      <behavior type="MoveJoint" id="moveRightElbow">
+	     	<param>
+	     	  <joint>20</joint>
+        </param>        
+      </behavior>
+
+
+
+
+
+      <behavior type="MoveJointTo" id="moveHeadTo">
+	     	<param>
+	     	  <joint>0</joint>
+        </param>
+        <slot index="0-0">
+          <behavior refid="moveHead" />        
+        </slot>
+      </behavior>
+      
+      
+      
+      <behavior type="MoveJointTo" id="moveLeftHipTo">
+	     	<param>
+	     	  <joint>1</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftHip" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftThighXTo">
+	     	<param>
+	     	  <joint>2</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftThighX" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftThighYTo">
+	     	<param>
+	     	  <joint>3</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftThighY" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftKneeTo">
+	     	<param>
+	     	  <joint>4</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftKnee" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftAnkleXTo">
+	     	<param>
+	     	  <joint>5</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftAnkleX" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftAnkleYTo">
+	     	<param>
+	     	  <joint>6</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftAnkleY" />        
+        </slot>
+      </behavior>
+      
+      
+      
+      <behavior type="MoveJointTo" id="moveRightHipTo">
+	     	<param>
+	     	  <joint>7</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightHip" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightThighXTo">
+	     	<param>
+	     	  <joint>8</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightThighX" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightThighYTo">
+	     	<param>
+	     	  <joint>9</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightThighY" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightKneeTo">
+	     	<param>
+	     	  <joint>10</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightKnee" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightAnkleXTo">
+	     	<param>
+	     	  <joint>11</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightAnkleX" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightAnkleYTo">
+	     	<param>
+	     	  <joint>12</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightAnkleY" />        
+        </slot>
+      </behavior>
+
+
+      <behavior type="MoveJointTo" id="moveLeftShoulderXTo">
+	     	<param>
+	     	  <joint>13</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftShoulderX" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftShoulderYTo">
+	     	<param>
+	     	  <joint>14</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftShoulderY" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftShoulderZTo">
+	     	<param>
+	     	  <joint>15</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftShoulderZ" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveLeftElbowTo">
+	     	<param>
+	     	  <joint>16</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveLeftElbow" />        
+        </slot>
+      </behavior>
+      
+
+
+      <behavior type="MoveJointTo" id="moveRightShoulderXTo">
+	     	<param>
+	     	  <joint>17</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightShoulderX" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightShoulderYTo">
+	     	<param>
+	     	  <joint>18</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightShoulderY" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightShoulderZTo">
+	     	<param>
+	     	  <joint>19</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightShoulderZ" />        
+        </slot>
+      </behavior>
+      
+      <behavior type="MoveJointTo" id="moveRightElbowTo">
+	     	<param>
+	     	  <joint>20</joint>
+        </param>        
+        <slot index="0-0">
+          <behavior refid="moveRightElbow" />        
+        </slot>
+      </behavior>
+</behaviors>

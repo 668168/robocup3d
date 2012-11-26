@@ -1,0 +1,9 @@
+#include "beam.hh"
+
+using namespace bats;
+using namespace std;
+
+#include "worldmodel.hh"
+
+#define DEBUGLEVEL 4
+#include "debug.hh"

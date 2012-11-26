@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Vector4
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Vector4/.dirstamp
+END
+vector4.hh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Vector4/vector4.hh
+END
+vector4.cc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Vector4/vector4.cc
+END
+vector4_fpu.hh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Vector4/vector4_fpu.hh
+END
+vector4_sse.hh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Vector4/vector4_sse.hh
+END

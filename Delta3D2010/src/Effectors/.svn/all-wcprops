@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors
+END
+AngularMotor.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/AngularMotor.h
+END
+arm.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/arm.cpp
+END
+Effectors.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/Effectors.cpp
+END
+arm.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/arm.h
+END
+Effectors.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/Effectors.h
+END
+leg.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/leg.cpp
+END
+AngularMotor.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/AngularMotor.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/CMakeLists.txt
+END
+leg.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Effectors/leg.h
+END

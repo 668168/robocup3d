@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/canKickRight
+END
+cankickright.hh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickRight/cankickright.hh
+END
+cankickright.ih
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickRight/cankickright.ih
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickRight/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/23/littlegreenbats_new/trunk/Behavior/canKickRight/generateGoal.cc
+END
+cankickright.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickRight/cankickright.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/canKickRight/getCapability.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/canKickRight/static.cc
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/GetUpFromBack
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/getCapability.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/Behavior/GetUpFromBack/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/getCurrentState.cc
+END
+getupfromback.hh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/getupfromback.hh
+END
+getupfromback.ih
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/getupfromback.ih
+END
+GetUpFromBack.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/GetUpFromBack/GetUpFromBack.cc
+END

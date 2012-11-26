@@ -1,0 +1,29 @@
+Installing Instructions
+==========================
+You can build this package using CMake build system (version 2.6 or higher
+should be installed on your system). CMake can generate different kinds of
+native build files for your system (e.g. Unix Makefiles, Eclipse CDT 4.0 project
+files, Visual Studio project files). You can generate build files using CMake
+command-line or GUI interfaces.
+
+Requirements
+============
+CMake version 2.6 or higher
+C++ compiler 
+C/C++ IDE
+
+Making Binary  Using CMake Command-line Interface (Step by Step) 
+===========
+1. Unpack the distribution and change directory to the top level source tree.
+2. (Recommended) Create a directory to hold your build files (e.g. 'mkdir build')
+3. Change directory to the directory you created in the previous step (for the
+   above example, you can use 'cd build')
+4. Run 'cmake ..' to configure the package and generate build files. On Linux,
+   it'll generate Makefiles for the package
+5. Optionally, you can run 'ccmake .' to edit the build settings (for example
+   the installation directory).
+6. Considering that you've generated Makefiles using cmake, you can run 'make'
+   to build the package.
+Also, you can run 'make clean' to clean all existing binary.
+
+

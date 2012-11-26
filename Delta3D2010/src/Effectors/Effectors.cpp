@@ -1,0 +1,120 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#include "Effectors.h"
+#include <string>
+#include "AngularMotor.h"
+#include "../Skills/Walk.h"
+Effectors::Effectors()
+{
+    //con = boost::shared_ptr<Connection>(& Connection::instance());
+    mJointAngle.reset(new float[JID_RLEG_6 + 1]);
+    mJointVel.reset(new float[JID_RLEG_6 + 1]);
+    mEffectorName.reset(new std::string[JID_RLEG_6 + 1]);
+    setupEffName();
+    mIsDone = false;
+
+}
+
+Effectors& Effectors::instance()
+{
+    static Effectors sEffectors;
+    return sEffectors;
+}
+
+void Effectors::setupEffName()
+{
+
+    mEffectorName[JID_ROOT]     = "e0";
+    mEffectorName[JID_LLEG_1]   = "lle1";
+    mEffectorName[JID_LLEG_2]   = "lle2";
+    mEffectorName[JID_LLEG_3]   = "lle3";
+    mEffectorName[JID_LLEG_4]   = "lle4";
+    mEffectorName[JID_LLEG_5]   = "lle5";
+    mEffectorName[JID_LLEG_6]   = "lle6";
+    mEffectorName[JID_RLEG_1]   = "rle1";
+    mEffectorName[JID_RLEG_2]   = "rle2";
+    mEffectorName[JID_RLEG_3]  = "rle3";
+    mEffectorName[JID_RLEG_4]  = "rle4";
+    mEffectorName[JID_RLEG_5]  = "rle5";
+    mEffectorName[JID_RLEG_6]  = "rle6";
+    mEffectorName[JID_HEAD_2]  = "he2";
+    mEffectorName[JID_HEAD_1]  = "he1";
+    mEffectorName[JID_LARM_1]  = "lae1";
+    mEffectorName[JID_LARM_2]  = "lae2";
+    mEffectorName[JID_LARM_3]  = "lae3";
+    mEffectorName[JID_LARM_4]  = "lae4";
+    mEffectorName[JID_RARM_1]  = "rae1";
+    mEffectorName[JID_RARM_2]  = "rae2";
+    mEffectorName[JID_RARM_3]  = "rae3";
+    mEffectorName[JID_RARM_4]  = "rae4";
+
+}
+
+Effectors::~Effectors()
+{
+
+}
+
+void Effectors::updateJointAngle(const boost::shared_array<Kinematic::Link> link)
+{
+   for (int i = JID_ROOT ; i <= JID_RLEG_6 ; ++i)
+   {
+       if (i == JID_ROOT) continue;
+       mJointAngle[i] = link[i].q;
+   }
+   for (int i = JID_ROOT ; i <= JID_RLEG_6 ; ++i)
+   {
+       mJointVel[i] = 0.0f;
+   }
+
+}
+
+void Effectors::setActionCommand()
+{
+   stringstream ss;
+   for (int i = JID_ROOT ; i <= JID_RLEG_6 ; ++i)
+   {
+       if (i == JID_ROOT) continue;
+       ss << "(" << mEffectorName[i];
+       ss << " " << mJointVel[i] << ")";
+    }
+    mActionCommand = ss.str();
+ 
+}
+
+
+void Effectors::calculateVel(EJointID id, float angle, float maxVel)
+{
+    if (maxVel < 0)
+        {
+            std::cout << "calculateVel Error";
+            mJointVel[id] = 0.0f;
+            return ;
+        }
+
+    float curAngle = gRadToDeg(mJointAngle[id]);
+    float minus = gNormalizeDeg(angle - curAngle);
+    float vel = 0.0;
+
+    vel = gAbs(minus) > maxVel ? maxVel * gSign(minus) : minus;
+    vel = std::min(gDegToRad(vel) * 20.0f, 200.0f);
+    mJointVel[id] = vel;
+
+}

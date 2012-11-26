@@ -1,0 +1,8 @@
+#include "predicate.hh"
+#include <iostream>
+
+#define DEBUGLEVEL 0
+#include "../Preprocessor/debug.hh"
+
+using namespace std;
+using namespace bats;

@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps
+END
+createBehaviors.Po
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/createBehaviors.Po
+END
+achieveGoal.Po
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/achieveGoal.Po
+END
+buildTree.Po
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/buildTree.Po
+END
+update.Po
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/update.Po
+END
+reset.Po
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/reset.Po
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/.dirstamp
+END
+doLastChosen.Po
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/doLastChosen.Po
+END
+static.Po
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/static.Po
+END
+getMyParams.Po
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/getMyParams.Po
+END
+doNextStep.Po
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/doNextStep.Po
+END
+addToSlot.Po
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/addToSlot.Po
+END
+setGoal.Po
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/setGoal.Po
+END
+Behavior.Po
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/Behavior.Po
+END
+generateConf.Po
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/generateConf.Po
+END
+doCurrentStep.Po
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/.deps/doCurrentStep.Po
+END

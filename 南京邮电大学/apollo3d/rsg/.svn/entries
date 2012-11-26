@@ -1,0 +1,34 @@
+9
+
+dir
+23
+http://10.10.137.251/repos/server-xian/app/apollo3d/rsg
+http://10.10.137.251/repos
+
+
+
+2009-09-21T09:20:56.751235Z
+1
+root
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+b27f0e72-a68f-11de-86b5-7b10f0d14289
+
+boxspheres
+dir
+
+agent
+dir
+

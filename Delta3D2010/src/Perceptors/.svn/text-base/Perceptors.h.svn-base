@@ -1,0 +1,108 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#ifndef PERCEPTORS_H
+#define PERCEPTORS_H
+
+#include <string>    //needed for strings
+#include <iostream>  //needed for std::cout
+#include "../Utility/Types.h"   //needed for VisionSense struct and
+#include "../Skills/Kinematic.h"
+
+using namespace std;
+
+class Perceptors{
+
+public:
+                        Perceptors      (                       );
+    GyrSense		getGyr();
+    /**parse message that comes from server*/
+    void                parse           (string&       input    );
+    private:
+    float               getNum          ( int&         pointer,
+                                          string&      input    );
+
+    string              getWord         ( int&         pointer,
+                                          string&      input,
+                                          bool         let      );
+
+    void                setFlag         ( int&         pointer,
+                                          string&      input,
+                                          string&      name     );
+
+    void                setGoal         ( int&         pointer,
+                                          string&      input,
+                                          string&      name     );
+
+    void                setBall         ( int&         pointer,
+                                          string&      input    );
+
+    void                setFRP          ( int&         pointer,
+                                          string&      input,
+                                          string&      name     );
+
+    void                setUJoint       ( int&         pointer,
+                                          string&      input,
+                                          string&      name     );
+
+    void                setPlayer       ( int&         pointer,
+                                          string&      input    );
+
+    void                setPlayMode     ( int&         pointer,
+                                          string&      input    );
+
+    void                setTeamSide     ( int&         pointer,
+                                          string&      input    );
+
+    void                setHJoint       ( int&         pointer,
+                                          string&      input,
+                                          string&      name     );
+
+    bool                isChar          ( char         chr      );
+
+    bool                isNum           ( char         chr      );
+
+   
+
+protected:
+
+    ETeamSide           mTeamSide ;
+    EPlayMode           mPlayMode;       //current PlayMode
+    double              mTime;           //current play time
+    double              mSimTime;        //current simulation time 
+    std::string         mOppTeamName;    //teamOpponent name
+    GyrSense            mGyrSense;
+    int                 mTotalFlagSeen;  /// for decide to select localize metod
+
+    /// mapping from string to vision object
+    TVisionObjectMap    mVisionObjectMap;
+    /// mapping from vision object to vision sense object
+    TObjectToSenseMap   mObjectToSenseMap;
+    /// mapping from string to playmode object
+    TPlayModeMap        mPlayModeMap;
+    /// mapping from joint id to joint hinge sense object
+    THingeJointSenseMap mHingeJointSenseMap;
+    /// mapping from object name to joint id
+    TJointIDMap         mJointIDMap;
+    TFRPSenseMap        mFRPSenseMap;
+    /// mapping from object name to joint id
+    TFRPIDMap           mFRPIDMap;
+
+};
+#endif // PERCEPTORS_H

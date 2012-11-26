@@ -1,0 +1,110 @@
+//
+// C++ Implementation: Strategy
+//
+// Description: 
+//
+//
+// Author: delta3d team 2009 <deltateams2009@gmail.com>, (C) 2009
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+
+#include "Strategy.h"
+
+
+Strategy::Strategy()
+{
+}
+
+Strategy& Strategy::instance()
+{
+    static Strategy sStrategy;
+    return sStrategy;
+}
+
+void Strategy::createRole()
+{
+    Formation& formation = Formation::instance();
+    if(!role)
+    {
+        TPlayerTypeMap::const_iterator  iter = 
+                        formation.mPlayerTypeMap.find(WorldModel::i().getUnum());
+        if(iter == formation.mPlayerTypeMap.end())
+        {
+          std::cout <<"error not find player"<<WorldModel::i().getUnum()
+                    <<"  in formation"<<std::endl;
+//          return false;
+        }
+        if( (* iter).second == PT_GOALKEEPER )
+        {
+          role = boost::shared_ptr<SoccerRole>(RoleForward::create());
+          std::cout<< "RoleGoalie set"<<std::endl;
+        }
+        else if ((* iter).second == PT_MIDFIELDER )
+        {
+          role = boost::shared_ptr<SoccerRole>(RoleForward::create());
+          std::cout<< "RoleDefensive set"<<std::endl;
+        }
+        else if((* iter).second == PT_ATTACKER )
+        {
+          role = boost::shared_ptr<SoccerRole>(RoleForward::create());
+          std::cout<< "RoleForward set"<<std::endl;
+        }
+        else
+        {
+          std::cout<< "Error role not set"<<std::endl;
+        }
+    }
+
+    TeamPlayer::instance().think();
+
+}
+
+void Strategy::executeRole()
+{
+    if(role)
+    {
+       role->execute();
+       std::cout<<"role "<<role->name()<<" is executed"<<std::endl;
+    }
+
+}
+
+PlayerType Strategy::getPlayerType(  ) const
+{
+    
+    return Formation::instance().mPlayerTypeMap[WorldModel::instance().getUnum() ];
+}
+
+PlayerType Strategy::getPlayerType( const int number ) const
+{
+    if (  number < 1 || 11 <  number )
+    {
+        std::cout << ": Illegal number : " << number
+                  << std::endl;
+        return PT_NONE;
+    }
+    stringstream ss;
+    ss<<number;
+    return Formation::instance().mPlayerTypeMap[ ss.str() ];
+}
+
+
+
+void Strategy::analyzeOpponentFormation(  )
+{
+
+
+
+
+}
+
+
+void Strategy::analyzeOpponentStrategy(  )
+{
+
+
+
+
+}

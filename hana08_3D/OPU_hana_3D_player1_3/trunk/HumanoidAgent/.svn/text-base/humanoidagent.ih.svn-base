@@ -1,0 +1,11 @@
+#include "humanoidagent.hh"
+
+#include "worldmodel.hh"
+#include "logger.hh"
+
+#include <sstream>
+
+using namespace bats;
+
+#define DEBUGLEVEL 0
+#include "debug.hh"

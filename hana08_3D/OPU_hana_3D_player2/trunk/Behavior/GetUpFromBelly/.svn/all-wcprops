@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly
+END
+getupfrombelly.ih
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/getupfrombelly.ih
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/generateGoal.cc
+END
+GetUpFromBelly.cc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/GetUpFromBelly.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/getCapability.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/getCurrentState.cc
+END
+getupfrombelly.hh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetUpFromBelly/getupfrombelly.hh
+END

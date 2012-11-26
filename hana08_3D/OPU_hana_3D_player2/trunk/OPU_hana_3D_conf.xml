@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<conf xmlns:xi="http://www.w3.org/2003/XInclude"> 
+  <xi:include href="defender.xml" />
+
+  <player id="2" class="defender" /> <!-- guard 2 -->
+ 
+
+</conf>
+

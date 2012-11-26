@@ -1,0 +1,11 @@
+#include "conf.hh"
+
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+
+#define DEBUGLEVEL 0
+#include "../Preprocessor/debug.hh"
+
+using namespace bats;
+using namespace std;

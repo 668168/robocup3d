@@ -1,0 +1,81 @@
+//
+// C++ Interface: Agent
+//
+// Description:
+//
+//
+// Author: Pouyan Nasrollahi <deltateams2009@gmail.com>, (C) 2009
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+#include "../Skills/Trajectory.h"
+#include "../Skills/Walk.h"
+#include "../Skills/Kinematic.h"
+#include "../Effectors/AngularMotor.h"
+#include "../Skills/standup.h"
+#include "../Utility/getdataagent.h"
+#include "../Agent_Roles/RoleDefensive.h"
+#include "../Agent_Roles/RoleForward.h"
+#include "../Agent_Roles/RoleGoalie.h"
+#include "../WorldModel/FallDownRecognition.h"
+#include "../WorldModel/WorldModel.h"
+#include <string>
+#include <iostream>
+#include "../Formation/Formation.h"
+#include "../Strategy/Strategy.h"
+class Agent
+{
+public:
+    Agent();
+    ~Agent();
+
+    string queue[10];
+    int front,rear;
+    
+    int GetCycle() const;
+
+    void options(int argc, char* argv[]);
+
+    void connect(                       );
+
+    void think(				);
+
+    void sense(				);
+
+    void act(				);
+
+    bool start();	
+
+protected:
+
+    void behavior();
+
+private:
+
+    std::string s;
+
+    boost::shared_ptr<SoccerRole>   role;
+
+    std::string getActionType();
+
+    void setActionType(std::string &action);
+
+    std::string     mActionType;
+
+    int             mCycle;
+
+    bool            flag ;
+    
+    bool	    flag1;
+    
+    bool	    flag2;
+	
+    bool	    rotateFlag;
+//  getDataAgent    *getDataAgent;
+    FallDownRecognition	    *F;	
+    
+    
+
+	
+};

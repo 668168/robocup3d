@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE confdoc [
+<!ENTITY head_1 "0"> <!-- , /// Torso to head, X-Axis (not used) -->
+<!ENTITY head_2 "1"> <!-- , /// Torso to head, X-Axis (not used) -->
+<!ENTITY lleg1 "2"> <!-- , /// Torso to left hip, Z-Axis (twist left/right) -->
+<!ENTITY lleg2 "3"> <!-- , /// Left hip to Left thigh, X-Axis (backward/forward) -->
+<!ENTITY lleg3 "4"> <!-- , /// Left hip to Left thigh, Y-Axis (spread/close) -->
+<!ENTITY lleg4 "5"> <!-- , /// Left thigh to Left shank, X-Axis (bend/stretch) -->
+<!ENTITY lleg5 "6"> <!-- , /// Left shank to Left foot, X-Axis (forward/backward) -->
+<!ENTITY lleg6 "7"> <!-- , /// Left shank to Left foot, Y-Axis (left/right) -->
+<!ENTITY rleg1 "8"> <!-- , /// Torso to right hip, Z-Axis (twist left/right) -->
+<!ENTITY rleg2 "9"> <!-- , /// Right hip to Right thigh, X-Axis (backward/forward) -->
+<!ENTITY rleg3 "10"> <!-- , /// Right hip to Right thigh, Y-Axis (spread/close) -->
+<!ENTITY rleg4 "11"> <!-- , /// Right thigh to Right shank, X-Axis (bend/stretch) -->
+<!ENTITY rleg5 "12"> <!-- , /// Right shank to Right foot, X-Axis (forward/backward) -->
+<!ENTITY rleg6 "13"> <!-- , /// Right shank to Right foot, Y-Axis (left/right) -->
+<!ENTITY larm1 "14"> <!-- , /// Torso to Left shoulder, X-Axis (forward/backward) -->
+<!ENTITY larm2 "15"> <!-- , /// Torso to Left shoulder, Y-Axis (out/in) -->
+<!ENTITY larm3 "16"> <!-- , /// Left shoulder to Left upper arm, Z-Axis (twist left/right) -->
+<!ENTITY larm4 "17"> <!-- , /// Left upper arm to Left lower arm, X-Axis -->
+<!ENTITY rarm1 "18"> <!-- , /// Torso to Right shoulder, X-Axis (forward/backward) -->
+<!ENTITY rarm2 "19"> <!-- , /// Torso to Right shoulder, Y-Axis (out/in) -->
+<!ENTITY rarm3 "20"> <!-- , /// Right shoulder to Right upper arm, Z-Axis (twist left/right) -->
+<!ENTITY rarm4 "21"> <!--  /// Right upper arm to Right lower arm, X-Axis -->
+<!ENTITY wait "22"> <!--  /// Wait n seconds -->
+]>
+
+
+<behaviors>
+
+<behavior type="Sine" id="turnright_s">
+  <param>
+    <settings>
+&lleg1;: -11.2858 0.24 4.99812 -7.79037, 0.0389486 -1.45404 -2.70118 0;
+&rleg1;: -11.2858 0.24 4.99812 -7.79037, 0.0389486 -1.45404 -2.70118 0;
+&lleg3;: 8.21429 0.24 2.93907 18.2731, -0.225322 -1.45404 -2.86898 0;
+&rleg3;: 8.21429 0.24 6.08066 18.2731, -0.225322 -1.45404 0.272612 0;
+&lleg4;: 15.4667 0.24 -0.286811 -34.1874, -0.100343 -1.45404 -4.88469 0;
+&rleg4;: 15.4667 0.24 2.85478 -34.1874, -0.100343 -1.45404 -1.7431 0;
+&lleg5;: 8.21429 0.24 2.93907 18.2731, -0.225322 -1.45404 -2.86898 0;
+&rleg5;: 8.21429 0.24 6.08066 18.2731, -0.225322 -1.45404 0.272612 0;
+&larm1;: 0 0.24 0 -80;
+&rarm1;: 0 0.24 0 -80;
+&larm2;: 0 0.24 0 -20;
+&rarm2;: 0 0.24 0 20;
+&larm3;: 0 0.24 0 -90;
+&rarm3;: 0 0.24 0 90;
+	 </settings> 
+ 	 <startupTime><!--0.64--> 0.24
+	</startupTime>
+	<shutdownTime>0.48</shutdownTime>
+
+
+      
+    </param>
+    
+        <slot index="0-0">
+
+        </slot>
+        <slot index="0-1">
+
+        </slot>
+        <slot index="0-2">
+                <behavior refid="moveLeftHipTo"/>
+        </slot>
+        <slot index="0-3">
+                <behavior refid="moveLeftThighXTo"/>
+        </slot>
+        <slot index="0-4">
+                <behavior refid="moveLeftThighYTo"/>
+        </slot>
+        <slot index="0-5">
+                <behavior refid="moveLeftKneeTo"/>
+        </slot>
+        <slot index="0-6">
+                <behavior refid="moveLeftAnkleXTo"/>
+        </slot>
+        <slot index="0-7">
+                <behavior refid="moveLeftAnkleYTo"/>
+        </slot>
+        <slot index="0-8">
+                <behavior refid="moveRightHipTo"/>
+        </slot>
+        <slot index="0-9">
+                <behavior refid="moveRightThighXTo"/>
+        </slot>
+        <slot index="0-10">
+                <behavior refid="moveRightThighYTo"/>
+        </slot>
+        <slot index="0-11">
+                <behavior refid="moveRightKneeTo"/>
+        </slot>
+        <slot index="0-12">
+                <behavior refid="moveRightAnkleXTo"/>
+        </slot>
+        <slot index="0-13">
+                <behavior refid="moveRightAnkleYTo"/>
+        </slot>
+        <slot index="0-14">
+                <behavior refid="moveLeftShoulderXTo"/>
+        </slot>
+        <slot index="0-15">
+                <behavior refid="moveLeftShoulderYTo"/>
+        </slot>
+        <slot index="0-16">
+                <behavior refid="moveLeftShoulderZTo"/>
+        </slot>
+        <slot index="0-17">
+                <behavior refid="moveLeftElbowTo"/>
+        </slot>
+        <slot index="0-18">
+                <behavior refid="moveRightShoulderXTo"/>
+        </slot>
+        <slot index="0-19">
+                <behavior refid="moveRightShoulderYTo"/>
+        </slot>
+        <slot index="0-20">
+                <behavior refid="moveRightShoulderZTo"/>
+        </slot>
+        <slot index="0-21">
+                <behavior refid="moveRightElbowTo"/>
+        </slot>
+  
+  </behavior>
+
+</behaviors>

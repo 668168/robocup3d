@@ -1,0 +1,10 @@
+The files for this library have been taken from the rcssbase package
+(9.4.5) that can be found in the soccer server 
+repository (www.sf.net/projects/sserver). 
+
+Additionally, some files have been added to complete the library. This
+code has been ripped from the rcssbase library so that rcssserver3D
+users don't need to install so many libraries. Some features were
+missing (like a tcpsocket), which also could have been added to rcssbase. 
+This way was easier for us (and probably also for most of the users).
+

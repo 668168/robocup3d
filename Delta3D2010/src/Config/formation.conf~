@@ -1,0 +1,23 @@
+; formations.conf for Delta3D
+; Lines that starts with ';' are comment lines.
+;
+; We have the following player types:
+; -----------------------------------
+;	 PT_GOALKEEPER        = 1
+;        PT_LEFT_DEFENDER     = 3
+;        PT_RIGHT_DEFENDER    = 5
+;        PT_CENTER_MIDFIELDER = 7
+;        PT_LEFT_ATTACKER     = 10
+;        PT_RIGHT_ATTACKER    = 11
+;	
+;	
+; ------------------------------------
+
+; the field length = 18; field width = 12
+basic formation
+(player 1 (beam -8.0 0.0 0.0)(beforeKickOff -5 0.39 0)(home -8 0 0)(attraction 0.5 1.2)(xRange -10 20)(yRange -16 16)(behindBall 0)
+(player 3 (beam -7.0 3.0 0.0)(beforeKickOff -5 0.39 0)(home -7.0 3.0 0)(attraction 0.5 1.2)(xRange -10.0 0.0)(yRange 2.0 7.0)(behindBall 0)
+(player 5 (beam -7.0 -3.0 0.0)(beforeKickOff -5 0.39 0)(home -7.0 -3.0 0)(attraction 0.5 1.2)(xRange -10.0 0.0)(yRange -7.0 -2.0)(behindBall 0)
+(player 7 (beam -2.0 0.0 0.0)(beforeKickOff -5 0.39 0)(home -2.0 0.0 0.0)(attraction 0 -2)(xRange -10 -1.0)(yRange -2.0 2.0)(behindBall 0)
+(player 10 (beam -0.18 0.0 0.0)(beforeKickOff -5 0.39 0)(home 3.0 2.0 0)(attraction 0.5 1.2)(xRange -1.0 10.0)(yRange -7.0 -0.1)(behindBall 0)
+(player 11 (beam -2.0 -3.0 0.0)(beforeKickOff -5 0.39 0)(home 3.0 -2.0 0)(attraction 0.5 1.2)(xRange -1.0 10.0)(yRange 0.0 -7.0)(behindBall 0)

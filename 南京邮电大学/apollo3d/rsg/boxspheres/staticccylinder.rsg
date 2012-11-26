@@ -1,0 +1,17 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $radius $length $density $material)
+
+ (nd CCylinder
+       (setParams $radius $length)
+       (setMaterial $material)
+       )
+       
+ (nd CCylinderCollider
+       (setParams $radius $length)
+       )
+ )
+
+

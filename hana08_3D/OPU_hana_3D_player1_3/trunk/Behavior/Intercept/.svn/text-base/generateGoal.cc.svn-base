@@ -1,0 +1,67 @@
+#include "intercept.ih"
+
+rf<Behavior::Goal> Intercept::generateGoal(unsigned step, unsigned slot)
+{
+  rf<Goal> goal = new Goal();
+  rf<OrNode> dis = goal->addDisjunct();
+  rf<AndNode> con = dis->addConjunct();
+
+  WorldModel& wm = WorldModel::getInstance();
+  Vector3D tpos = d_goal->getVector("TPos");
+  Vector3D ballPos = wm.getObjectPosition(Types::BALL).getMu();
+
+  Vector3D straight(1,0,0);
+  tpos.setZ(0);
+  double angle = straight.angle(tpos) * M_PI / 180.0;
+
+  Vector3D goalPos1 = wm.getObjectPosition(Types::GOAL1US).getMu();
+  Vector3D goalPos2 = wm.getObjectPosition(Types::GOAL2US).getMu();
+
+  Vector3D goalToBall = ballPos - ((goalPos1 + goalPos2) / 2.0);
+
+  double goal1X = goalPos1.getX();
+  double goal1Y = goalPos1.getY();
+  double goal2X = goalPos2.getX();
+  double goal2Y = goalPos2.getY();
+  
+  if(wm.getSide() == WorldModel::LEFT)
+  {
+	double tmpX = goal1X;
+	double tmpY = goal1Y;
+	goal1X = goal2X;
+	goal1Y = goal2Y;
+	goal2X = tmpX;
+	goal2Y = tmpY;
+  }
+  Vector3D goalToStraight(goal2Y - goal1Y, goal1X - goal2X, 0);
+
+  if(tpos.getY() < 0)
+      angle *= -1;
+
+  switch (step)
+  {
+      case 0: // tripple
+	  std::cout << "Intercept::generateGoal Angle:" << angle << std::endl;
+//	  con->addVar("Angle", angle, angle); // degree
+	  if( goalToBall.length() >= 1.1 )
+	      con->addVar("Pos", tpos);
+	  else
+	      con->addVar("Pos", ballPos);
+	  break;
+      case 1: // nashi
+	  std::cout << "Intercept::generateGoal Pos:" << tpos << std::endl;
+	  con->addVar("Pos", tpos);
+	  break;
+      case 2: // dive
+//	  con->addVar("Pos", pos);
+//	  con->addVar("Angle", angle, angle); // degree
+
+	  break;
+      default:
+	  break;
+  }
+  
+  // con->addVar("Var", 0, 1);
+  
+  return goal;
+}

@@ -1,0 +1,55 @@
+
+-------------------------------------------------------------------------------
+                             SEU-3D README
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+General Information:
+This is SEU-3D-5v5 Team for RoboCupSoccer Simulation-3D Competitions in Southeast University.
+See http://172.19.10.78 for more information.
+
+-------------------------------------------------------------------------------
+Running environment:
+*SPADES 1.10
+*rcssserver3d-0.5.2-5v5
+
+-------------------------------------------------------------------------------
+Usage: seu-3d-player [options]
+
+options:
+ --help                 prints this message.
+ --teamname             sets the team name.
+ --unum                 sets the uniform number.
+ --formations_fn        sets the formations file name.
+
+-------------------------------------------------------------------------------
+To run, make sure that:
+1.  Copy agentdb.xml formations.conf to your *working directory*
+2.  Copy SEU-3D to your {$PATH} directory. This can be changed in file agentdb.xml
+3.  Make sure the NN directory is in the same directory with the binary
+
+Check the agent*-stdout.log to see if everything works fine.
+Please see agent*-stderr.log if there is any error.
+
+--------------------------------------------------------------------------------
+About SEU-3D:
+SEU-3D is the RoboCup Simulation 3D Team of Southeast University, China.
+
+Research Consulant: Yingzi TAN <tanyz@seu.edu.cn>
+Team Consulant:     Yingqiu XU
+
+Current Team members:
+Leader: Yuan XU <xuyuan.cn@gmail.com>
+Member: Chunlu JIANG
+        Qiang WANG <wangqiangqw@yahoo.com.cn>
+
+--------------------------------------------------------------------------------
+Contact:
+If you have any suggestions or questions, please contact us. It will be great pleasure for us to answer your questions.
+
+--------------------------------------------------------------------------------
+Thank you!
+Team SEU-3D
+Southeast University, Nanjing, China
+20/04/2007
+--------------------------------------------------------------------------------

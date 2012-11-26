@@ -1,0 +1,13 @@
+#include "worldmodel.hh"
+
+#include <stdexcept>
+#include <iostream>
+#include <cassert>
+
+#include "math.hh"
+
+#define DEBUGLEVEL 0
+#include "debug.hh"
+
+using namespace std;
+using namespace bats;

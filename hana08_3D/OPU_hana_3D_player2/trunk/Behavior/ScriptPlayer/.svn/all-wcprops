@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer
+END
+scriptplayer.hh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/scriptplayer.hh
+END
+scriptplayer.ih
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/scriptplayer.ih
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/generateGoal.cc
+END
+ScriptPlayer.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/ScriptPlayer.cc
+END
+reset.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/reset.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/ScriptPlayer/update.cc
+END

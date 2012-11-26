@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<agentdb
+  xmlns:adb="http://spades-sim.sourceforge.net/agentdbxml.html"
+  xmlns="http://spades-sim.sourceforge.net/agentdbxml.html"
+  adb:version="0.91"
+>
+
+<!--  This file specifies the different agent types and how to execute the agents -->
+
+<agent_type_external name="Forever10">
+  <inputfd>3</inputfd>
+  <outputfd>4</outputfd>
+  <timer>jiffies 20000</timer>
+  <working_dir>./</working_dir>
+  <exec_line>seu-3d-player --teamname Forever10</exec_line>
+</agent_type_external>
+
+</agentdb>

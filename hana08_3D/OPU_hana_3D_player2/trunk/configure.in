@@ -1,0 +1,35 @@
+AC_PREREQ(2.13)
+
+AC_INIT(humanoidbat.cc)
+
+PACKAGE=littlegreenbats
+VERSION=2007.1.0
+
+dnl Package name and version number (DO NOT MODIFY)
+dnl -----------------------------------------------
+
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+
+ACLOCAL_AMFLAGS='${ACLOCAL_FLAGS}'
+AC_SUBST(ACLOCAL_AMFLAGS)
+
+dnl Checks for programs.
+AC_PROG_CXX
+
+# Checks for libraries.
+dnl Headers used: ext/hash_map libxml/parser.h libxml/tree.h libxml/xinclude.h
+dnl   libxml/xpath.h libxml/xpathInternals.h sys/select.h
+
+PKG_CHECK_MODULES(DEPS, libxml-2.0)
+AC_CHECK_HEADER(sys/select.h)
+
+AC_SUBST(DEPS_CFLAGS)
+AC_SUBST(DEPS_LIBS)
+
+
+dnl Create makefiles
+AC_OUTPUT(Makefile)
+
+
+
+

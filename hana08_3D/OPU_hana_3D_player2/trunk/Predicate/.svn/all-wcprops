@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate
+END
+operator0.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/operator0.cc
+END
+predicate.ih
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/predicate.ih
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/.dirstamp
+END
+destroy.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/destroy.cc
+END
+toString.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/toString.cc
+END
+copy.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/copy.cc
+END
+generate.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/generate.cc
+END
+predicate.hh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Predicate/predicate.hh
+END

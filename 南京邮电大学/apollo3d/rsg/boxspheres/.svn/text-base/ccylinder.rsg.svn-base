@@ -1,0 +1,35 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $radius $length $totalMass $material)
+
+ (nd CCylinder
+       (setParams $radius $length)
+       (setMaterial $material)
+       )
+       
+ (nd Body
+       (setName ccylinderBody)
+       ;(setCappedCylinderTotal $totalMass $radius $length)
+       (setCappedCylinder $totalMass $radius $length)
+       )
+	     
+ (nd CCylinderCollider
+       (setParams $radius $length)
+       (nd ContactJointHandler
+	     (setContactBounceMode false)
+
+	     (setContactSlipMode true)
+	     (setContactSlip 0.1 0.1)
+
+	     (setContactSoftERPMode true)
+	     (setContactSoftERP 0.2)
+
+	     (setContactSoftCFM true)
+	     (setContactSoftCFM 0.01)
+	     )
+       )
+ )
+
+

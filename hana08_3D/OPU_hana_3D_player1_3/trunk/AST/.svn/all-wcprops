@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/.dirstamp
+END
+finddeep.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/finddeep.cc
+END
+select.cc
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/select.cc
+END
+find.cc
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/find.cc
+END
+ast.hh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/ast.hh
+END
+ast.ih
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/ast.ih
+END
+findalldeep.cc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/findalldeep.cc
+END
+selectall.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/selectall.cc
+END
+findall.cc
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/AST/findall.cc
+END

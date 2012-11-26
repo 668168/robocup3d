@@ -1,0 +1,4 @@
+#include "types.hh"
+
+using namespace std;
+using namespace bats;

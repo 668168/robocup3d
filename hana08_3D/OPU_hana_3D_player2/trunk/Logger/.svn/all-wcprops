@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/.dirstamp
+END
+time.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/time.cc
+END
+Logger.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/Logger.cc
+END
+initialize.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/initialize.cc
+END
+log.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/log.cc
+END
+logger.hh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/logger.hh
+END
+logger.ih
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/logger.ih
+END
+statics.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Logger/statics.cc
+END

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+    <behaviors>    
+    <behavior type="Console" id="console">
+		<slot index="0-0">
+		            <!--<behavior refid="moveHeadTo"/>-->
+        </slot>
+        <slot index="0-1">
+                <behavior refid="moveLeftHipTo"/>
+        </slot>
+        <slot index="0-2">
+                <behavior refid="moveLeftThighXTo"/>
+        </slot>
+        <slot index="0-3">
+                <behavior refid="moveLeftThighYTo"/>
+        </slot>
+        <slot index="0-4">
+                <behavior refid="moveLeftKneeTo"/>
+        </slot>
+        <slot index="0-5">
+                <behavior refid="moveLeftAnkleXTo"/>
+        </slot>
+        <slot index="0-6">
+                <behavior refid="moveLeftAnkleYTo"/>
+        </slot>
+        <slot index="0-7">
+                <behavior refid="moveRightHipTo"/>
+        </slot>
+        <slot index="0-8">
+                <behavior refid="moveRightThighXTo"/>
+        </slot>
+        <slot index="0-9">
+                <behavior refid="moveRightThighYTo"/>
+        </slot>
+        <slot index="0-10">
+                <behavior refid="moveRightKneeTo"/>
+        </slot>
+        <slot index="0-11">
+                <behavior refid="moveRightAnkleXTo"/>
+        </slot>
+        <slot index="0-12">
+                <behavior refid="moveRightAnkleYTo"/>
+        </slot>
+        <slot index="0-13">
+                <behavior refid="moveLeftShoulderXTo"/>
+        </slot>
+        <slot index="0-14">
+                <behavior refid="moveLeftShoulderYTo"/>
+        </slot>
+        <slot index="0-15">
+                <behavior refid="moveLeftShoulderZTo"/>
+        </slot>
+        <slot index="0-16">
+                <behavior refid="moveLeftElbowTo"/>
+        </slot>
+        <slot index="0-17">
+                <behavior refid="moveRightShoulderXTo"/>
+        </slot>
+        <slot index="0-18">
+                <behavior refid="moveRightShoulderYTo"/>
+        </slot>
+        <slot index="0-19">
+                <behavior refid="moveRightShoulderZTo"/>
+        </slot>
+        <slot index="0-20">
+                <behavior refid="moveRightElbowTo"/>
+        </slot>
+	</behavior>
+</behaviors>

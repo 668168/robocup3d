@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet
+END
+exception.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/exception.cpp
+END
+tcpsocket.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/tcpsocket.cpp
+END
+iosocketstream.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/iosocketstream.hpp
+END
+udpsocket.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/udpsocket.cpp
+END
+exception.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/exception.hpp
+END
+tcpsocket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/tcpsocket.hpp
+END
+socketstreambuf.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/socketstreambuf.hpp
+END
+udpsocket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/udpsocket.hpp
+END
+rcssnet3D_defines.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/rcssnet3D_defines.h
+END
+addr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/addr.cpp
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/README
+END
+handler.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/handler.cpp
+END
+addr.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/addr.hpp
+END
+isocketstream.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/isocketstream.hpp
+END
+handler.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/handler.hpp
+END
+socket.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/socket.cpp
+END
+osocketstream.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/osocketstream.hpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/CMakeLists.txt
+END
+socket.hpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/rcssnet/socket.hpp
+END

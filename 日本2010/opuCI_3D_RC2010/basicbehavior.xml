@@ -1,0 +1,140 @@
+<behaviors>
+
+  <!-- stepping -->
+  <behavior type="StandBy" id="standby">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="Freeze" id="freeze">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="Stop" id="stop">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="Search" id="search">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+  </behavior>
+  
+  <!-- dribble (= walk) -->
+  <behavior type="DribbleForward" id="dribbleforward">
+    <slot index="0-0">
+      <behavior refid="walk9_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="DribbleSide" id="dribbleside">
+    <slot index="0-0">
+      <behavior refid="sidestep6_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <!-- kick -->
+  <behavior type="CanKickLeft" id="cankickleft">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+    <slot index="1-0"> 
+      <!--<behavior refid="quickkickleft_sp" commit="1"/>-->
+      <behavior refid="kickleft3_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="CanKickRight" id="cankickright">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+    <slot index="1-0"> 
+      <behavior refid="kickright3_sp" commit="1"/>
+      <!--<behavior refid="quickkickright_sp" commit="1"/>-->
+    </slot>
+  </behavior>
+
+  <behavior type="KickLeftL" id="kickleftl">
+    <slot index="0-0">
+      <behavior refid="kickleft3l_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="KickRightR" id="kickrightr">
+    <slot index="0-0">
+      <behavior refid="kickright3r_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <!-- normal walk -->
+  <behavior type="WalkStraightTo" id="walkstraightto">
+    <slot index="0-0">
+      <behavior refid="walk9_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <!-- turn -->
+  <behavior type="TurnTo" id="turnto">
+    <slot index="0-0">
+      <behavior refid="turn4_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="TurnForDribble" id="turnfordribble">
+    <slot index="0-0">
+      <behavior refid="turn4_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="BestAngle" id="bestangle">
+    <slot index="0-0">
+      <behavior refid="turnto" commit="1"/>
+    </slot>
+  </behavior>
+
+  <!-- getting up -->
+  <behavior type="GetUpFromBelly" id="getupfrombelly">
+    <slot index="0-0">
+      <behavior refid="getup5_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GetUpFromBack" id="getupfromback">
+    <slot index="0-0">
+      <behavior refid="getupfromback5_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+
+  <behavior type="GetFromSide" id="getfromside">
+    <slot index="0-0">
+      <behavior refid="wavearms_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <!-- move without changing direction -->
+  <behavior type="GoodPosition" id="goodposition">
+    <slot index="0-0">
+      <behavior refid="omniwalk3_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="BestPosition" id="bestposition">
+    <slot index="0-0">
+      <!--<behavior refid="omniwalk2_s2" commit="1"/>      -->
+      <behavior refid="goodposition" commit="1"/>
+    </slot>
+  </behavior>
+
+  <!-- when GoalKick, turn to opponent goal and wait -->
+  <behavior type="TurnAndWait" id="turnandwait">
+    <slot index="0-0">
+      <behavior refid="turnto" />
+    </slot>
+  </behavior>
+</behaviors>

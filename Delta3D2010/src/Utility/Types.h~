@@ -1,0 +1,627 @@
+
+
+#ifndef TYPES_H
+#define TYPES_H
+
+#include <iostream>
+#include <string>
+#include <map>
+#include <cassert>
+#include <sstream>
+#include "../Math/Vector.h"
+#include "../salt/gmath.h"
+#include "../salt/vector.h"
+#include "../salt/matrix.h"
+#include "../Math/Mathematics.h"
+using namespace salt;
+using namespace Mathematics;
+using namespace std;//needed for string and map instead of std::map
+
+const string gTeamName     = "Delta3D";
+static const int  gTeamSize     = 6;
+
+static const     double    FieldLength          =  18.0;
+static const     double    FieldWidth           =  12.0;
+static const     double    FieldHeight          =  40.0;
+static const     double    GoalWidth            =  2.1;
+static const     double    GoalDepth            =  0.6;
+static const     double    GoalHeight           =  0.8;
+static const     double    PenaltyLength        =  1.8;
+static const     double    PenaltyWidth         =  3.9;
+static const     double    FreeKickDistance     =  1.3;
+static const     double    FreeKickMoveDist     =  1.5;
+static const     double    GoalKickDist         =  1.0;
+static const     double    WaitBeforeKickOff    =  2.0;
+static const     float     MaxWalkSpeedForward  =  90.0;
+static const     float     MinWalkSpeedForward  =  8.0;
+static const     float     MaxWalkSpeedBackward =  90.0;
+static const     float     MinWalkSpeedBackward =  0.000001;
+static const     float     MaxWalkTurn          =  12.0;
+static const     bool      AutomaticKickOff     =  false;
+static const     float     MaxKickableDistance  =  0.098f;
+
+
+struct shootJoint{
+	int time[10];
+	double rae1[10];
+	double lae1[10];
+	double rae2[10];
+	double lae2[10];
+	double rle1[10];
+	double lle1[10];
+	double rle2[10];
+	double lle2[10];
+	double rle3[10];
+	double lle3[10];
+	double rle4[10];
+	double lle4[10];
+	double rle5[10];
+	double lle5[10];
+	double rle6[10];
+	double lle6[10];
+};
+
+
+
+enum EGkHomePos
+{
+   LEFT,
+   CENTER,
+   RIGHT
+};
+
+enum EFieldArea
+{
+   DEFENSIVE_LEFT=1,
+   DEFENSIVE_CENTER,
+   DEFENSIVE_RIGHT,
+   MID_LEFT,
+   MID_CENTER,
+   MID_RIGHT,
+   FORWARD_LEFT,
+   FORWARD_CENTER,
+   FORWARD_RIGHT
+
+};
+
+
+struct GyrSense
+{
+    double x;
+    double y;
+    double z;
+};
+
+struct AccSense
+{
+    double x;
+    double y;
+    double z;
+};
+//!a struct for storing coordinate system
+struct PolarSense
+{
+    ///<x> <y> <z> coordination
+    double x;
+    double y;
+    double z;
+    PolarSense() : x ( 0.0 ), y ( 0.0 ), z ( 0.0 ) {};//constructor
+};
+
+
+
+struct WalkParams
+{
+    float mDs3D[2];
+    float Tc;
+    float Td;
+    float Tm;
+    float Xed;
+    float Xsd;
+    float Hnor;
+    float Hao;
+    float TurnAngle;
+//for turn tc=0.23 and hao=0.04
+    WalkParams() : Tc ( 0.2f ),Td ( 0.04f ),Tm ( 0.1f ),
+                   Xed ( 0.07f ),Xsd ( 0.07f ),Hnor ( 0.2151f ),
+                   Hao ( 0.10f ),TurnAngle ( 0.0f )
+    {
+        mDs3D[0] = 0.0f;
+        mDs3D[1] = 0.14f;
+    }
+    
+    static WalkParams&  instance()
+    {
+       static WalkParams sWalkParams;
+       return sWalkParams;
+
+    }
+};
+
+struct ModelParams
+{
+    float  Lan;
+    float  Laf;
+    float  Lab;
+    float  Lth;
+    float  Lsh;
+    float  Hgs;
+    float  Hge;
+    float  TorsoRot_X;
+    float  TorsoRelHip_Z;
+    float  FootOffset_X;
+
+    ModelParams () : Lan ( 0.035f ),Laf ( 0.08f ),Lab ( 0.08f ),Lth ( 0.1201f ),Lsh ( 0.1f ),Hgs ( 0.015f ),
+            Hge ( 0.015f ),TorsoRot_X ( -10.0f ),TorsoRelHip_Z ( 0.115f ),FootOffset_X ( 0.055f )
+    {};
+};
+//!a stuct for storing FRP information such as center of FRP and Force FRP
+struct FRPSense
+{
+    float c_x;
+    float c_y;
+    float c_z;
+    float f_x;
+    float f_y;
+    float f_z;
+    FRPSense() :  c_x ( 0.0 ), c_y ( 0.0 ), c_z ( 0.0 ), f_x ( 0.0 ), f_y ( 0.0 ), f_z ( 0.0 ) {};//constructor
+};
+
+/**a struct for storing vision in polar coordinate system**/
+struct VisionSense
+{
+    /** distance perceptor to object */
+    double         distance;
+
+    /** theta is the angle in the X-Y (horizontal) plane */
+    double         theta;
+
+    /** phi is the latitude angle (delta z) */
+    double         phi;
+
+    ///right Arm 
+    double distanceFromRightArm;
+
+    double thetaFromRightArm;
+
+    double phiFromRightArm;
+
+    ///left Arm
+    double distanceFromLeftArm;
+
+    double thetaFromLeftArm;
+
+    double phiFromLeftArm;
+    
+    ///right foot
+    double distanceFromRightFoot;
+
+    double thetaFromRightFoot;
+
+    double phiFromRightFoot;
+    
+    ///left Foot
+    double distanceFromLeftFoot;
+
+    double thetaFromLeftFoot;
+
+    double phiFromLeftFoot;
+/////////
+    salt::Vector3f localPos;
+
+    salt::Vector3f realPos;
+    
+    double         lastTimeSeen;
+
+    /** init with some big number to find out bug easlier */
+    inline VisionSense() : distance ( -1000.0 ), theta ( -1000.0 ), phi ( -1000.0 ),lastTimeSeen ( -1000.0 )
+    {
+        localPos = Vector3f ( -1000.0,-1000.0,-1000.0 );
+        realPos = Vector3f ( -1000.0,-1000.0,-1000.0 );
+    };
+};
+
+/**a struct for storing HingJoint information**/
+struct HingeJointSense
+{
+    /** joint angle */
+    double angle;
+
+    /** joint angle rate */
+    double rate;
+
+    HingeJointSense() : angle ( 0 ), rate ( 0 ) {};
+};
+
+/**a struct for storing UniversalJoint information**/
+struct UniversalJointSense
+{
+    /** joint angle axis 1*/
+    float angle1;
+
+    /** joint angle axis 2*/
+    float angle2;
+
+    /** joint angle rate axis 1*/
+    float rate1;
+
+    /** joint angle rate axis 2*/
+    float rate2;
+
+    UniversalJointSense() : angle1 ( 0 ), angle2 ( 0 ), rate1 ( 0 ), rate2 ( 0 ) {};
+};
+/**a struct for storing Hear information**/
+struct HearInfo
+{
+    float           time;
+    std::string     sender;
+    std::string     message;
+};
+
+
+enum EAction
+{
+    ACT_WALK,
+    ACT_KICK,
+    ACT_STANDUP,
+    ACT_WALK_FORWARD,
+    ACT_WALK_BACKWARD,
+    ACT_WALK_LEFT,
+    ACT_WALK_RIGHT,
+    ACT_STAND_UP_FORWARD,
+    ACT_STAND_UP_BACK,
+    ACT_CATCH_LEFT,
+    ACT_CATCH_RIGHT,
+    ACT_KICK_FORWARD,
+    ACT_KICK_BAKWARD,
+    ACT_KICK_LEFT,
+    ACT_KICK_RIGHT,
+    ACT_CATCH,
+    ACT_STOP,
+    ACT_NONE
+};
+
+
+/**a enumeration that indicate teamId **/
+enum TeamId
+{
+    TI_TEAMMATE = 0,
+    TI_OPPONENT = 1,
+};
+enum ESide
+{
+    SIDE_FORWARD,
+    SIDE_BACKWARD,
+    SIDE_LEFT,
+    SIDE_RIGHT,
+    SIDE_ROTATE,
+    SIDE_NONE
+};
+
+enum EObjectSet
+{
+  PLAYER_SET,
+  TEAMMATE_SET,
+  OPPONENT_SET,
+  NONE_SET
+};
+
+/**a enumeration that indicate teamSide **/
+enum ETeamSide
+{
+    TS_NONE ,
+    TS_LEFT ,
+    TS_RIGHT
+};
+
+/**a enumeration that indicate FRP applying in left foot or right foot**/
+enum EFRPID
+{
+    FID_RF    =    0,
+    FID_LF    =    1
+};
+
+/**a enumeration for joints id **/
+enum EJointID
+{
+    JID_ROOT           = 1,
+    JID_HEAD_1         = 2,
+    JID_HEAD_2         = 3,
+
+    JID_LARM_1         = 4,
+    JID_RARM_1         = 5,
+    JID_LARM_2         = 6,
+    JID_RARM_2         = 7,
+    JID_LARM_3         = 8,
+    JID_RARM_3         = 9,
+    JID_LARM_4         = 10,
+    JID_RARM_4         = 11,
+
+    JID_LLEG_1         = 12,
+    JID_RLEG_1         = 13,
+    JID_LLEG_2         = 14,
+    JID_RLEG_2         = 15,
+    JID_LLEG_3         = 16,
+    JID_RLEG_3         = 17,
+    JID_LLEG_4         = 18,
+    JID_RLEG_4         = 19,
+    JID_LLEG_5         = 20,
+    JID_RLEG_5         = 21,
+    JID_LLEG_6         = 22,
+    JID_RLEG_6         = 23
+};
+/**a enumeration for joints id **/
+enum EJointID1
+{
+//     JID_ROOT           = 1,
+//     JID_HEAD_1         = 2,
+//     JID_HEAD_2         = 3,
+// 
+//     JID_LARM_1         = 4,
+//     JID_RARM_1         = 5,
+//     JID_LARM_2         = 6,
+//     JID_RARM_2         = 7,
+//     JID_LARM_3         = 8,
+//     JID_RARM_3         = 9,
+//     JID_LARM_4         = 10,
+//     JID_RARM_4         = 11,
+// 
+//     JID_LLEG_1         = 12,
+//     JID_RLEG_1         = 13,
+//     JID_LLEG_2         = 14,
+//     JID_RLEG_2         = 15,
+//     JID_LLEG_3         = 16,
+//     JID_RLEG_3         = 17,
+//     JID_LLEG_4         = 18,
+//     JID_RLEG_4         = 19,
+//     JID_LLEG_5         = 20,
+//     JID_RLEG_5         = 21,
+//     JID_LLEG_6         = 22,
+//     JID_RLEG_6         = 23
+    JID1_HEAD_2         = 1,
+    JID1_LLEG_1         = 2,
+    JID1_RLEG_1         = 3,
+    JID1_LLEG_2         = 4,
+    JID1_RLEG_2         = 5,
+    JID1_LLEG_3         = 6,
+    JID1_RLEG_3         = 7,
+    JID1_LLEG_4         = 8,
+    JID1_RLEG_4         = 9,
+    JID1_LLEG_5         = 10,
+    JID1_RLEG_5         = 11,
+    JID1_LLEG_6         = 12,
+    JID1_RLEG_6         = 13,
+    JID1_LARM_1         = 14,
+    JID1_RARM_1         = 15,
+    JID1_LARM_2         = 16,
+    JID1_RARM_2         = 17,
+    JID1_LARM_3         = 18,
+    JID1_RARM_3         = 19,
+    JID1_LARM_4         = 20,
+    JID1_RARM_4         = 21,
+    JID1_ROOT           = 22,
+    JID1_HEAD_1         = 23
+
+
+
+
+
+};
+
+
+enum FallDownRecognizeation{
+	FDR_BALANCEFACTOR_START    =  100,
+	FDR_BALANCEFACTOR_END      =  300,
+	FDR_FRPBALANCEMAX	   =  20,
+};
+
+enum SearchHead{
+	RANGEABS    		=  120,
+};
+
+enum SearchSide{
+	SEARC_FROM_LEFT         =  0,
+	SEARCH_FROM_RIGHT	=  1,
+};
+
+
+enum ERobotPart
+{
+    PART_BODY        = JID_ROOT,
+    PART_HEAD        = JID_HEAD_1, ///sar
+    PART_NECK        = JID_HEAD_2, ///gardan
+    PART_LSHOULDER   = JID_LARM_1, ///shane(ketf)
+    PART_RSHOULDER   = JID_RARM_1, ///shane(ketf)
+    PART_LUPPERARM   = JID_LARM_2, ///balaie bazoo
+    PART_RUPPERARM   = JID_RARM_2, ///balaie bazoo
+    PART_LELBOW      = JID_LARM_3, ///aranj
+    PART_RELBOW      = JID_RARM_3, ///aranj
+    PART_LLOWERARM   = JID_LARM_4, ///paeene bazoo
+    PART_RLOWERARM   = JID_RARM_4, ///paeene bazoo
+    PART_LHIP_1      = JID_LLEG_1, ///hip(turn)
+    PART_RHIP_1      = JID_RLEG_1, ///hip(turn)
+    PART_LHIP_2      = JID_LLEG_2, ///hip(open&close)
+    PART_RHIP_2      = JID_RLEG_2, ///hip(open&close)
+    PART_LTHIGH      = JID_LLEG_3, ///ran
+    PART_RTHIGH      = JID_RLEG_3, ///ran
+    PART_LSHANK      = JID_LLEG_4, ///sagh
+    PART_RSHANK      = JID_RLEG_4, ///sagh
+    PART_LANKLE      = JID_LLEG_5, ///ghoozak
+    PART_RANKLE      = JID_RLEG_5, ///ghoozak
+    PART_LFOOT       = JID_LLEG_6,
+    PART_RFOOT       = JID_RLEG_6
+};
+
+enum FRONTStandUp
+{
+    UPPING_LEG_CYCLE    = 40,
+    UPPING_RIGHTLEG_ARM1    = 0 ,
+    UPPING_LEFTLEG_ARM1    = 0,
+    BENDING_CYCLE        = 91,
+    BENDING_ARM3        = 60,
+    BENDING_LEG3        = 90,
+    STANGINGUP_CYCLE    = 145,
+    STANDINGUP_RIGHTLEG3    = 0,
+    STANDINGUP_LEFTLEG3    = 0,
+};
+
+enum EBACKStandUp
+{
+    START_SITTING_DOWN    = 40  ,
+    END_SITTING_DOWN      = 65  ,
+    START_OPEN_LEG        = 80 ,
+    END_OPEN_LEG          = 100,
+    START_CROSS_STAND_UP  = 110 ,
+    END_CROSS_STAND_UP    = 130 ,
+    START_FULL_STAND_UP   = 140 ,
+    END_FULL_STAND_UP     = 160 ,
+    START_CONTROL_MOTOR   = 1   ,
+    END_CONTROL_MOTOR     = -1
+};
+/**a enumeration that indicate fall down direction **/
+enum EFallDir
+{
+    NO_FALL,
+    FALL_FRONT,
+    FALL_BACK,
+    FALL_LEFT,
+    FALL_RIGHT
+};
+
+
+/**a enumeration for all vision object  **/
+enum EVisionObject
+{
+    FLAG_1_L    = 0,
+    FLAG_1_R    = 1,
+    FLAG_2_L    = 2,
+    FLAG_2_R    = 3,
+    GOAL_1_L    = 4,
+    GOAL_1_R    = 5,
+    GOAL_2_L    = 6,
+    GOAL_2_R    = 7,
+    BALL        = 8,
+
+    TEAMMATE_1  = 9,
+    TEAMMATE_2  = 10,
+    TEAMMATE_3  = 11,
+    TEAMMATE_4  = 12,
+    TEAMMATE_5  = 13,
+    TEAMMATE_6  = 14,
+    TEAMMATE_7  = 15,
+    TEAMMATE_8  = 16,
+    TEAMMATE_9  = 17,
+    TEAMMATE_10 = 18,
+    TEAMMATE_11 = 19,
+
+    OPPONENT_1  = 20,
+    OPPONENT_2  = 21,
+    OPPONENT_3  = 22,
+    OPPONENT_4  = 23,
+    OPPONENT_5  = 24,
+    OPPONENT_6  = 25,
+    OPPONENT_7  = 26,
+    OPPONENT_8  = 27,
+    OPPONENT_9  = 28,
+    OPPONENT_10 = 29,
+    OPPONENT_11 = 30,
+    OBJECT_NONE
+};
+
+enum EPlayMode
+{
+    PM_BeforeKickOff = 0,     /*!   before kick off          */
+    PM_KickOff_Left,          /*!   kick off for left team   */
+    PM_KickOff_Right,         /*!   kick off for right team  */
+    PM_PlayOn,                /*!   play on (during match)   */
+    PM_KickIn_Left,           /*!   kick in for left team    */
+    PM_KickIn_Right,          /*!   kick in for right team   */
+    PM_CORNER_KICK_LEFT,      /*!   corner kick left team    */
+    PM_CORNER_KICK_RIGHT,     /*!   corner kick right team   */
+    PM_GOAL_KICK_LEFT,        /*!   goal kick for left team  */
+    PM_GOAL_KICK_RIGHT,       /*!   goal kick for right team */
+    PM_OFFSIDE_LEFT,          /*!   offside for left team    */
+    PM_OFFSIDE_RIGHT,         /*!   offside for right team   */
+    PM_GameOver,              /*!   quit                     */
+    PM_Goal_Left,             /*!   goal scored by team left */
+    PM_Goal_Right,            /*!   goal scored by team righ */
+    PM_FREE_KICK_LEFT,        /*!   free kick for left team  */
+    PM_FREE_KICK_RIGHT,       /*!   free kick for right team */
+    PM_NONE                   /*!   unknown playmode         */
+} ;
+enum eState
+{
+    S_Wait,
+    S_Sit,
+    S_SwingLeft,
+    S_SwingRight
+};
+
+enum PlayerType
+{
+    PT_GOALKEEPER = 1,
+    PT_LEFT_DEFENDER=3,
+    PT_RIGHT_DEFENDER=5,
+    PT_CENTER_MIDFIELDER=7,
+    PT_LEFT_ATTACKER = 10,
+    PT_RIGHT_ATTACKER   = 11,
+    PT_NONE
+};
+
+
+struct FormationData
+{
+    PlayerType type;
+    Vector3f beamPos;
+    Vector3f beforeKickOff;
+    Vector3f homePos;
+    Vector2f attraction;
+    Vector2f xRange;
+    Vector2f yRange;
+    float behindBall;
+
+    //constructor
+    FormationData()
+            : type ( PT_NONE ),behindBall ( 1000 )
+    {
+        beamPos       = Vector3f ( -1000, -1000 , -1000 );
+        beforeKickOff = Vector3f ( -1000, -1000 , -1000 );
+        homePos       = Vector3f ( -1000, -1000 , -1000 );
+        attraction    = Vector2f ( -1000, -1000 );
+        xRange        = Vector2f ( -1000, -1000 );
+        yRange        = Vector2f ( -1000, -1000 );
+    }
+};
+
+
+
+
+/** typedef */
+
+typedef int                                  RobotPart;
+
+typedef int                                  JointID;
+
+typedef map<JointID, HingeJointSense>        THingeJointSenseMap;
+
+typedef map<EJointID, UniversalJointSense>   TUniversalJointSenseMap;
+
+typedef map<std::string, JointID>            TJointIDMap;
+
+typedef map<std::string, EFRPID>             TFRPIDMap;
+
+typedef map<EFRPID, FRPSense>                TFRPSenseMap;
+
+typedef map<EVisionObject, VisionSense>      TObjectToSenseMap;
+
+typedef map<string, EVisionObject>           TVisionObjectMap;
+
+typedef map<std::string , EPlayMode>         TPlayModeMap;
+
+typedef map<string, PlayerType>              TPlayerTypeMap;
+
+typedef map<PlayerType , FormationData>      TFormationDataMap;
+
+typedef map<JointID, std::string>            TJointEffectorMap;
+
+#endif

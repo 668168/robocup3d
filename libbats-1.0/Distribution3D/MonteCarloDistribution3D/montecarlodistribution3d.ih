@@ -1,0 +1,11 @@
+#include "montecarlodistribution3d.hh"
+#include "../NormalDistribution3D/normaldistribution3d.hh"
+
+#include <iostream>
+#include <numeric>
+
+#define DEBUGLEVEL 0
+#include "../../Preprocessor/debug.hh"
+
+using namespace bats;
+using namespace std;

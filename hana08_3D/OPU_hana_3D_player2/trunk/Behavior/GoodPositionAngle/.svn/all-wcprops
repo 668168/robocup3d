@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/37/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/generateGoal.cc
+END
+goodpositionangle.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/goodpositionangle.hh
+END
+goodpositionangle.ih
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/goodpositionangle.ih
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/hana08_3D/!svn/ver/37/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/getCapability.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/getCurrentState.cc
+END
+GoodPositionAngle.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GoodPositionAngle/GoodPositionAngle.cc
+END

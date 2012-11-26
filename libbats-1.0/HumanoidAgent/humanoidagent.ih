@@ -1,0 +1,12 @@
+#include "humanoidagent.hh"
+
+#include "../AgentModel/agentmodel.hh"
+#include "../Conf/conf.hh"
+
+#include <sstream>
+
+//#define DEBUGLEVEL 1
+#include "../Preprocessor/debug.hh"
+
+using namespace bats;
+

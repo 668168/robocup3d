@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Connection
+END
+Connection.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Connection/Connection.cpp
+END
+Connection.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Connection/Connection.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Connection/CMakeLists.txt
+END

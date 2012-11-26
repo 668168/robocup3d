@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/getCapability.cc
+END
+getfromside.hh
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/getfromside.hh
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/getCurrentState.cc
+END
+getfromside.ih
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/getfromside.ih
+END
+GetFromSide.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Behavior/GetFromSide/GetFromSide.cc
+END

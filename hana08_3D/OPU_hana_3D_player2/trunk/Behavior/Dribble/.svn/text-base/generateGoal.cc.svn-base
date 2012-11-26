@@ -1,0 +1,39 @@
+#include "dribble.ih"
+
+rf<Behavior::Goal> Dribble::generateGoal(unsigned step, unsigned slot)
+{
+  rf<Goal> goal = new Goal();
+  rf<OrNode> dis = goal->addDisjunct();
+  rf<AndNode> con = dis->addConjunct();
+
+  WorldModel& wm = WorldModel::getInstance();
+  
+
+//  std::cout << "Dribble::generateGoal : step=" << step << std::endl;
+  // con->addVar("Var", 0, 1);
+  if(step == 0) // dribbleforward
+      return d_goal;
+  else if(step == 1) // turn to 
+  {
+//      std::cout << "step == 1 : true" << std::endl;
+      rf<StateVarNode> angleNode = rf_cast<StateVarNode>(d_goal->findDeep("Angle"));
+//      std::cout << "angleNode = rf_cast..." << std::endl;
+      StateVar angleVar = angleNode->getVar();
+//      std::cout << "angleVar=getVar..." << std::endl;
+      double angle = angleVar.second.mean();
+
+	  Vector3D ballPos = wm.getObjectPosition(Types::BALL).getMu();
+/*      
+	  Vector3D toGoal = (wm.getObjectPosition(Types::GOAL1THEM).getMu() + wm.getObjectPosition(Types::GOAL2THEM).getMu()) / 2.0;
+	  toGoal.setZ(0.0);
+	  Vector3D straight(1.0, 0.0, 0.0);
+	  double angle = straight.angle(toGoal) /M_PI * 180.0;
+*/
+      con->addVar("Angle", angle, angle);
+      con->addVar("Pos", ballPos);
+      return goal;
+  }
+//  std::cout << "Dribble::generateGoal : step!=1 && step!=0" << step << std::endl;
+  return goal;
+
+}

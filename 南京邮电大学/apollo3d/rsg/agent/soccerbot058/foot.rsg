@@ -1,0 +1,62 @@
+;; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+  (templ $name $perceptorName $effectorName $frpName $attach
+	 $x $y $z
+	 $lenX $lenY $lenZ
+	 $anchorX $anchorY $anchorZ
+	 $axis1X $axis1Y $aixs1Z $minDeg1 $maxDeg1
+	 $axis2X $axis2Y $aixs2Z $minDeg2 $maxDeg2
+	 $ankLenX $ankLenY $ankLenZ
+	 $totalMass $material)
+
+  (nd Transform
+        (setName $name)
+        (setLocalPos $x $y $z)
+        (importScene rsg/agent/soccerbot058/box_with_handler.rsg
+		     $lenX $lenY $lenZ
+		     $totalMass $material)
+
+        ;; install universal joint
+        (nd UniversalJoint
+            (attach ../boxBody $attach)
+            (setAnchor $anchorX $anchorY $anchorZ)
+            (setAxis1 $axis1X $axis1Y $aixs1Z)
+            (setAxis2 $axis2X $axis2Y $aixs2Z)
+
+            ;; enable the joint motors
+            (setMaxMotorForce 0 100)
+            (setMaxMotorForce 1 100)
+	    ;; install a perceptor
+            (nd UniversalJointPerceptor (setName $perceptorName) )
+
+            ;; install an effector to control the joint motors
+            (nd UniversalJointEffector (setName $effectorName) )
+
+            ;; set joint stops
+            (setLowStopDeg 0 $minDeg1)
+            (setHighStopDeg 0 $maxDeg1)
+            (setLowStopDeg 1 $minDeg2)
+            (setHighStopDeg 1 $maxDeg2)
+            )
+
+	;; install FRP
+        (nd ForceResistancePerceptor
+	    (setName $frpName)
+	    )
+
+	;; static box at the back of the foot
+        (nd Transform
+	    (setLocalPos 0.0
+			 (eval -1 * (eval (eval $lenY / 2.0)
+					  - (eval $ankLenY / 2.0)))
+			 (eval (eval $lenZ / 2.0) + (eval $ankLenZ / 2.0))
+			 )
+	    (nd Box
+		(setMaterial matGrey)
+		(setExtents $ankLenX $ankLenY $ankLenZ)
+		)
+	    )
+        )
+)

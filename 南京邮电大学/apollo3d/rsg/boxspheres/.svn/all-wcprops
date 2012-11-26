@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres
+END
+sphere.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/sphere.rsg
+END
+arena.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/arena.rsg
+END
+box.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/box.rsg
+END
+simspark.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/simspark.rsg
+END
+sphere_debug.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/sphere_debug.rsg
+END
+staticsphere.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/staticsphere.rsg
+END
+box_debug.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/box_debug.rsg
+END
+staticbox.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/staticbox.rsg
+END
+row.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/row.rsg
+END
+box_with_handler055.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/box_with_handler055.rsg
+END
+box_with_handler056.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/box_with_handler056.rsg
+END
+layer.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/layer.rsg
+END
+ccylinder.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/ccylinder.rsg
+END
+box_with_handler.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/box_with_handler.rsg
+END
+staticccylinder.rsg
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/!svn/ver/1/server-xian/app/apollo3d/rsg/boxspheres/staticccylinder.rsg
+END

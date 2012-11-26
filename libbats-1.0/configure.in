@@ -1,0 +1,31 @@
+AC_PREREQ(2.13)
+
+dnl Package name and version number (DO NOT MODIFY)
+dnl -----------------------------------------------
+
+AC_INIT([libbats], [1.0])
+AM_INIT_AUTOMAKE([foreign])
+
+ACLOCAL_AMFLAGS='${ACLOCAL_FLAGS}'
+AC_SUBST(ACLOCAL_AMFLAGS)
+
+dnl Checks for programs.
+AC_PROG_CXX
+AC_PROG_LIBTOOL
+AC_PROG_INSTALL
+
+# Checks for libraries.
+dnl Headers used: ext/hash_map libxml/parser.h libxml/tree.h libxml/xinclude.h
+dnl   libxml/xpath.h libxml/xpathInternals.h sys/select.h
+
+PKG_CHECK_MODULES(DEPS, libxml-2.0)
+AC_CHECK_HEADER([sys/select.h signal.h])
+AC_CHECK_PROG([PDFLATEX], [pdflatex], [yes], [no])
+AM_CONDITIONAL(COND_PDFLATEX, test x$PDFLATEX != x)
+
+AC_SUBST(DEPS_CFLAGS)
+AC_SUBST(DEPS_LIBS)
+
+dnl Create makefiles
+AC_OUTPUT(Makefile docs/Makefile docs/manual/Makefile examples/Makefile examples/helloworld/Makefile)
+

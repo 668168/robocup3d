@@ -1,0 +1,10 @@
+// This is an internal header file, used to include headers and namespaces
+// needed by the members of HelloWorldAgent
+#include "helloworldagent.hh"
+
+#include "WorldModel/worldmodel.hh"
+#include "AgentModel/agentmodel.hh"
+#include "Cerebellum/cerebellum.hh"
+
+using namespace bats;
+

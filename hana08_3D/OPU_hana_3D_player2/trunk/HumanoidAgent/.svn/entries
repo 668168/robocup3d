@@ -1,0 +1,98 @@
+8
+
+dir
+43
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D/littlegreenbats_new_2/trunk/HumanoidAgent
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D
+
+
+
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+33cc309f-e38f-ca4e-aaf3-b9465a6fa55b
+
+.dirstamp
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+humanoidagent.hh
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+0a533f41c5611b5ae9baca36628d3833
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+humanoidagent.ih
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+09cbeb043f37704c74fd6c035c91d084
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+startUp.cc
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+a1210a07871e4c9f5351b056c8e6afdc
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+run.cc
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+e1462fd5a88840aa2ce4aa7216b0d760
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+.deps
+dir
+
+HumanoidBat
+dir
+

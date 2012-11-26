@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE confdoc [
+<!ENTITY head_1 "0"> <!-- , /// Torso to head, X-Axis (not used) -->
+<!ENTITY lleg1 "1"> <!-- , /// Torso to left hip, Z-Axis (twist left/right) -->
+<!ENTITY lleg2 "2"> <!-- , /// Left hip to Left thigh, X-Axis (backward/forward) -->
+<!ENTITY lleg3 "3"> <!-- , /// Left hip to Left thigh, Y-Axis (spread/close) -->
+<!ENTITY lleg4 "4"> <!-- , /// Left thigh to Left shank, X-Axis (bend/stretch) -->
+<!ENTITY lleg5 "5"> <!-- , /// Left shank to Left foot, X-Axis (forward/backward) -->
+<!ENTITY lleg6 "6"> <!-- , /// Left shank to Left foot, Y-Axis (left/right) -->
+<!ENTITY rleg1 "7"> <!-- , /// Torso to right hip, Z-Axis (twist left/right) -->
+<!ENTITY rleg2 "8"> <!-- , /// Right hip to Right thigh, X-Axis (backward/forward) -->
+<!ENTITY rleg3 "9"> <!-- , /// Right hip to Right thigh, Y-Axis (spread/close) -->
+<!ENTITY rleg4 "10"> <!-- , /// Right thigh to Right shank, X-Axis (bend/stretch) -->
+<!ENTITY rleg5 "11"> <!-- , /// Right shank to Right foot, X-Axis (forward/backward) -->
+<!ENTITY rleg6 "12"> <!-- , /// Right shank to Right foot, Y-Axis (left/right) -->
+<!ENTITY larm1 "13"> <!-- , /// Torso to Left shoulder, X-Axis (forward/backward) -->
+<!ENTITY larm2 "14"> <!-- , /// Torso to Left shoulder, Y-Axis (out/in) -->
+<!ENTITY larm3 "15"> <!-- , /// Left shoulder to Left upper arm, Z-Axis (twist left/right) -->
+<!ENTITY larm4 "16"> <!-- , /// Left upper arm to Left lower arm, X-Axis -->
+<!ENTITY rarm1 "17"> <!-- , /// Torso to Right shoulder, X-Axis (forward/backward) -->
+<!ENTITY rarm2 "18"> <!-- , /// Torso to Right shoulder, Y-Axis (out/in) -->
+<!ENTITY rarm3 "19"> <!-- , /// Right shoulder to Right upper arm, Z-Axis (twist left/right) -->
+<!ENTITY rarm4 "20"> <!--  /// Right upper arm to Right lower arm, X-Axis -->
+<!ENTITY wait "21"> <!--  /// Wait n seconds -->
+]>
+
+    <behaviors>
+
+      <behavior type="ScriptPlayer" id="turnright_sp">
+
+        <param>
+       
+          <script>
+        
+            &lleg3; = -7:.1, &rleg3; = -7:.1, &lleg6; = 7:.1, &rleg6; = 7:.1;
+            &wait; = 1;
+            &rleg2; = 20, &rleg4; = -40, &rleg5; = 20;
+            &lleg1; = 10, &rleg1; = -10;
+            &rleg2; = 0, &rleg4; = 0, &rleg5; = 0;
+            &lleg3; = 7:.1, &rleg3; = 7:.1, &lleg6; = -7:.1, &rleg6; = -7:.1;
+            &lleg2; = 20, &lleg4; = -40, &lleg5; = 20;
+            &lleg1; = 0, &rleg1; = 0;
+            &lleg2; = 0, &lleg4; = 0, &lleg5; = 0;
+            &lleg3; = 0:.1, &rleg3; = 0:.1, &lleg6; = -0:.1, &rleg6; = -0:.1;
+            &wait; = 1;
+          </script>
+        </param>
+        
+        <slot index="0-0">
+                <behavior refid="moveHeadTo"/>
+        </slot>
+        <slot index="0-1">
+                <behavior refid="moveLeftHipTo"/>
+        </slot>
+        <slot index="0-2">
+                <behavior refid="moveLeftThighXTo"/>
+        </slot>
+        <slot index="0-3">
+                <behavior refid="moveLeftThighYTo"/>
+        </slot>
+        <slot index="0-4">
+                <behavior refid="moveLeftKneeTo"/>
+        </slot>
+        <slot index="0-5">
+                <behavior refid="moveLeftAnkleXTo"/>
+        </slot>
+        <slot index="0-6">
+                <behavior refid="moveLeftAnkleYTo"/>
+        </slot>
+        <slot index="0-7">
+                <behavior refid="moveRightHipTo"/>
+        </slot>
+        <slot index="0-8">
+                <behavior refid="moveRightThighXTo"/>
+        </slot>
+        <slot index="0-9">
+                <behavior refid="moveRightThighYTo"/>
+        </slot>
+        <slot index="0-10">
+                <behavior refid="moveRightKneeTo"/>
+        </slot>
+        <slot index="0-11">
+                <behavior refid="moveRightAnkleXTo"/>
+        </slot>
+        <slot index="0-12">
+                <behavior refid="moveRightAnkleYTo"/>
+        </slot>
+        <slot index="0-13">
+                <behavior refid="moveLeftShoulderXTo"/>
+        </slot>
+        <slot index="0-14">
+                <behavior refid="moveLeftShoulderYTo"/>
+        </slot>
+        <slot index="0-15">
+                <behavior refid="moveLeftShoulderZTo"/>
+        </slot>
+        <slot index="0-16">
+                <behavior refid="moveLeftElbowTo"/>
+        </slot>
+        <slot index="0-17">
+                <behavior refid="moveRightShoulderXTo"/>
+        </slot>
+        <slot index="0-18">
+                <behavior refid="moveRightShoulderYTo"/>
+        </slot>
+        <slot index="0-19">
+                <behavior refid="moveRightShoulderZTo"/>
+        </slot>
+        <slot index="0-20">
+                <behavior refid="moveRightElbowTo"/>
+        </slot>
+      </behavior><!-- ScriptPLayer -->
+
+      
+    </behaviors>

@@ -1,0 +1,45 @@
+
+[executer]
+RunInTerminal=true
+
+[Project State]
+clean before build=false
+
+[filenumbers]
+0=1
+1=1001
+2=89
+3=154
+4=216
+5=71
+6=116
+7=212
+8=1313
+
+[filemarkers]
+0=
+1=
+2=
+3=
+4=
+5=
+6=
+7=
+8=
+
+[File View]
+filter.file.unmatch=*.so *.o *.a *.la
+filter.file.ignore.hidden=0
+filter.dir.ignore.hidden=0
+
+[filelist]
+0=/home/dennislu/ZeaLotrY/src/Formation.cpp
+1=/home/dennislu/ZeaLotrY/src/Skill.cpp
+2=/home/dennislu/ZeaLotrY/src/Player.cpp
+
+[Project Tree]
+0=0
+1=0:1
+
+[File Tree]
+0=0

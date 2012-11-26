@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/.dirstamp
+END
+calcDeterminant.cc
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/calcDeterminant.cc
+END
+getP.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/getP.cc
+END
+calcInvSigma.cc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/calcInvSigma.cc
+END
+calcFactor.cc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/calcFactor.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/update.cc
+END
+init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/init.cc
+END
+getX.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/getX.cc
+END
+normaldistribution3d.hh
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/normaldistribution3d.hh
+END
+normaldistribution3d.ih
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/normaldistribution3d.ih
+END
+predict.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/Distribution3D/NormalDistribution3D/predict.cc
+END

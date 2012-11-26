@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE confdoc [
+<!ENTITY head_1 "0"> <!-- , /// Torso to head, X-Axis (not used) -->
+<!ENTITY lleg1 "1"> <!-- , /// -90 - 60. Torso to left hip, Z-Axis (twist left/right) -->
+<!ENTITY lleg2 "2"> <!-- , /// -45 - 120. Left hip to Left thigh, X-Axis (backward/forward) -->
+<!ENTITY lleg3 "3"> <!-- , /// -75 - 45. Left hip to Left thigh, Y-Axis (spread/close) -->
+<!ENTITY lleg4 "4"> <!-- , /// -160 - 0. Left thigh to Left shank, X-Axis (bend/stretch) -->
+<!ENTITY lleg5 "5"> <!-- , /// -90 - 90. Left shank to Left foot, X-Axis (forward/backward) -->
+<!ENTITY lleg6 "6"> <!-- , /// -45 - 45. Left shank to Left foot, Y-Axis (left/right) -->
+
+<!ENTITY rleg1 "7"> <!-- , /// -90 - 60. Torso to right hip, Z-Axis (twist left/right) -->
+<!ENTITY rleg2 "8"> <!-- , /// -45 - 120. Right hip to Right thigh, X-Axis (backward/forward) -->
+<!ENTITY rleg3 "9"> <!-- , /// -75 - 45. Right hip to Right thigh, Y-Axis (spread/close) -->
+<!ENTITY rleg4 "10"> <!-- , /// -160 - 0. Right thigh to Right shank, X-Axis (bend/stretch) -->
+<!ENTITY rleg5 "11"> <!-- , /// -90 - 90. Right shank to Right foot, X-Axis (forward/backward) -->
+<!ENTITY rleg6 "12"> <!-- , /// -45 - 45. Right shank to Right foot, Y-Axis (left/right) -->
+
+<!ENTITY larm1 "13"> <!-- , /// -90 - 180. Torso to Left shoulder, X-Axis (forward/backward) -->
+<!ENTITY larm2 "14"> <!-- , /// -180 - 0. Torso to Left shoulder, Y-Axis (out/in) -->
+<!ENTITY larm3 "15"> <!-- , /// -135 - 135. Left shoulder to Left upper arm, Z-Axis (twist left/right) -->
+<!ENTITY larm4 "16"> <!-- , /// -10 - 130. Left upper arm to Left lower arm, X-Axis -->
+
+<!ENTITY rarm1 "17"> <!-- , /// -90 - 180. Torso to Right shoulder, X-Axis (forward/backward) -->
+<!ENTITY rarm2 "18"> <!-- , /// -180 - 0. Torso to Right shoulder, Y-Axis (out/in) -->
+<!ENTITY rarm3 "19"> <!-- , /// -135 - 135. Right shoulder to Right upper arm, Z-Axis (twist left/right) -->
+<!ENTITY rarm4 "20"> <!--  /// -10 - 130. Right upper arm to Right lower arm, X-Axis -->
+
+<!ENTITY wait "21"> <!--  /// Wait n seconds -->
+]>
+<!--
+<conf xmlns:xi="http://www.w3.org/2003/XInclude">
+-->
+  <player-class id="attacker2" xmlns:xi="http://www.w3.org/2003/XInclude">
+    <xi:include href="movejointbehaviors.xml"/>
+    <xi:include href="confinc/Getup.xml"/>
+    <xi:include href="confinc/WaveArms.xml"/>
+    <xi:include href="confinc/ZeroSine.xml"/>
+    <xi:include href="confinc/Wait.xml"/>
+    <xi:include href="confinc/KickLeft.xml"/>
+    <xi:include href="confinc/KickRight.xml"/>
+    <xi:include href="confinc/GetupFromBack.xml"/>
+    <xi:include href="confinc/Walk_sc.xml"/>
+    <xi:include href="confinc/Walk_sc_bats.xml"/>
+    <xi:include href="confinc/Trippel.xml"/>
+    <xi:include href="confinc/Walk.xml"/>
+    <!--
+    <xi:include href="confinc/Trippel_20-2-2.xml"/>
+    <xi:include href="confinc/Trippel_9-1-1.xml"/>
+    -->
+    <xi:include href="confinc/Dribble.xml"/>
+    <xi:include href="confinc/GuardGoal.xml"/>
+    <!--
+    <xi:include href="confinc/Trippel_18-3-1.xml"/>
+    <xi:include href="confinc/Trippel_18-3-1-2.xml"/>
+    <xi:include href="confinc/Trippel_17-3-1.xml"/>
+    -->
+    <xi:include href="confinc/WaveBothArms.xml"/>
+    <xi:include href="confinc/ShakeBothArms.xml"/>
+    <!-- <xi:include href="confinc/TurnLeft.xml"/>
+    <xi:include href="confinc/TurnRight.xml"/>-->
+
+    
+
+    <behaviors>
+
+      <behavior type="Dribble" id="dribble">
+	<slot index="0-0">
+	  <behavior refid="dribbleforward_sp" commit="1"/>
+          <!--<behavior refid="trippleforward_s" commit="1" />-->
+	</slot>
+	<slot index="1-0">
+	  <behavior refid="turnto"/>
+	</slot>
+      </behavior>
+
+
+    	<behavior type="CanKickLeft" id="cankickleft">
+    	  <slot index="0-0">
+	    <!--
+    	    <behavior refid="zerosine_s" commit="1"/>
+    	  </slot>
+    	  <slot index="1-0">
+	    -->
+    	    <behavior refid="kickleft_sp" commit="1"/>
+    	  </slot>
+    	</behavior>
+
+
+    	<behavior type="CanKickRight" id="cankickright">
+    	  <slot index="0-0">
+	    <!--
+    	    <behavior refid="zerosine_s" commit="1"/>
+    	  </slot>
+    	  <slot index="1-0">
+	    -->
+    	    <behavior refid="kickright_sp" commit="1"/>
+    	  </slot>
+    	</behavior>
+
+    	   
+    	<behavior type="CanTurnLeft" id="canturnleft">
+    	  <slot index="0-0">
+	    <!-- <behavior refid="turnleft_sp" commit="1"/>-->
+    	    <behavior refid="trippleturnleft_s" commit="1"/>
+    	  </slot>
+    	</behavior>
+  	
+	
+    	<behavior type="CanTurnRight" id="canturnright">
+ 	  <slot index="0-0">
+	    <!-- <behavior refid="turnright_sp" commit="1"/>-->
+    	    <behavior refid="trippleturnright_s" commit="1"/>
+    	  </slot>
+    	</behavior>
+
+
+      <behavior type="TurnTo" id="turnto">
+        <slot index="0-0">
+	  <!--
+	      <behavior refid="zerosine_s" commit="1"/>
+              </slot>
+              <slot index="1-0">
+		-->
+          <behavior refid="canturnleft" commit="1"/>
+          <behavior refid="canturnright" commit="1"/>
+        </slot>
+      </behavior>
+
+
+      <behavior type="Sine" id="zerosine">
+	<slot index="0-0">
+	  <behavior refid="zerosine_s" commit="1"/>
+	</slot>
+      </behavior>
+
+      
+      <behavior type="Wait" id="wait">
+	<slot index="0-0">
+	  <behavior refid="wait_sp" commit="1"/>
+	</slot>
+      </behavior>
+
+         
+      <behavior type="WalkStraightTo" id="walkstraightto">
+        <slot index="0-0">
+	  <!--
+              <behavior refid="zerosine_s" commit="1"/>
+              </slot>
+              <slot index="1-0">
+		<behavior refid="wait_sp" commit="1"/>
+              </slot>
+              <slot index="2-0">
+		-->
+	  <behavior refid="walk_sc" commit="1"/>
+	  <!--<behaivor refid="walk_sc_def" commit="1"/>-->
+        </slot>
+      </behavior>
+
+      
+    	<behavior type="WalkTo" id="walkto">
+	  <slot index="0-0">
+            <behavior refid="turnto"/>
+<!--
+	    <behavior refid="wait" commit="1"/>
+-->
+          </slot>
+          <slot index="1-0">
+            <behavior refid="walkstraightto" commit="1"/>
+          </slot>
+    	</behavior>
+
+    
+      <behavior type="GetUpFromBelly" id="getupfrombelly">
+        <slot index="0-0">
+          <behavior refid="getup_sp" commit="1"/>
+        </slot>
+      </behavior>
+
+      
+      <behavior type="GetUpFromBack" id="getupfromback">
+        <slot index="0-0">
+          <behavior refid="getupfromback_sp" commit="1"/>
+        </slot>
+      </behavior>
+
+      
+      <behavior type="GetFromSide" id="getfromside">
+        <slot index="0-0">
+          <behavior refid="wavearms_sp" commit="1"/>
+        </slot>
+      </behavior>
+      
+   
+      <behavior type="MiniWalkForward" id="miniwalkforward">
+        <slot index="0-0">
+
+          <behavior refid="trippleforward_s" commit="1"/>
+          <!--<behavior refid="trippleforward_2_s" commit="1"/>-->
+        </slot>
+      </behavior>
+      
+      
+      <behavior type="MiniWalkBackward" id="miniwalkbackward">
+        <slot index="0-0">
+	  <behavior refid="tripplebackward_s" commit="1"/>
+          <!--<behavior refid="trippleforward_1_s" commit="1"/>
+	  <behavior refid="tripplebackward_2_s" commit="1"/>-->
+        </slot>
+      </behavior>
+      
+      
+      <behavior type="StrafeLeft" id="strafeleft">
+        <slot index="0-0">
+          <behavior refid="trippleleft_s" commit="1"/>
+	  <!--<behavior refid="trippleleft_1_s" commit="1"/>-->
+        </slot>
+      </behavior>
+
+   
+      <behavior type="StrafeRight" id="straferight">
+        <slot index="0-0">
+	  <!--
+	  <behavior refid="trippleright_1_s" commit="1"/>-->
+          <behavior refid="trippleright_s" commit="1"/>
+        </slot>
+      </behavior>
+      
+      
+      <behavior type="GoodPosition" id="goodposition">
+        <slot index="0-0">
+          <behavior refid="miniwalkforward" scicc="1" commit="1"/>
+          <behavior refid="miniwalkbackward" scicc="1" commit="1"/>
+          <behavior refid="strafeleft" scicc="1" commit="1"/>
+          <behavior refid="straferight" scicc="1" commit="1"/>
+        </slot>
+      </behavior>
+   
+            
+      <behavior type="GoodPositionAngle" id="goodpositionangle">
+        <slot index="0-0">
+          <behavior refid="goodposition" commit="1"/>
+        </slot>
+        <slot index="1-0">
+          <behavior refid="turnto"/>
+        </slot>
+      </behavior>
+
+
+      
+
+      <behavior type="KickTo" id="kickto">
+        <slot index="0-0">
+          <behavior refid="zerosine_s"/>
+        </slot>
+        <slot index="1-0">
+          <behavior refid="goodpositionangle" scicc="1" commit="1"/>
+        </slot>
+		<slot index="2-0">
+	  	  <behavior refid="dribble" scicc="1" commit="1"/>	  
+		</slot>
+        <slot index="3-0">
+          <behavior refid="cankickleft" scicc="1" commit="1"/>
+          <behavior refid="cankickright" scicc="1" commit="1"/>
+        </slot>
+      </behavior>
+
+ 			<behavior type="Beam" id="beam" />
+
+			<behavior type="BeamTo" id="beamto">
+				<param>
+					<!-- <where x="-2.3" y="2.3" z="0"/>-->
+					<!--<where x="-6" y="2" z="0" />-->
+					<where x="-0.3" y="0" z="0"/>
+					<!--   x,y=zahyou,   z=houkou -->
+					
+				</param>
+				<slot index="0-0">
+					<behavior refid="beam" />
+				</slot>
+
+				<slot index="0-1">
+				  <behavior refid="wait_sp"/>
+				</slot>
+
+			</behavior>
+
+
+	<behavior type="Score" id="score">
+	  <slot index="0-0">
+<!--
+		<behavior refid="shakebotharms"/>
+	    <behavior refid="wavebotharms"/>
+-->
+	    <behavior refid="walkto"/>
+	    <behavior refid="walkto"/>
+	  </slot>
+	  <slot index="1-0">
+	    <behavior refid="kickto"/>
+
+	  </slot>
+	</behavior>      
+
+      <behavior type="Empty" id="win">
+        <slot index="0-0">
+          <behavior refid="getupfrombelly" commit="1"/>
+          <behavior refid="getupfromback" commit="1"/>
+          <behavior refid="getfromside" commit="1"/>
+          <behavior refid="score"/>
+	  	  <behavior refid="score"/>
+          <behavior refid="beamto" commit="1" scicc="1"/>
+		  <behavior refid="zerosine" commit="1"/>
+        </slot>
+      </behavior>
+
+    </behaviors>
+
+  </player-class>

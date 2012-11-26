@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math
+END
+Mathematics.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Mathematics.cpp
+END
+Geometry.h
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Geometry.h
+END
+Degree.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Degree.h
+END
+Vector.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Vector.cpp
+END
+Mathematics.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Mathematics.h
+END
+Vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Vector.h
+END
+Str.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Str.cpp
+END
+Str.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Str.h
+END
+Sphere.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Sphere.cpp
+END
+Line.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Line.cpp
+END
+Sphere.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Sphere.h
+END
+Geometry.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Geometry.cpp
+END
+Degree.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Degree.cpp
+END
+Line.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/Line.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Math/CMakeLists.txt
+END

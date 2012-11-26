@@ -1,0 +1,26 @@
+//
+// C++ Interface: saeid
+//
+// Description: 
+//
+//
+// Author: saeid <saeid@localhost.localdomain>, (C) 2010
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+#ifndef SAEID_H
+#define SAEID_H
+
+/**
+	@author saeid <saeid@localhost.localdomain>
+*/
+class Saeid{
+public:
+    Saeid();
+
+    ~Saeid();
+
+};
+
+#endif

@@ -1,0 +1,69 @@
+8
+
+dir
+43
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D/littlegreenbats_new_2/trunk/PortableParser
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D
+
+
+
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+33cc309f-e38f-ca4e-aaf3-b9465a6fa55b
+
+.dirstamp
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+portableparser.hh
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+f88f72a19f462d3a8e732ccbeaebdd00
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+.deps
+dir
+
+static.cc
+file
+
+
+
+
+2008-07-12T18:29:04.000000Z
+a528726ebf35543cdd748546a9fd1c0c
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+

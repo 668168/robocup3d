@@ -1,0 +1,193 @@
+<behaviors>
+  <behavior type="Empty" id="win">
+    <slot index="0-0">
+      <behavior refid="gamepadplay" />
+    </slot>
+  </behavior>
+
+  <behavior type="Beam" id="beam" />
+
+  <behavior type="GamepadPlay" id="gamepadplay">
+    <slot index="0-0">
+      <behavior refid="standby" commit="1"/>
+      <behavior refid="gpwalk" />
+      <behavior refid="gpwalkbackward" />
+      <behavior refid="gpminiwalkforward" />
+      <behavior refid="gpminiwalkbackward" />
+      <behavior refid="gpstraferight" />
+      <behavior refid="gpstrafeleft" />
+      <behavior refid="gpkickright" />
+      <behavior refid="gpkickleft" />
+      <behavior refid="gpturnright" />
+      <behavior refid="gpturnleft" />
+      <behavior refid="gpfallforward" />
+      <behavior refid="gpfallbackward" />
+      <behavior refid="gpfallrightside" />
+      <behavior refid="gpfallleftside" />
+      <behavior refid="gpgetup" commit="1" scicc="1"/>
+      <behavior refid="gpbeam" commit="1" scicc="1"/>
+      <behavior refid="gpstepping" />
+      <behavior refid="gpomniwalk" />
+      <behavior refid="gpjoy" />
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadGetUp" id="gpgetup">
+    <slot index="0-0">
+      <behavior refid="getupfrombelly" commit="1" scicc="1"/>
+      <behavior refid="getupfromback" commit="1" scicc="1"/>
+    </slot>
+  </behavior>
+
+  <!-- ********************* high level ************************ -->
+  <!-- ********************* low  level ************************ -->
+
+
+  <behavior type="GamepadBeam" id="gpbeam">
+    <param>
+      <!-- coordinate is set in Behavior/GamepadBeam/GamepadBeam.cc -->
+      <!-- <where x="-1" y="0.1" z="0"/> -->
+      <!-- x, y = coordinates, z = orientation -->
+    </param>
+    <slot index="0-0">
+      <behavior refid="beam" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="StandBy" id="standby">
+    <slot index="0-0">
+      <!--<behavior refid="zerosine_s" commit="1"/>-->
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadJoy" id="gpjoy">
+    <slot index="0-0">
+      <behavior refid="wavearms_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadStepping" id="gpstepping">
+    <slot index="0-0">
+      <behavior refid="step7_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadWalk" id="gpwalk">
+    <slot index="0-0">
+      <behavior refid="walk6_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadOmnidirectionalWalk" id="gpomniwalk">
+    <slot index="0-0">
+      <!--      <behavior refid="omniwalk3_s2" commit="1"/>
+         <behavior refid="walkandturn_s2" commit="1"/>
+-->
+         <behavior refid="turnaround_s2" commit="1"/>
+
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadWalkBackward" id="gpwalkbackward">
+    <slot index="0-0">
+      <behavior refid="walkbackward_s" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadStrafeRight" id="gpstraferight">
+    <slot index="0-0">
+      <!--<behavior refid="sidestep6_s2" commit="1"/>-->
+      <behavior refid="turnfast_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadStrafeLeft" id="gpstrafeleft">
+    <slot index="0-0">
+      <!--<behavior refid="sidestep6_s2" commit="1"/>-->
+      <behavior refid="turnfast_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadKickLeft" id="gpkickleft">
+    <slot index="0-0">
+      <behavior refid="kickleft3_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadKickRight" id="gpkickright">
+    <slot index="0-0">
+      <behavior refid="kickright3_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadTurnLeft" id="gpturnleft">
+    <slot index="0-0">
+      <!-- <behavior refid="turnleft_s" commit="1"/> -->
+      <behavior refid="turnfast_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadTurnRight" id="gpturnright">
+    <slot index="0-0">
+      <!-- <behavior refid="turnr2_s" commit="1"/> -->
+      <behavior refid="turnfast_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GetUpFromBelly" id="getupfrombelly">
+    <slot index="0-0">
+      <behavior refid="getup5_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GetUpFromBack" id="getupfromback">
+    <slot index="0-0">
+      <behavior refid="getupfromback5_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GetFromSide" id="getfromside">
+    <slot index="0-0">
+      <behavior refid="wavearms_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadFallForward" id="gpfallforward">
+    <slot index="0-0">
+      <behavior refid="fallforward_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadFallBackward" id="gpfallbackward">
+    <slot index="0-0">
+      <behavior refid="fallbackward_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadFallRightside" id="gpfallrightside">
+    <slot index="0-0">
+      <behavior refid="fallrightside_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadFallLeftside" id="gpfallleftside">
+    <slot index="0-0">
+      <behavior refid="fallleftside_sp" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GamepadMiniWalkForward" id="gpminiwalkforward">
+    <slot index="0-0">
+      <behavior refid="miniwalkforward_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+
+  <behavior type="GamepadMiniWalkBackward" id="gpminiwalkbackward">
+    <slot index="0-0">
+      <behavior refid="tripplebackward_s" commit="1"/>
+    </slot>
+  </behavior>
+
+</behaviors>

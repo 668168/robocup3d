@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent
+END
+predictPos.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/predictPos.cc
+END
+talent.hh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/talent.hh
+END
+talent.ih
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/talent.ih
+END
+atSameSideOf.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/atSameSideOf.cc
+END
+kickTo.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/kickTo.cc
+END
+predictBounceTime.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/predictBounceTime.cc
+END
+interceptBall.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Talent/interceptBall.cc
+END

@@ -1,0 +1,371 @@
+8
+
+dir
+43
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D/littlegreenbats_new_2/trunk/Behavior
+http://skalak.ie.osakafu-u.ac.jp/svn/hana08_3D
+
+
+
+2008-07-12T17:59:54.025625Z
+41
+fujii
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+33cc309f-e38f-ca4e-aaf3-b9465a6fa55b
+
+ScriptPlayer
+dir
+
+StrafeRight
+dir
+
+StrafeToBall
+dir
+
+KickTo
+dir
+
+GoodPositionAngle
+dir
+
+generateConf.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+211a578a724b76d333839536eefe0b0a
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+canTurnLeft
+dir
+
+Dive
+dir
+
+OpenLeg
+dir
+
+behavior.ih
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+b5db66493c397b88c15eb6d69adb9275
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+StrafeLeft
+dir
+
+GetUpFromBelly
+dir
+
+Guard
+dir
+
+Console
+dir
+
+WaveBothArms
+dir
+
+Challenge1
+dir
+
+Wait
+dir
+
+GuardGoal
+dir
+
+reset.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+a452dbff9bea603b360f495ac3f49584
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+update.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+4fcf47bdb0258abe89c35313872d86cd
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+BeamTo
+dir
+
+GetFromSide
+dir
+
+.deps
+dir
+
+Score
+dir
+
+FallBackward
+dir
+
+GoodPosition
+dir
+
+getMyParams.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+7be3b95304253af8226ee5d19e118030
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+canKickLeft
+dir
+
+KeeperGetUp
+dir
+
+FallRightSide
+dir
+
+addToSlot.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+ba5cddaa3abb6d86af73f323c7e58d7b
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+doNextStep.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+314b777d72bfb5b842720e90c5450eb8
+2008-07-11T17:58:54.510000Z
+36
+fujii
+has-props
+
+setGoal.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+4338d9d508976b4ddc7c012c00f1c73f
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+Behavior.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+2a210344d958804fe20e709685902e00
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+doCurrentStep.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+74a7073dcc4c2044ba088770ca6b99e5
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+PrimitiveBehavior
+dir
+
+GetUpFromBack
+dir
+
+createBehaviors.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+4e14eee413ecca199cbd01f7f841ff6b
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+TurnTo
+dir
+
+achieveGoal.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+4c3f1e1e6422e93dcc026b6df52abbe1
+2008-07-11T17:58:54.510000Z
+36
+fujii
+has-props
+
+Intercept
+dir
+
+behavior.hh
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+b434efb4392966877988676ff1d706a4
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+Empty
+dir
+
+Sine
+dir
+
+FallLeftSide
+dir
+
+MiniWalkForward
+dir
+
+WalkTo
+dir
+
+canKickRight
+dir
+
+.dirstamp
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+d41d8cd98f00b204e9800998ecf8427e
+2008-07-10T17:29:12.713597Z
+30
+fujii
+
+Dribble
+dir
+
+FallForward
+dir
+
+buildTree.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+ceac7bed6e99d31da7903be90c50f239
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+WalkStraightTo
+dir
+
+canTurnRight
+dir
+
+MiniWalkBackward
+dir
+
+doLastChosen.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+f08e4c9279c8f98be27ba5b3f51422a6
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+static.cc
+file
+
+
+
+
+2008-07-12T18:29:01.000000Z
+e4194f533631bd18d751a1a515b2d2ab
+2008-07-10T17:29:12.713597Z
+30
+fujii
+has-props
+
+MoveJointTo
+dir
+

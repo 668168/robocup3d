@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution
+END
+montecarlodistribution.hh
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/montecarlodistribution.hh
+END
+montecarlodistribution.ih
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/montecarlodistribution.ih
+END
+getP.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/getP.cc
+END
+getSigma.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/getSigma.cc
+END
+normalize.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/normalize.cc
+END
+getMu.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/getMu.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/update.cc
+END
+init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/init.cc
+END
+rouletteSelect.cc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/rouletteSelect.cc
+END
+getX.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/getX.cc
+END
+predict.cc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Distribution3D/MonteCarloDistribution/predict.cc
+END

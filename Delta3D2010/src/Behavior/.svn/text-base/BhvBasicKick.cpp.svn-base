@@ -1,0 +1,118 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#include "BhvBasicKick.h"
+
+unsigned int BhvBasicKick::mStartCycle;
+
+unsigned int BhvBasicKick::mLastCycleRun;
+
+bool BhvBasicKick::done;
+
+bool  BhvBasicKick::mIsLeftHold;
+
+// BhvBasicKick::BhvBasicKick()
+// {
+// 	done=false;
+// }
+
+bool BhvBasicKick::execute()
+{
+//     static bool done=false;
+//     double distance=WorldModel::instance().getPolarBallPos().distance;
+//     double theta = WorldModel::instance().getPolarBallPos().theta;
+//     Vector3f myPos2 = WorldModel::instance().getMyPos();
+//     Vector3f ballPos2 = WorldModel::instance().getBallPos();
+//     Vector3f goalPos(-6.0, 0.0, 0.0);
+//     	
+//     double dX = goalPos.x() - ballPos2.x();
+//     double dY = goalPos.y() - ballPos2.y();
+// 	double ballToGoalAng = atan2(dY,dX);
+// 	dX = ballPos2.x() - myPos2.x();
+// 	dY = ballPos2.y() - myPos2.y();
+// 	ballPos2.z()=0;
+// 	myPos2.z()=0;
+// 	double meToBallAngle = atan2(dY,dX);
+// 	double angleKhoob = gNormalizeDeg(gRadToDeg(meToBallAngle - ballToGoalAng));
+// 	if(fabs(angleKhoob)<90)
+// 		return false;
+// 		
+ 	Vector3f myPos = WorldModel::instance().getMyPos();
+  	Vector3f ballPos = WorldModel::instance().getBallPos();
+  	double deltaX = ballPos.x() - myPos.x();
+  	double deltaY = ballPos.y() - myPos.y();
+  	double ang = atan2(deltaY , deltaX);
+  	double myAngle = WorldModel::instance().getMyPos().z();	
+  	ang -= myAngle;
+ 	double dist = sqrt((ballPos.x()-myPos.x())*(ballPos.x()-myPos.x())+(ballPos.y()-myPos.y())*(ballPos.y()-myPos.y()));
+        std::cout<<"distance=="<<dist; 	
+//  	if(dist < 0.05)
+//  	    return true;
+	return true;
+
+
+}
+
+
+bool BhvBasicKick::isNewKick() const
+{
+    /// minus 2 becuse maybe skiping is happen
+    cout <<"in isNewKick :"<< mLastCycleRun << " < " << ( WorldModel::i().getCurrentCycle() - 4 )<<endl;
+    return ( mLastCycleRun < ( WorldModel::i().getCurrentCycle() - 4 ));
+}
+
+bool BhvBasicKick::isLeftHold() const
+{
+    return mIsLeftHold;
+}
+
+bool BhvBasicKick::isKickDone() const
+{
+    static const int KickTime = 200;
+    return ( (WorldModel::i().getCurrentCycle() - mStartCycle) < KickTime );
+}
+
+void BhvBasicKick::reset()
+{
+    Kick::instance().reset();
+}
+
+bool BhvBasicKick::isBallKickable()const
+{
+    static const float DistanceTelorans = 0.1;
+
+    static const float AngleTelorans = 15.0;
+
+    if ( isNewKick() )
+    {
+       std::cout << "in ball kicable newKick (" << ball.distance <<" <= "<< MaxKickableDistance <<
+               ") && ("<< abs(ball.theta) << " < "<< 60.0f<<") "<<std::endl;
+       return ( (ball.distance <= MaxKickableDistance) && (abs(ball.theta) < 60.0f) );
+    }
+    else
+    {
+       std::cout << "in ball kicable normal (" << ball.distance <<
+               " <= "<< (MaxKickableDistance + DistanceTelorans) <<
+               ") && ("<< abs(ball.theta) << " < "<< (60.0f + AngleTelorans)<<") "<<std::endl;
+
+       return ( (ball.distance <= (MaxKickableDistance + DistanceTelorans) ) &&
+                (abs(ball.theta) < (60.0f + AngleTelorans)) );
+    }
+    return false;
+}

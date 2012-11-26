@@ -1,0 +1,75 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+    (templ $Torso_X $Torso_Y $Torso_Z $loadObj)
+    
+    ;
+    ;neck parameter
+    ;
+    (def $Neck_X        $Torso_X)
+    (def $Neck_Y        $Torso_Y)
+    (def $Neck_Z        (eval $Torso_Z + 0.09))
+    (def $Neck_Radius   0.015)
+    (def $Neck_Length   0.08)
+    (def $Neck_Mass     0.050)
+    
+    
+    ;
+    ;head parameter
+    ;
+    (def $Head_X        $Neck_X)
+    (def $Head_Y        $Neck_Y)
+    (def $Head_Z        (eval $Neck_Z + 0.065))
+    (def $Head_Radius   0.065)
+    (def $Head_Mass     0.350)
+    
+    ;
+    ;Head effector 1 parameter
+    ;
+    (def $he1_min -120)
+    (def $he1_max 120)
+    
+    ;
+    ;Head effector 2 parameter
+    ;
+    (def $he2_min -45)
+    (def $he2_max 45)
+    
+    ;
+    ;Begin construct neck
+    ;
+    (nd Transform
+        (setName neck)
+        (setLocalPos $Neck_X $Neck_Y $Neck_Z)
+        
+        ;(importScene rsg/agent/nao/ccylinder_appearance.rsg $Neck_Radius $Neck_Length matDarkGrey)
+        (importScene rsg/agent/nao/ccylinder_physics.rsg    $Neck_Radius $Neck_Length $Neck_Mass)
+        
+        (importScene rsg/agent/nao/hingejoint.rsg 
+                            hj1 he1
+                            ../ccylinderBody ../../body/boxBody
+                            0 0 0
+                            0 0 1
+                            $he1_min $he1_max)
+    )
+
+    ;
+    ;Begin construct head
+    ;     
+    (nd Transform
+        (setName head)
+        (setLocalPos $Head_X $Head_Y $Head_Z)
+
+        (importScene rsg/agent/nao/sphere_physics.rsg $Head_Radius $Head_Mass)
+        
+        (importScene rsg/agent/nao/hingejoint.rsg
+                              hj2 he2
+                              ../sphereBody ../../neck/ccylinderBody 
+                              ;../boxBody ../../body/boxBody
+                              0 0 -0.005
+                              1 0 0
+                              $he2_min $he2_max)
+    )
+
+)

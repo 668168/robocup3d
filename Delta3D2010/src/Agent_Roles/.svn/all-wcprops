@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles
+END
+RoleDefensive.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/RoleDefensive.h
+END
+RoleGoalie.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/RoleGoalie.cpp
+END
+SoccerRole.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/SoccerRole.h
+END
+RoleForward.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/RoleForward.cpp
+END
+RoleGoalie.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/RoleGoalie.h
+END
+.kdev_include_paths
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/.kdev_include_paths
+END
+RoleDefensive.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/RoleDefensive.cpp
+END
+RoleForward.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/RoleForward.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Agent_Roles/CMakeLists.txt
+END

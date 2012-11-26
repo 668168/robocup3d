@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Strategy
+END
+Strategy.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Strategy/Strategy.cpp
+END
+Strategy.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Strategy/Strategy.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Strategy/CMakeLists.txt
+END

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/Dribble
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Behavior/Dribble/.dirstamp
+END
+dribble.hh
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Behavior/Dribble/dribble.hh
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/Dribble/generateGoal.cc
+END
+dribble.ih
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Behavior/Dribble/dribble.ih
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/Dribble/getCapability.cc
+END
+Dribble.cc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Behavior/Dribble/Dribble.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/Behavior/Dribble/getCurrentState.cc
+END

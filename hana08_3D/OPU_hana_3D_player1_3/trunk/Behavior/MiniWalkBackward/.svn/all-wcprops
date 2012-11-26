@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/MiniWalkBackward
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/getCurrentState.cc
+END
+miniwalkbackward.hh
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/miniwalkbackward.hh
+END
+miniwalkbackward.ih
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/miniwalkbackward.ih
+END
+MiniWalkBackward.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/MiniWalkBackward/MiniWalkBackward.cc
+END

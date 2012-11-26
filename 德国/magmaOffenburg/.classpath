@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="build/classes" path="src"/>
+	<classpathentry kind="src" output="build/config" path="config"/>
+	<classpathentry kind="src" output="build/testClasses" path="srcTest"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/runtime/commons-math-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/runtime/vecmath.jar"/>
+	<classpathentry kind="lib" path="lib/test/asm-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/test/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="lib/test/easymock.jar"/>
+	<classpathentry kind="lib" path="lib/test/easymockclassextension.jar"/>
+	<classpathentry kind="lib" path="lib/test/junit-4.1.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>

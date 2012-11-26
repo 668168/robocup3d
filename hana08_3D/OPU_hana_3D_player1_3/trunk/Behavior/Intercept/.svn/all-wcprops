@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/40/littlegreenbats_new/trunk/Behavior/Intercept
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/25/littlegreenbats_new/trunk/Behavior/Intercept/.dirstamp
+END
+Intercept.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/35/littlegreenbats_new/trunk/Behavior/Intercept/Intercept.cc
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/40/littlegreenbats_new/trunk/Behavior/Intercept/generateGoal.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/hana08_3D/!svn/ver/40/littlegreenbats_new/trunk/Behavior/Intercept/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/25/littlegreenbats_new/trunk/Behavior/Intercept/getCurrentState.cc
+END
+intercept.hh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/25/littlegreenbats_new/trunk/Behavior/Intercept/intercept.hh
+END
+intercept.ih
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/hana08_3D/!svn/ver/25/littlegreenbats_new/trunk/Behavior/Intercept/intercept.ih
+END

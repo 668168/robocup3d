@@ -1,0 +1,88 @@
+;; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $name $x $y $theta
+	$LeftFlagName $RightFlagName
+	$material)
+
+ (def $GoalWidth   (eval Soccer.GoalWidth))
+ (def $GoalDepth   (eval Soccer.GoalDepth))
+ (def $GoalHeight  (eval Soccer.GoalHeight))
+
+ (def $GoalHalfWidth   (eval $GoalWidth / 2.0))
+ (def $GoalHalfHeight  (eval $GoalHeight / 2.0))
+ (def $GoalHalfDepth   (eval $GoalDepth / 2.0))
+
+ (def $BarDiameter     0.04)
+ (def $BarRadius       (eval $BarDiameter / 2.0))
+
+ ;; create the goal to hanle the goal
+ (nd Space
+     (setName $name)
+     (nd Transform
+	 (setName GoalBox)
+	 (setLocalPos $x $y $GoalHalfHeight)
+	 (setLocalRotation 0 0 $theta)
+	 (nd BoxCollider
+	     (setName BoxCollider)
+	     (setBoxLengths $GoalDepth $GoalWidth $GoalHeight)
+	     (nd RecorderHandler
+		 (setName recorder)
+		 )
+             )
+
+	 ;; create the left goal post
+	 (nd Transform
+	     (setLocalPos 0 (eval -1 * (eval $GoalHalfWidth + $BarRadius)) 0)
+	     (nd Box
+		 (setExtents $GoalDepth $BarDiameter $GoalHeight)
+		 (setMaterial matWhite)
+		 )
+	     (nd BoxCollider
+		 (setBoxLengths $GoalDepth $BarDiameter $GoalHeight)
+		 )
+	     )
+
+	 ;; create the right goal post
+	 (nd Transform
+	     (setLocalPos 0 (eval $GoalHalfWidth + $BarRadius)  0 )
+	     (nd Box
+		 (setExtents $GoalDepth $BarDiameter $GoalHeight)
+		 (setMaterial matWhite)
+		 )
+	     (nd BoxCollider
+		 (setBoxLengths $GoalDepth $BarDiameter $GoalHeight)
+		 )
+	     )
+
+	 ;; create goal back wall
+	 (nd Transform
+	     (setLocalPos (eval -1 * $GoalHalfDepth) 0 0)
+	     (nd Box
+		 (setExtents $BarDiameter $GoalWidth $GoalHeight)
+		 (setMaterial $material)
+		 )
+	     (nd BoxCollider
+		 (setBoxLengths $BarDiameter $GoalWidth $GoalHeight)
+		 )
+	     )
+
+	 ;; mark the goal (no visualization)
+	 (importScene rsg/agent/flag_no_viz.rsg
+		      (eval $GoalHalfDepth )
+		      $GoalHalfWidth
+		      0
+		      $LeftFlagName
+		      )
+
+	 (importScene rsg/agent/flag_no_viz.rsg
+		      (eval $GoalHalfDepth )
+		      (eval -1 * $GoalHalfWidth)
+		      0
+		      $RightFlagName
+		      )
+
+	 ) ;; of Transform
+     ) ;; of Space
+ )

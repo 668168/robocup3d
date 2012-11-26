@@ -1,0 +1,15 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $name $lenX $lenY $lenZ $material)
+
+ (nd Transform
+    (setName $name)
+    (setLocalPos 1 1 1)
+    (nd Box
+        (setExtents $lenX $lenY $lenZ)
+        (setMaterial $material)
+    )
+ )
+)

@@ -1,0 +1,40 @@
+27034[error]EngineWarning[10](27034): Monitor 1: error on read 9: Bad file descriptor
+27034[error]EngineWarning[10](27034): Monitor 1 returned an error, disconencting
+27492[error]EngineWarning[10](27492): Got some sort of term signal, shutting down
+27492[error]EngineWarning[10](27492): WriteBuffFD(fd=29): error on write 32: Broken pipe
+27492[error]EngineWarning[10](27492): flushAllCollected for WriteBuffCollectorFD(fd=29,ps=1024) failed
+27492[error]EngineWarning[10](27492): Agent 0: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 0 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 1: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 1 with abnormal termination: process_vanished
+27492[error]EngineWarning[10](27492): WriteBuffCollectorFD(fd=21,ps=1024): closing with 9 bytes left
+27492[error]EngineWarning[10](27492): WriteBuffCollectorFD(fd=-1,ps=1024): closing with 9 bytes left
+27492[error]EngineWarning[10](27492): Agent 2: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 2 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 3: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 3 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 4: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 4 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 5: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 5 with abnormal termination: process_vanished
+27492[error]EngineWarning[10](27492): Agent 6: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 6 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 7: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 7 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 8: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 8 with abnormal termination: bad_fd
+27492[error]EngineWarning[10](27492): Agent 9: from agent fd is bad (errno: 9 Bad file descriptor);  This usually happens because the agent process exited abnormally. Please check the agent logfiles
+27492[error]EngineWarning[10](27492): Losing agent 9 with abnormal termination: bad_fd
+27492[error]EngineError(27492): Received CSEM:Act(t:27182, a:0, dlen:28) which became Act(t:27192, a:0), arriving 27192, but less than simulation time 27492
+27492[error]EngineError(27492): sendAgentMessage: I have no client 0
+27492[error]EngineError(27492): Error sending TimeNotify: ToAgentMessage_TimeNotify(th: Regular, t: 27492)
+27492[error]EngineWarning[10](27492): Agent 0 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 1 lost with condition process_vanished
+27492[error]EngineWarning[10](27492): Agent 2 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 3 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 4 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 5 lost with condition process_vanished
+27492[error]EngineWarning[10](27492): Agent 6 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 7 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 8 lost with condition bad_fd
+27492[error]EngineWarning[10](27492): Agent 9 lost with condition bad_fd

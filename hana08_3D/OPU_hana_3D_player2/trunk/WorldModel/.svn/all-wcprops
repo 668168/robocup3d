@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/.dirstamp
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/update.cc
+END
+worldmodel.hh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/worldmodel.hh
+END
+onMyBack.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/onMyBack.cc
+END
+worldmodel.ih
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/worldmodel.ih
+END
+intergrate.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/intergrate.cc
+END
+updatePosture.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/updatePosture.cc
+END
+onMyFeet.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/onMyFeet.cc
+END
+onMySide.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/onMySide.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/static.cc
+END
+worldmodel.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/worldmodel.cc
+END
+updateJoints.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/updateJoints.cc
+END
+onMyBelly.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/onMyBelly.cc
+END
+updateVision.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/WorldModel/updateVision.cc
+END

@@ -1,0 +1,81 @@
+//
+// C++ Interface: TeamPlayer
+//
+// Description: 
+//
+//
+// Author: delta3d team 2009 <deltateams2009@gmail.com>, (C) 2010
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+
+#ifndef TEAM_PLAYER_H
+#define TEAM_PLAYER_H
+
+#include "Player.h"
+
+class TeamPlayer : public Player
+{
+public:
+
+    TeamPlayer();
+
+    ~TeamPlayer();
+
+     static TeamPlayer& instance ();
+    
+    /** initalization the player */
+
+protected:
+    /** the paly-on mode, mainly loop */
+    virtual void playPlayOn();
+
+    /** before kick off */
+    virtual void playBeforeKickOff();
+
+    /** kick off */
+    virtual void playOurKickOff();
+
+    virtual void playOppKickOff();
+
+    /** kick in */
+    virtual void playOurKickIn();
+
+    virtual void playOppKickIn();
+
+    /** corner kick */
+    virtual void playOurCornerKick();
+
+    virtual void playOppCornerKick();
+
+    /** goal kick */
+    virtual void playOurGoalKick();
+
+    virtual void playOppGoalKick();
+
+    /** offside */
+    virtual void playOurOffSide();
+
+    virtual void playOppOffSide();
+
+    /** game over */
+    virtual void playGameOver();
+
+    /** Gooooooooooooooooal */
+    virtual void playOurGoal();
+
+    virtual void playOppGoal();
+
+    /** free kick */
+    virtual void playOurFreeKick();
+    
+    virtual void playOppFreeKick();
+
+    void doStop();
+
+ protected:
+    
+};
+
+#endif

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<conf xmlns:xi="http://www.w3.org/2003/XInclude">  
+
+  <xi:include href="attacker_pc_2.xml" />
+  <xi:include href="keeper_pc_2.xml" />
+
+  <player id="1" class="keeper2" /> <!-- main keeper -->
+  <player id="3" class="attacker2" /> <!-- main attacker -->
+
+</conf>
+

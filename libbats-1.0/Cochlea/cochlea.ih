@@ -1,0 +1,8 @@
+#include "cochlea.hh"
+
+//#define DEBUGLEVEL 4
+#include "../Preprocessor/debug.hh"
+
+using namespace bats;
+using namespace std;
+

@@ -1,0 +1,9 @@
+#include "beamto.hh"
+
+#define DEBUGLEVEL 0
+#include "debug.hh"
+
+#include "worldmodel.hh"
+
+using namespace bats;
+using namespace std;

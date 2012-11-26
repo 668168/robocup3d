@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills
+END
+Walk.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Walk.cpp
+END
+Walk.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Walk.h
+END
+Kinematic.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Kinematic.cpp
+END
+TwoElements.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/TwoElements.cpp
+END
+Kinematic.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Kinematic.h
+END
+TwoElements.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/TwoElements.h
+END
+standup.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/standup.cpp
+END
+skill.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/skill.cpp
+END
+standupF.txt
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/standupF.txt
+END
+Kick.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Kick.cpp
+END
+standup.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/standup.h
+END
+skill.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/skill.h
+END
+Trajectory.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Trajectory.cpp
+END
+Kick.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Kick.h
+END
+Trajectory.h
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/Trajectory.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Skills/CMakeLists.txt
+END

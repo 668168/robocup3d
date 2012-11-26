@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<behaviors>
+
+    <behavior type="GuardGoal" id="guardgoal">
+        <slot index="0-0">
+          <behavior refid="goodposition"/>
+        </slot>
+    </behavior>
+</behaviors>

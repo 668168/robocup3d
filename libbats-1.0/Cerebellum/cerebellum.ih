@@ -1,0 +1,10 @@
+#include "cerebellum.hh"
+#include "../AgentModel/agentmodel.hh"
+
+//#define DEBUGLEVEL 4
+#include "../Preprocessor/debug.hh"
+
+#include <numeric>
+
+using namespace bats;
+using namespace std;

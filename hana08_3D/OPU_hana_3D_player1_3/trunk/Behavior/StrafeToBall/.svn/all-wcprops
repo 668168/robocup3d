@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall
+END
+strafetoball.hh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/strafetoball.hh
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/generateGoal.cc
+END
+strafetoball.ih
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/strafetoball.ih
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/getCapability.cc
+END
+StrafeToBall.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/StrafeToBall.cc
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/update.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeToBall/getCurrentState.cc
+END

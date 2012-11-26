@@ -1,0 +1,157 @@
+<behaviors>
+  <behavior type="Empty" id="win">
+    <slot index="0-0">
+      <behavior refid="getup" commit="1" scicc="1"/>
+      <behavior refid="getfromside" commit="1"/>
+      <behavior refid="score"/>
+      <behavior refid="beamto" commit="1" scicc="1"/>
+      <behavior refid="standby" commit="1"/>
+      <behavior refid="search" />
+      <behavior refid="turnandwait" />
+      <behavior refid="cornerkick" commit="1"/>
+      <behavior refid="waitandsee" commit="1"/>
+      <behavior refid="assaultgoal" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="WaitAndSee" id="waitandsee">
+    <slot index="0-0">
+      <!--<behavior refid="walkto"/>-->
+      <behavior refid="walkandturn"/>
+      <behavior refid="goodposition"/>
+      <behavior refid="stop" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="Score" id="score">
+    <slot index="0-0">
+      <!--<behavior refid="walkto"/>-->
+      <behavior refid="walkandturn"/>
+      <behavior refid="goodposition"/>
+      <behavior refid="avoidothers"/>
+      <behavior refid="freeze"/>
+    </slot>
+    <slot index="1-0">
+      <behavior refid="kickto" commit="1" scicc="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="WalkTo" id="walkto">
+    <slot index="0-0">
+      <behavior refid="turnto"/>
+      <behavior refid="walkstraightto"/>
+    </slot>
+  </behavior>
+
+  <behavior type="KickTo" id="kickto">
+    <slot index="0-0">
+      <behavior refid="goodpositionangle" scicc="1" commit="1"/>
+    </slot>
+    <slot index="1-0">
+      <behavior refid="dribble"/>
+    </slot>
+    <slot index="2-0">
+      <behavior refid="kickposition" commit="1" scicc="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="GoodPositionAngle" id="goodpositionangle">
+    <slot index="0-0">
+      <behavior refid="goodposition" commit="1"/>
+    </slot>
+    <slot index="1-0">
+      <!--<behavior refid="turnfordribble"/> -->
+      <behavior refid="turnto"/>
+    </slot>
+  </behavior>
+
+  <behavior type="Beam" id="beam" />
+
+
+  <behavior type="GetUp" id="getup">
+    <slot index="0-0">
+      <behavior refid="getupfrombelly" commit="1" scicc="1"/>
+      <behavior refid="getupfromback" commit="1" scicc="1"/>
+    </slot>
+  </behavior>
+
+
+  <behavior type="Dribble" id="dribble">
+    <slot index="0-0">
+      <behavior refid="dribbleforward" commit="1"/>
+      <behavior refid="dribbleside" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="KickPosition" id="kickposition">
+    <slot index="0-0">
+      <behavior refid="bestposition"/>
+      <behavior refid="bestangle"/>
+    </slot>
+    <slot index="1-0">
+      <behavior refid="cankickleft" scicc="1" commit="1"/>
+      <behavior refid="cankickright" scicc="1" commit="1"/>
+      <behavior refid="kickleftl" scicc="1" commit="1"/>
+      <behavior refid="kickrightr" scicc="1" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="CornerKick" id="cornerkick">
+    <slot index="0-0">
+      <behavior refid="cornerkickposition" commit="1"/>
+      <behavior refid="cornerkickright" scicc="1" commit="1"/>
+      <behavior refid="cornerkickleft" scicc="1" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="CornerKickPosition" id="cornerkickposition">
+    <slot index="0-0">
+      <behavior refid="goodposition" />
+      <behavior refid="turnto" />
+    </slot>
+  </behavior>
+
+  <behavior type="AssaultGoal" id="assaultgoal">
+    <slot index="0-0">
+      <behavior refid="goodposition"/>
+      <behavior refid="avoidothers"/>
+      <behavior refid="turnto"/>
+    </slot>
+    <slot index="1-0">
+      <behavior refid="walkstraightto"/>
+    </slot>
+  </behavior>
+
+
+  <behavior type="AvoidOthers" id="avoidothers">
+    <slot index="0-0">
+      <behavior refid="goodposition" />
+    </slot>
+  </behavior>
+
+
+  <!--     high level // ===
+           ===========
+    ==== // low lebel        -->
+
+  <behavior type="CornerKickRight" id="cornerkickright">
+    <slot index="0-0">
+      <behavior refid="kickright3_sp" scicc="1" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="CornerKickLeft" id="cornerkickleft">
+    <slot index="0-0">
+      <behavior refid="kickleft3_sp" scicc="1" commit="1"/>
+    </slot>
+  </behavior>
+
+  <behavior type="WalkAndTurn" id="walkandturn">
+    <slot index="0-0">
+      <behavior refid="walkandturn_s2" commit="1"/>
+    </slot>
+  </behavior>
+
+</behaviors>
+
+

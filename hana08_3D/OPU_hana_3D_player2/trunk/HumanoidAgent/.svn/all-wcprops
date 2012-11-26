@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/HumanoidAgent
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/HumanoidAgent/.dirstamp
+END
+humanoidagent.hh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/HumanoidAgent/humanoidagent.hh
+END
+humanoidagent.ih
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/HumanoidAgent/humanoidagent.ih
+END
+startUp.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/HumanoidAgent/startUp.cc
+END
+run.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/30/littlegreenbats_new_2/trunk/HumanoidAgent/run.cc
+END

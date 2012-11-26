@@ -1,0 +1,23 @@
+//
+// C++ Implementation: saeid
+//
+// Description: 
+//
+//
+// Author: saeid <saeid@localhost.localdomain>, (C) 2010
+//
+// Copyright: See COPYING file that comes with this distribution
+//
+//
+#include "saeid.h"
+
+Saeid::Saeid()
+{
+}
+
+
+Saeid::~Saeid()
+{
+}
+
+

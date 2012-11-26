@@ -1,0 +1,13 @@
+#include "humanoidbat.hh"
+
+#include "worldmodel.hh"
+#include "behavior.hh"
+#include "logger.hh"
+
+#include <sstream>
+
+using namespace bats;
+using namespace std;
+
+#define DEBUGLEVEL 0
+#include "debug.hh"

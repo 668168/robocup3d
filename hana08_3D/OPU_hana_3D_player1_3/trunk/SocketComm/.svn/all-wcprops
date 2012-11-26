@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/SocketComm
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/SocketComm/.dirstamp
+END
+socketcomm.hh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/SocketComm/socketcomm.hh
+END
+socketcomm.ih
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/SocketComm/socketcomm.ih
+END
+receive.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/SocketComm/receive.cc
+END
+init.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/SocketComm/init.cc
+END
+initConnection.cc
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/SocketComm/initConnection.cc
+END
+makeMoveHingeJoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/SocketComm/makeMoveHingeJoint.cc
+END
+moveUniversalJoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/SocketComm/moveUniversalJoint.cc
+END
+nextMessage.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/SocketComm/nextMessage.cc
+END
+beam.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/10/littlegreenbats_new/trunk/SocketComm/beam.cc
+END
+moveHingeJoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/SocketComm/moveHingeJoint.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/SocketComm/static.cc
+END
+send.cc
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/SocketComm/send.cc
+END
+moveJoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/17/littlegreenbats_new/trunk/SocketComm/moveJoint.cc
+END

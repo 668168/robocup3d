@@ -1,0 +1,35 @@
+/**
+
+\mainpage Little Green BATS (2006) sourcecode documentation
+
+\section Authors
+
+- Martin Klomp (martin [at] ai.rug.nl)
+- Mart van de Sanden (vdsanden [at] ai.rug.nl)
+- Sander van Dijk (sgdijk [at] ai.rug.nl)
+- A. Bram Neijt (bneijt [at] gmail.com)
+- Matthijs Platje (mplatje [at] gmail.com)
+
+<em>Please feel free to contact us if you have any problems or questions about the code.</em>
+
+  Date: 	September 14, 2006
+
+  Website:	http://www.littlegreenbats.nl
+
+\section License
+<pre>
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses/ .
+</pre>
+
+*/

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<conf xmlns:xi="http://www.w3.org/2003/XInclude">  
+  <xi:include href="attacker_pc.xml" /> <!-- old version -->
+  <xi:include href="attacker2_pc.xml" />
+  <xi:include href="defender_pc.xml" />
+  <xi:include href="defender2_pc.xml" />
+  <xi:include href="defender3_pc.xml" />
+  <xi:include href="keeper_pc.xml"   />
+  <xi:include href="keeper2_pc.xml"   />
+
+  <player id="1" class="keeper2" />    <!-- main keeper -->
+  <player id="2" class="attacker2"  /> <!-- sub attacker -->
+  <player id="3" class="attacker" /> <!-- main attacker -->
+  <player id="4" class="defender" /> <!-- main defender -->
+  <player id="5" class="defender2"  /> <!-- sub defender -->
+  <player id="6" class="defender3" /> <!--  sub defender -->
+  <player id="7" class="attacker2"  />
+  <player id="8" class="attacker" />
+  <player id="9" class="testplayer" />
+  <player id="10" class="attacker" />
+  <player id="11" class="attacker" />
+
+</conf>
+

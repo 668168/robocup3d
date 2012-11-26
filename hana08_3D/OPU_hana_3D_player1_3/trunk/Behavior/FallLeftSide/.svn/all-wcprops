@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/40/littlegreenbats_new/trunk/Behavior/FallLeftSide
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/FallLeftSide/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/FallLeftSide/generateGoal.cc
+END
+FallLeftSide.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/FallLeftSide/FallLeftSide.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/hana08_3D/!svn/ver/40/littlegreenbats_new/trunk/Behavior/FallLeftSide/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/FallLeftSide/getCurrentState.cc
+END
+fallleftside.hh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/FallLeftSide/fallleftside.hh
+END
+fallleftside.ih
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/FallLeftSide/fallleftside.ih
+END

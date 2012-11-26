@@ -1,0 +1,26 @@
+; -*- mode: lisp; -*-
+(RSG 0 1)
+(
+ (templ $radius $density)
+
+ (nd Transform
+       (setLocalPos -6 -4 0)
+       (importScene rsg/boxspheres/row.rsg $radius $density)
+       )
+ (nd Transform
+       (setLocalPos -6 -2 0)
+       (importScene rsg/boxspheres/row.rsg $radius $density)
+       )
+ (nd Transform
+       (setLocalPos -6 0 0)
+       (importScene rsg/boxspheres/row.rsg $radius $density)
+       )
+ (nd Transform
+       (setLocalPos -6 2 0)
+       (importScene rsg/boxspheres/row.rsg $radius $density)
+       )
+ (nd Transform
+       (setLocalPos -6 4 0)
+       (importScene rsg/boxspheres/row.rsg $radius $density)
+       )
+ )

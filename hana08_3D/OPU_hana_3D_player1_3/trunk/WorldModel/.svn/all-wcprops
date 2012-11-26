@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/hana08_3D/!svn/ver/35/littlegreenbats_new/trunk/WorldModel
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/.dirstamp
+END
+update.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/update.cc
+END
+worldmodel.hh
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/35/littlegreenbats_new/trunk/WorldModel/worldmodel.hh
+END
+onMyBack.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/onMyBack.cc
+END
+worldmodel.ih
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/worldmodel.ih
+END
+intergrate.cc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/WorldModel/intergrate.cc
+END
+updatePosture.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/updatePosture.cc
+END
+onMyFeet.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/onMyFeet.cc
+END
+onMySide.cc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/onMySide.cc
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/WorldModel/static.cc
+END
+worldmodel.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/worldmodel.cc
+END
+updateJoints.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/WorldModel/updateJoints.cc
+END
+onMyBelly.cc
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/WorldModel/onMyBelly.cc
+END
+updateVision.cc
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/hana08_3D/!svn/ver/18/littlegreenbats_new/trunk/WorldModel/updateVision.cc
+END

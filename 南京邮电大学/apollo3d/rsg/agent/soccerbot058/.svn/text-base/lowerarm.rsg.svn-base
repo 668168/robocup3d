@@ -1,0 +1,54 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+ (templ $name $perceptorName $effectorName $attach
+	$x $y $z
+	$LowerarmLength $LowerarmWidth $LowerarmHeight $LowerarmMass
+	$HandBox1Length $HandBox1Width $HandBox1Height $HandBox1Mass
+	$HandBox2Length $HandBox2Width $HandBox2Height
+	$HandBox3Length $HandBox3Width $HandBox3Height $HandBox3Mass
+	$anchorX $anchorY $anchorZ
+	$axis $minDeg $maxDeg
+	$ElbowRadius $ElbowLen $armMat $handMat $side $scale)
+
+ (nd Transform
+     (setName $name)
+     (setLocalPos $x $y $z)
+     (importScene rsg/agent/soccerbot058/lowerarm_body.rsg
+		  $LowerarmLength $LowerarmWidth $LowerarmHeight $LowerarmMass
+		  $HandBox1Length $HandBox1Width $HandBox1Height $HandBox1Mass
+		  $HandBox2Length $HandBox2Width $HandBox2Height
+		  $HandBox3Length $HandBox3Width $HandBox3Height $HandBox3Mass
+		  $armMat $handMat $side $scale)
+
+     (nd HingeJoint
+	 (attach ../boxBody $attach)
+	 (setAnchor $anchorX $anchorY $anchorZ)
+	 (setAxis $axis)
+
+	 ;; enable the joint motors
+	 (setMaxMotorForce 0 100)
+
+	 ;; install a perceptor
+	 (nd HingePerceptor (setName $perceptorName))
+
+	 ;; install an effector to control the joint motors
+	 (nd HingeEffector (setName $effectorName))
+
+	 ;; set joint stops
+	 (setLowStopDeg 0 $minDeg)
+	 (setHighStopDeg 0 $maxDeg)
+	 )
+
+     ;; static cylinder for the elbow
+     (nd Transform
+	 (setLocalPos $anchorX $anchorY $anchorZ)
+	 (setLocalRotation 0 90 0)
+	 (nd CCylinder
+	     (setMaterial matGrey)
+	     (setParams $ElbowRadius $ElbowLen)
+	     )
+	 )
+     )
+)

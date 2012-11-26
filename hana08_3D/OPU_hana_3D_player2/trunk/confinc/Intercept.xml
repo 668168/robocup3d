@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<behaviors>
+
+       <behavior type="Intercept" id="intercept">
+	 <slot index="0-0">
+	   <behavior refid="turnto" commit="1"/>
+	 </slot>
+	 <slot index="1-0">
+	   <behavior refid="walkstraightto" commit="1"/>
+	 </slot>
+       </behavior>
+
+</behaviors>

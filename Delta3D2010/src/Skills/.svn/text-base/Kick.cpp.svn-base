@@ -1,0 +1,745 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#include "Kick.h"
+#include "../WorldModel/WorldModel.h" 
+#include "../Effectors/AngularMotor.h"
+#include "../Behavior/BhvBasicKick.h"
+
+Kick::Kick()
+{
+   mSlowGain    = 0.3f;
+   mTorsoMatrix.Identity();
+   mHoldFootMatrix.Identity();
+   mMoveFootMatrix.Identity();
+   WM = boost::shared_ptr<WorldModel>(& WorldModel::instance());
+
+}
+
+Kick& Kick::instance()
+{
+    static Kick sKick;
+    return sKick;
+}
+
+void Kick::execute(bool isLeftHold)
+{
+    static bool mPrepare=false;
+    std::string cmd;
+     Effectors::instance().mActionCommand="";
+     if(!prepare() && !mPrepare)
+     {	
+         
+          Connection::instance().sendMessage(Effectors::instance().mActionCommand);
+          
+     }
+     else
+     {
+        mPrepare=true;
+        Kicking(cmd);
+        Connection::instance().sendMessage(Effectors::instance().mActionCommand);
+     }
+ }
+
+bool Kick::prepare()
+{    
+//      static int count=1;
+//       if(count==1)
+//       {
+         
+         WorldModel& wm   = WorldModel::instance();
+    Walk&       walk = Walk::instance();
+
+//\     if (walk.IsPrepareDone() && wm.isStable())
+//     {
+//         cout <<"RoleForward::doStop : 'prepare walk done' "<<endl;
+// //         wm.setCurrentAction(ACT_WALK);
+//     }
+//     else
+//     {
+//         cout <<"RoleForward::doStop : 'prepare walk done' "<<endl;
+//         //wm.setCurrentAction(ACT_NONE);
+//         walk.setWalkPhase(Walk::PREPARE);
+//         walk.Execute(0.0,0.0,SIDE_FORWARD);
+//         Effectors::instance().setActionCommand();
+//     }
+    
+
+//      }
+      
+//      count++;
+     Effectors::instance().calculateVel(JID_LARM_1, -45, 3);
+     Effectors::instance().calculateVel(JID_RARM_1, -45, 3);
+
+    Effectors::instance().calculateVel(JID_LLEG_4, 0, 3.5);
+    Effectors::instance().calculateVel(JID_RLEG_4, 0, 3.5);
+
+    Effectors::instance().calculateVel(JID_LLEG_3, 0, 3);
+    Effectors::instance().calculateVel(JID_RLEG_3, 0, 3);
+
+    Effectors::instance().calculateVel(JID_LLEG_5, 0, 2);
+    Effectors::instance().calculateVel(JID_RLEG_5, 0, 2);
+
+//      Effectors::instance().calculateVel(JID_LARM_1, -45, 1);
+//      Effectors::instance().calculateVel(JID_RARM_1, -45, 1);
+
+    Effectors::instance().setActionCommand();
+    if(WorldModel::instance().getHJoint(JID_RLEG_5).angle<2)
+        return true;
+
+    return false;
+}
+int Kick::Kicking(std::string &cmd)
+{
+    Effectors& eff= Effectors::instance();
+    static int cycle = 2, t = 0;
+    static bool done=false;
+    int endCycle = 150;
+    static shootJoint Shoot;
+    stringstream ss;
+       
+    if (done)
+    {
+        cmd=fix();
+        eff.mActionCommand=cmd;
+        return 0;
+    }
+
+    if (cycle == 2)
+        importShootJoint(Shoot,true);
+    if (cycle < Shoot.time[t]) 
+    {
+             ss << fix()
+                << "(lae1" << Shoot.lae1[t] << ")"
+                << "(rae1 " << Shoot.rae1[t] << ")"
+                << "(lae2 " << Shoot.lae2[t] << ")"
+                << "(rae2 " << Shoot.rae2[t] << ")"
+                << "(lle1 " << Shoot.lle1[t] << ")"
+                << "(rle1 " << Shoot.rle1[t] << ")"
+                << "(lle2 " << Shoot.lle2[t] << ")"
+                << "(rle2 " << Shoot.rle2[t] << ")"
+                << "(lle3 " << Shoot.lle3[t] << ")"
+                << "(rle3 " << Shoot.rle3[t] << ")"
+                << "(lle4 " << Shoot.lle4[t] << ")"
+                << "(rle4 " << Shoot.rle4[t] << ")"
+                << "(lle5 " << Shoot.lle5[t] << ")"
+                << "(rle5 " << Shoot.rle5[t] << ")"
+                << "(lle6 " << Shoot.lle6[t] << ")"
+                << "(rle6 " << Shoot.rle6[t] << ")";
+        cmd = ss.str();
+        eff.mActionCommand=cmd;
+    }
+    if (cycle > Shoot.time[t])
+    {
+        
+        cmd = resetJointShoot(endCycle - cycle);
+        eff.mActionCommand=cmd;
+    }
+    cycle++;
+    if (cycle == Shoot.time[t])
+        t++;
+
+    if (endCycle == cycle) 
+    {
+        cycle = 0;
+	t = 0;
+	done = true;
+	WorldModel::instance().setCurrentAction(ACT_WALK);
+        cmd = fix();
+        eff.mActionCommand=cmd;
+    }
+    return (endCycle - cycle);
+}
+/////////////////////////////////////////////////////////////////////////
+
+void Kick::importShootJoint(shootJoint& Shoot,bool leftFoot) {
+    ifstream cin("Config/kick.conf");
+    string str;
+
+    for (int i = 0; i < 10; i++)
+        cin >> Shoot.time[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.rle1[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.rle2[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.lle2[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.rle3[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.lle3[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.rle4[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.lle4[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.rle5[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.lle5[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.rle6[i];
+    for (int i = 0; i < 8; i++)
+        cin >> Shoot.lle6[i];
+    for (int i = 0; i < 8; i++) {
+        Shoot.lle1[i] = 0;
+        Shoot.lae1[i] = 0;
+        Shoot.rae1[i] = 0;
+        Shoot.lae2[i] = 0;
+        Shoot.rae2[i] = 0;
+    }
+    Shoot.lae2[0] = 2;
+    Shoot.lae2[1] = 2;
+    Shoot.lae2[2] = 1.5;
+    
+      if (leftFoot) { //shoooting by left foot
+
+        for (int i = 0; i < 8; i++) {
+            Shoot.rle2[i] *= -1;
+            Shoot.lle2[i] *= -1;
+            Shoot.rle6[i] *= -1;
+            Shoot.lle6[i] *= -1;
+
+            double t = Shoot.rle3[i];
+            Shoot.rle3[i] = Shoot.lle3[i];
+            Shoot.lle3[i] = t;
+            t = Shoot.rle4[i];
+            Shoot.rle4[i] = Shoot.lle4[i];
+            Shoot.lle4[i] = t;
+            t = Shoot.rle5[i];
+            Shoot.rle5[i] = Shoot.lle5[i];
+            Shoot.lle5[i] = t;
+            t = Shoot.rae2[i];
+            Shoot.rae2[i] = -1 * Shoot.lae2[i];
+            Shoot.lae2[i] = t;
+            t = Shoot.rle2[i];
+            Shoot.rle2[i] = Shoot.lle2[i];
+            Shoot.lle2[i] = t;
+            t = Shoot.rle6[i];
+            Shoot.rle6[i] = Shoot.lle6[i];
+            Shoot.lle6[i] = t;
+
+        }
+
+
+    }
+}
+
+
+string Kick::sefr(bool &done, double &t, bool b) 
+{
+    if (done) 
+    {
+        t = 0;
+        return fix();
+    }
+
+}
+
+
+
+string Kick::fix() {
+    stringstream ss;
+
+    for (int i = (int)JID_HEAD_1; i <= (int)JID_RLEG_6; i++) 
+        ss << moveJoint(WM->mJointEffectorMap[static_cast<EJointID>(i)],0);
+
+    return ss.str();
+}
+
+
+
+string Kick::resetJointShoot(int nextcycle) {
+    stringstream ss;
+    ss << fix();
+    for (int i = (int)JID_HEAD_1; i <= (int)JID_RLEG_6; i++) {
+        if (i == 10 || i == 11)
+            ss << moveJoint(WM->mJointEffectorMap[static_cast<EJointID>(i)], -2 * WM->getHJoint(static_cast<EJointID>(i)).angle / nextcycle);
+        else
+            ss << moveJoint(WM->mJointEffectorMap[static_cast<EJointID>(i)], -1 * WM->getHJoint(static_cast<EJointID>(i)).angle / nextcycle);
+    }
+    return ss.str();
+}
+
+
+// string Kick::act(double a[][24], int m, int n, double &time, bool &t) {
+//     if (t)
+//         return "";
+//     string ss = "";
+//     for (int i = 1; i < n; i++) {
+//         if (a[0][i] < time && time <= a[1][i]) {
+//             for (int j = 2; j < m; j++) {
+//                 double speed = (a[j][i] - WM->getJointAngle(WM->num2Str(a[j][0]))) / (a[1][i] - time) / 50.0;
+//                 if (fabs(a[j][i] - WM->getJointAngle(WM->num2Str(a[j][0]))) > .4) {
+//                     ss += moveJoint(WM->num2Str(a[j][0]), speed);
+//                 } else
+//                     ss += fix(WM->num2Str(a[j][0]));
+//             }
+//             break;
+//         } else
+//             continue;
+//     }
+//     time += 0.02;
+//     if (time > a[1][n - 1]) {
+//         t = true;
+//         return "";
+//     }
+//     return ss;
+// }
+
+string Kick::moveJoint(string j, double val) {
+    stringstream message;
+    message << "(" << j << " " << val << ")";
+    return message.str();
+}
+
+//     kicking();
+//     mLeftHold = isLeftHold;
+//     cout<<" Kick Phase = "<<mPhase<<endl;
+//     switch ( mPhase )
+//     {
+//        case (PREPARE):
+//            cout<<"Walk: Prepare execute"<<endl;
+//            prepare();
+//            break;
+//        case (SHOOT):
+//            cout<<"Walk: Shoot execute"<<endl;
+//            shoot();
+//            break;
+//        case (FINAL):
+//            cout<<"Walk: Final execute"<<endl;
+//            final();
+//            break;
+//        default:
+//            break;
+//     }
+// 
+// 
+
+
+void Kick::kicking()
+{
+    if (FINAL == mPhase && isFinalDone() )
+    {
+       cout <<"Kick:Final Done"<<endl;
+       mPhase = PREPARE;
+       mStartPhaseCycle = WorldModel::i().getCurrentCycle();
+       return;
+    }
+
+    if (PREPARE ==  mPhase && isPrepareDone())
+    {
+       mPhase = SHOOT;
+       mStartPhaseCycle = WorldModel::i().getCurrentCycle();
+       return;
+    }
+//     static const float fTlorans =5.0;
+//     const WorldModel& wm = WorldModel::i();
+//     bool bIsStop = (wm.getGyr().x > -fTlorans && wm.getGyr().x < fTlorans &&
+//                     wm.getGyr().y > -fTlorans && wm.getGyr().y < fTlorans &&
+//                     wm.getGyr().z > -fTlorans && wm.getGyr().z < fTlorans );
+
+    if (SHOOT == mPhase && isShootDone() /*&& bIsStop*/)
+    {
+       cout<<"Kick is Done"<<endl;
+       mPhase = FINAL;
+       mStartPhaseCycle = WorldModel::i().getCurrentCycle();
+       return;
+    }
+}
+
+bool Kick::isDone()
+{
+    return (SHOOT == mPhase && isShootDone());
+}
+// void Kick::prepare()
+// {
+//     cout<<"Prepare Kick execute "<<endl;
+//     /*
+//     mSlowGain = 0.2f;
+//     getPrepareMatrix();
+//     if (! Kinematic::instance().IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold))
+//     {
+//         cout<<"soti Prepare 1"<<endl;
+//         return ;
+//     }
+//     ApplyJVel(lefthold);
+// 
+//     if (! Kinematic::instance().IK_leg(mTorsoMatrix, mMoveFootMatrix, !lefthold))
+//     {
+//         cout<<"soti Prepare 2"<<endl;
+//         return ;
+//     }
+//     ApplyJVel(!lefthold);
+//      */
+// 
+// //     /*
+//     float rAngles[12] ={   0.0 ,  0.01,
+//                          -17.7 ,-20.36,
+//                          27.99 , 11.93,
+//                         -81.21 ,-94.44,
+//                          53.23 , 75.14,
+//                          17.71 , 20.37 };
+//     float lAngles[12] ={   0.0 ,  0.01,
+//                          20.36 ,  17.7,
+//                          11.93 , 27.99,
+//                         -94.44 ,-81.21,
+//                          75.14 , 53.23,
+//                         -20.37 ,-17.71 };
+//     for (int i = 0;i<12;++i)
+//     {
+//         if (mLeftHold)
+//             Effectors::instance().calculateVel(static_cast<EJointID>(i+JID_LLEG_1),
+//                                                rAngles[i] , 5);
+//         else
+//             Effectors::instance().calculateVel(static_cast<EJointID>(i+JID_LLEG_1),
+//                                                lAngles[i] , 5);
+//     }
+// //     */
+// }
+// 
+
+bool Kick::isPrepareDone()
+{
+    return WorldModel::i().isStable();
+   /*
+    bool lefthold = false;
+    getPrepareMatrix();
+    float ld, rd;
+    boost::shared_array<float> IKJointAngle = Kinematic::instance().getIKJointAngle();
+    if (! Kinematic::instance().IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold)) 
+        return false;
+    ld = gRadToDeg(gAbs(Effectors::instance().mJointAngle[JID_LLEG_4] -
+                        IKJointAngle[JID_LLEG_4]));
+
+    if (! Kinematic::instance().IK_leg(mTorsoMatrix, mMoveFootMatrix, ! lefthold)) 
+        return false;
+    rd = gRadToDeg(gAbs(Effectors::instance().mJointAngle[JID_RLEG_4] -
+                        IKJointAngle[JID_RLEG_4]));
+
+    return (ld < 1.5 && rd < 1.5);
+       */
+//       /*
+    float rAngles[12] ={  0.0 ,  0.01,
+                       -17.7 ,-20.36,
+                       27.99 , 11.93,
+                      -81.21 ,-94.44,
+                       53.23 , 75.14,
+                       17.71 , 20.37 };
+
+    float lAngles[12] ={   0.0 ,  0.01,
+                         20.36 ,  17.7,
+                         11.93 , 27.99,
+                        -94.44 ,-81.21,
+                         75.14 , 53.23,
+                        -20.37 ,-17.71 };
+
+    const float telorans = 0.5;
+    WorldModel& wm = WorldModel::instance();
+    cout <<"in prepare check"<<endl;
+    for (int i=0;i<12;++i   )
+    {
+        if (mLeftHold)
+        {
+           cout <<" joint "<<i<<" :"<<rAngles[i]-telorans<<"< "<< wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle <<" <"<< rAngles[i]+telorans<<endl;
+
+           if (!(wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle > rAngles[i]-telorans &&
+                 wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle < rAngles[i]+telorans))
+               return false;
+        }
+        else
+        {
+           cout <<" joint "<<i<<" :"<<lAngles[i]-telorans<<"< "<< wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle <<" <"<< lAngles[i]+telorans<<endl;
+           if (!(wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle > lAngles[i]-telorans &&
+                 wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle < lAngles[i]+telorans))
+               return false;
+        }
+    }
+
+    return true;
+//       */
+}
+
+
+
+void Kick::shoot()
+{
+    cout<<"Shoot Kick execute "<<endl;
+    bool lefthold = mLeftHold;
+    mSlowGain = 0.01f;
+    getShootMatrix();
+
+//     /*
+    if (! Kinematic::instance().IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold))
+    {
+        cout <<"soti shoot 1"<<endl;
+        return ;
+    }
+    ApplyJVel(lefthold);
+
+     if (! Kinematic::instance().IK_leg(mTorsoMatrix, mMoveFootMatrix, !lefthold))
+     {
+         cout <<"soti shoot 2"<<endl;
+         return ;
+     }
+     ApplyJVel(!lefthold);
+//         */
+      /*
+     float angles[12] ={0.0,0.01,-11.82,-14.03,2.01,35.81,-0.06,-60.52,-1.95,24.71,11.82,14.03 };
+    for (int i = 0;i<12;++i)
+    {
+        Effectors::instance().calculateVel(static_cast<EJointID>(i+JID_LLEG_1),angles[i] , 20000);
+    }
+     */
+}
+
+bool Kick::isShootDone()
+{
+    //return WorldModel::i().isStable();
+//     return (WorldModel::i().getCurrentCycle() - mStartPhaseCycle > 20);
+
+   float rAngles[12] ={  0.0 ,  0.01,
+                      -11.82 ,-14.03,
+                        2.01 , 35.81,
+                       -0.06 ,-60.52,
+                       -1.95 , 24.71,
+                       11.82 , 14.03 };
+
+   float lAngles[12] ={ 0.01 ,   0.0,
+                       14.03 , 11.82,
+                       35.81 ,  2.01,
+                      -60.52 , -0.06,
+                       24.71 , -1.95,
+                      -14.03 ,-11.82  };
+
+    const float telorans = 0.2;
+    WorldModel& wm = WorldModel::instance();
+    cout <<"in shoot check"<<endl;
+    for (int i=0;i<12;++i   )
+    {
+        if (mLeftHold)
+        {
+           cout <<" joint "<<i<<" :"<<rAngles[i]-telorans<<"< "<<
+                  wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle <<" <"<<
+                  rAngles[i]+telorans<<endl;
+
+           if (!(wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle > rAngles[i]-telorans &&
+                 wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle < rAngles[i]+telorans))
+               return false;
+        }
+        else
+        {
+           cout <<" joint "<<i<<" :"<<lAngles[i]-telorans<<"< "<<
+                  wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle <<" <"<<
+                  lAngles[i]+telorans<<endl;
+
+           if (!(wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle > lAngles[i]-telorans &&
+                 wm.getHJoint(static_cast<EJointID>(i+JID_LLEG_1)).angle < lAngles[i]+telorans))
+               return false;
+        }
+    }
+    cout <<"***********************"<<endl;
+    return true;
+}
+
+void Kick::final()
+{
+    cout<<"Final Kick execute "<<endl;
+    Effectors::instance().calculateVel(JID_LARM_1, -45.0, 20);
+    Effectors::instance().calculateVel(JID_RARM_1, -45.0, 20);
+
+    bool lefthold =true;
+    mSlowGain = 0.3f;
+    getFinalMatrix();
+    if (! Kinematic::instance().IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold))
+    {
+        cout <<"soti Final 1"<<endl;
+        return ;
+    }
+    ApplyJVel(lefthold);
+
+     if (! Kinematic::instance().IK_leg(mTorsoMatrix, mMoveFootMatrix, !lefthold))
+     {
+         cout <<"soti Final 2"<<endl;
+         return ;
+     }
+     ApplyJVel(!lefthold);
+}
+
+bool  Kick::isFinalDone        (             )
+{
+    return WorldModel::instance().isStable();
+    bool lefthold = false;
+    getFinalMatrix();
+    float ld, rd;
+    boost::shared_array<float> IKJointAngle = Kinematic::instance().getIKJointAngle();
+    if (! Kinematic::instance().IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold)) 
+        return false;
+    ld = gRadToDeg(gAbs(Effectors::instance().mJointAngle[JID_LLEG_4] -
+                        IKJointAngle[JID_LLEG_4]));
+
+    if (! Kinematic::instance().IK_leg(mTorsoMatrix, mMoveFootMatrix, ! lefthold)) 
+        return false;
+    rd = gRadToDeg(gAbs(Effectors::instance().mJointAngle[JID_RLEG_4] -
+                        IKJointAngle[JID_RLEG_4]));
+
+    return (ld < 1.5 && rd < 1.5 );
+}
+
+void Kick::ApplyJVel(bool left)
+{
+    Effectors& eff = Effectors::instance();
+    boost::shared_array<float> IKJointAngle = Kinematic::instance().getIKJointAngle();
+    if (left) // left foot
+    {
+        eff.mJointVel[JID_LLEG_1] = (IKJointAngle[JID_LLEG_1] -
+                                         eff.mJointAngle[JID_LLEG_1])/ mSlowGain ;
+
+        eff.mJointVel[JID_LLEG_2] = (IKJointAngle[JID_LLEG_2] -
+                                         eff.mJointAngle[JID_LLEG_2])/ mSlowGain ;
+
+        eff.mJointVel[JID_LLEG_3] = (IKJointAngle[JID_LLEG_3] -
+                                         eff.mJointAngle[JID_LLEG_3])/ mSlowGain ;
+
+        eff.mJointVel[JID_LLEG_4] = (IKJointAngle[JID_LLEG_4] -
+                                         eff.mJointAngle[JID_LLEG_4])/ mSlowGain ;
+
+         eff.mJointVel[JID_LLEG_5] = (IKJointAngle[JID_LLEG_5] -
+                                          eff.mJointAngle[JID_LLEG_5])/ mSlowGain ;
+
+        eff.mJointVel[JID_LLEG_6] = (IKJointAngle[JID_LLEG_6] -
+                                         eff.mJointAngle[JID_LLEG_6])/ mSlowGain ;
+    }
+    else // right foot
+    {
+        eff.mJointVel[JID_RLEG_1] = (IKJointAngle[JID_RLEG_1] -
+                                         eff.mJointAngle[JID_RLEG_1])/ mSlowGain ;
+
+        eff.mJointVel[JID_RLEG_2] = (IKJointAngle[JID_RLEG_2] - 
+                                         eff.mJointAngle[JID_RLEG_2])/ mSlowGain ;
+
+        eff.mJointVel[JID_RLEG_3] = (IKJointAngle[JID_RLEG_3] -
+                                         eff.mJointAngle[JID_RLEG_3])/ mSlowGain ;
+
+        eff.mJointVel[JID_RLEG_4] = (IKJointAngle[JID_RLEG_4] -
+                                         eff.mJointAngle[JID_RLEG_4])/ mSlowGain ;
+
+         eff.mJointVel[JID_RLEG_5] = (IKJointAngle[JID_RLEG_5] -
+                                          eff.mJointAngle[JID_RLEG_5])/ mSlowGain ;
+
+        eff.mJointVel[JID_RLEG_6] = (IKJointAngle[JID_RLEG_6] -
+                                         eff.mJointAngle[JID_RLEG_6])/ mSlowGain ;
+    }
+}
+
+void Kick::getPrepareMatrix()
+{
+    mTorsoMatrix.Identity();
+    mHoldFootMatrix.Identity();
+    mMoveFootMatrix.Identity();
+    salt::Vector3f torsoPos(0.055, 0.0, 0.3199),
+                   holdPos(0.06, 0.0, 0.015),
+                   movePos(-0.045, -0.05, 0.05);
+    mTorsoMatrix.Pos() = torsoPos;
+    mHoldFootMatrix.Pos() = holdPos;
+    mMoveFootMatrix.Pos() = movePos;
+}
+
+void Kick::getShootMatrix()
+{
+    mTorsoMatrix.Identity();
+    mHoldFootMatrix.Identity();
+    mMoveFootMatrix.Identity();
+    salt::Vector3f torsoPos(-0.035, -0.032, 0.3801),
+                   holdPos(-0.045, 0.0, 0.015),
+                   movePos(0.065, 0.02, 0.05);
+    if (!mLeftHold)
+    {
+       torsoPos = Vector3f( 0.035,-0.032, 0.3801);
+       holdPos  = Vector3f( 0.045,   0.0,  0.015);
+       movePos  = Vector3f(-0.065,  0.02,   0.05);
+    }
+    mTorsoMatrix.Pos()    = torsoPos;
+    mHoldFootMatrix.Pos() = holdPos;
+    mMoveFootMatrix.Pos() = movePos;
+}
+
+void Kick::getFinalMatrix()
+{
+    mTorsoMatrix.Identity();
+    mHoldFootMatrix.Identity();
+    mMoveFootMatrix.Identity();
+    salt::Vector3f torsoPos(0.0, 0.0, 0.3301),
+                   holdPos(-0.055, 0.0, 0.015),
+                   movePos(0.055 , 0.0, 0.015);
+    mTorsoMatrix.Pos()    = torsoPos;
+    mHoldFootMatrix.Pos() = holdPos;
+    mMoveFootMatrix.Pos() = movePos;
+}
+
+void Kick::reset()
+{
+    mTorsoMatrix.Identity();
+    mHoldFootMatrix.Identity();
+    mMoveFootMatrix.Identity();
+    mPhase = FINAL;
+    mSlowGain    = 0.3f;
+    mStartPhaseCycle =WorldModel::i().getCurrentCycle();
+    mLeftHold =true;
+}
+
+
+/*
+
+mSlowGain = 0.01f;
+
+salt::Vector3f torsoPos(-0.055, 0.0, 0.3201),
+                   holdPos(-0.045, 0.0, 0.015),
+                   movePos(0.045, -0.04, 0.05);
+
+salt::Vector3f torsoPos(-0.035, -0.02, 0.3801),
+                   holdPos(-0.045, 0.0, 0.015),
+                   movePos(0.045, 0.1, 0.05);
+
+
+prepare:
+salt::Vector3f torsoPos(-0.055, 0.0, 0.3199),
+                   holdPos(-0.06, 0.0, 0.015),
+                   movePos(0.045, -0.05, 0.05);
+shoot:
+salt::Vector3f torsoPos(-0.035, -0.032, 0.3801),
+                   holdPos(-0.045, 0.0, 0.015),
+                   movePos(0.065, 0.02, 0.05);
+
+
+back prepare
+  salt::Vector3f torsoPos(-0.055, 0.0, 0.3199),
+                   holdPos(-0.06, 0.0, 0.015),
+                   movePos(0.045, 0.02, 0.02);
+
+back shoot
+t::Vector3f torsoPos(-0.035, -0.032, 0.3801),
+                   holdPos(-0.045, 0.0, 0.015),
+                   movePos(0.045, -0.15, 0.07);
+
+
+
+
+                    uLINK[JID_LLEG_5].p
+
+*/

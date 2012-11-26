@@ -1,0 +1,8 @@
+#include "socketcomm.hh"
+
+//#define DEBUGLEVEL 4
+#include "../Preprocessor/debug.hh"
+
+using namespace std;
+using namespace mvds;
+using namespace bats;

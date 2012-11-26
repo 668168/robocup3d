@@ -1,0 +1,240 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#ifndef WORLDMODEL_H
+#define WORLDMODEL_H
+
+#include <map>
+#include <vector>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include "../Math/Vector.h"
+#include "../Perceptors/Perceptors.h"
+#include "../Skills/Kinematic.h"
+
+class WorldModel:public Perceptors
+{
+friend  class SoccerBehavior;
+
+private:
+    double maxdist,maxtheta;
+    ///localize
+     double              x,y,z;
+     double             mLastLocalize;
+     EVisionObject      tmpvisioni;
+
+     EVisionObject      tmpvisionj;
+
+     Vector3f mMyPos;
+     
+     Vector3f mBallPos;
+     
+     Vector3f mConstBallPos;
+     
+     double mBallTheta,mBallDistance;
+    
+     VisionSense        v;
+    ///
+
+    std::string        mUnum; //uniform number for init agent
+    
+    int                mINum;
+    /** simulation time of last cycle */
+    float              mLastSimTime;
+
+    int                mLeftFlagsSee;
+
+    int                mRightFlagsSee;
+
+    Matrix             mVisionPerceptorMatrix;
+
+    unsigned           mCurentCycle;    /// for view curent cycle
+
+    unsigned           mCurentSimulationCycle;
+
+    EAction            mCurrentAction;
+
+    /// setup function for initialize
+
+    void               setupVisionObjectMap          (                            );
+
+    void               setupObjectToSenseMap         (                            );
+
+    void               setupJointMap                 (                            );
+
+    void 	       setupJointEffectorMap	     (				  );
+
+    void               setupPlayModeMap              (                            );
+
+    bool               mIsFellDown;
+
+public:
+
+bool flag1;
+bool flag2;
+                       WorldModel                    (                            );
+
+                       ~WorldModel                   (                            );
+
+    static WorldModel& instance                      (                            );
+
+    static const WorldModel& i                       (                            )
+    {
+       return instance();
+    }
+   bool isIn (const Vector2f& point, const float& telorans = 0.1 )const;
+   ///localize
+   void setBallPos                 (    );
+   
+   bool isForwardOpponentGoal();
+   
+   inline bool isMe (const EVisionObject & obj)const{return (obj== BALL+mINum);}
+   
+   float getMyAngle2Point(Vector3f point);
+   
+//   float getMyAngle2Point(Vector2f point){getMyAngle2Point(Vector3f(point.x(),point.y(),0));}
+   
+   bool isPlayerNearBall(const EObjectSet& set, const double & radus);
+   
+   VisionSense getPolarBallPos();
+   
+   void setMyPos                     (    );
+
+   Vector3f getMyPos                (    );
+
+   void Realpos();
+
+   void seTxy(int array[]);
+
+   double seTij(int i, int j);
+
+   double seTh(double length,double tmptheta);
+
+   double  seTx(char a[] , double tmpy);
+
+   double             seTy                          (char c[],
+                                                      double tmp                  );
+   double             length                        (Vector3f a,
+                                                     Vector3f b                   );
+   std::vector<double>        seTreal               (double c_length,
+                                                     char c[]                     );
+    ///   time
+    bool               setFellDown                   (bool                 isFDown);
+
+    bool               isBallKickable                (                            );
+
+    bool               isFellDown                    (                            )const;
+    
+    bool               isFellDown                    (EVisionObject        player )const;
+    
+    bool               isFrpSense                    (EFRPID               frpSide)const;
+
+    EAction            getCurrentAction              (                            )const
+    {return mCurrentAction;}
+
+    bool               setCurrentAction              (EAction        act )
+    {mCurrentAction =act; return true;}
+
+    unsigned           getCurrentCycle               (                            )const;
+
+    unsigned           getCurrentSimulationCycle     (                            )const;
+
+    double             getSimulationTime             (                            )const;
+
+    double             getTime                       (                            )const;
+
+    ETeamSide          getTeamSide                   (                            )const;
+
+    int                getTotalFlagSeen              (                            )const;
+
+    bool               setUnum                       (std::string        num      );
+
+    std::string        getUnum                       (                            )const;
+
+    void               update                        (string&             input   );
+
+    double             getConfidence                 (const VisionSense&  obj     )const;
+
+    double             getConfidence                 (                            )const;
+
+    double             getConfidence                 (const EVisionObject obj     )const;
+
+    VisionSense        getObject                     (EVisionObject       obj     )const;
+
+    HingeJointSense    getHJoint                     (EJointID            hJoint  )const;
+    
+    HingeJointSense    getHJoint                     (EJointID1            hJoint )const;
+
+    FRPSense           getFRP                        (EFRPID              frp     )const;
+
+    EPlayMode          getPlayMode                   (                            )const;
+
+//     Vector3f           getBallPos                    (                            )const;
+
+    Vector3f           getRealPos                    (const EVisionObject flag    )const;
+
+    Vector3f           getRelPos                     (const EVisionObject obj     )const;
+
+    EVisionObject      getFastestInSetTo             (EObjectSet          set,
+						      EVisionObject       obj,
+						      double              *distance=NULL,
+						      double              confThr = 9.0);
+                                                      
+    std::string        getOpponentTeamName           (                            )const;
+
+    Vector3f           polToCart                     (const VisionSense  vision   )const;
+
+    bool               localizeWithOneFlag           (EVisionObject       flag,
+                                                      VisionSense         flagSense,
+                                                      Vector3f&           newPos  );
+    inline bool        isLocalized()         {    return ( getTotalFlagSeen() >= 2);}
+
+    void               calcVisionObjectRealPos      (                            );    
+
+    void               calcVisionObjectLocalPos      (                            );
+
+    GyrSense           getGyr                        (                            )const;
+    AccSense           getAcc			     (                            )const;
+
+    bool               isStable                      (                      )const;
+
+   Vector3f getBallPos();
+   
+   Vector3f getConstBallPos()const;
+
+   int getPart(Vector3f coordinate)const;
+
+   EFieldArea getArea(Vector3f coordinate)const;
+//////////////////////////////////////
+   TJointEffectorMap mJointEffectorMap;
+   
+   //string num2Str(int i);
+   
+   string names[22];
+
+   string num2Str(int);
+
+   double getJointAngle(EJointID1);
+   
+   double getJointAngle(string );
+
+};
+
+#endif // WORLDMODEL_H

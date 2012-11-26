@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<agentmodel rsg="soccerbot056.rsg">
+  <bodypart name="torso" weight="1.57824" />
+  <bodypart name="lowertorso" weight="0.23958" />
+  <bodypart name="head" weight="0.0745424" />
+
+  <bodypart name="lshoulder" weight="0.121287" />
+  <bodypart name="lupperarm" weight="0.0179235" />
+  <bodypart name="llowerarm" weight="0.0168744" />
+
+  <bodypart name="rshoulder" weight="0.121287" />
+  <bodypart name="rupperarm" weight="0.0179235" />
+  <bodypart name="rlowerarm" weight="0.0168744" />
+  
+  <bodypart name="lhip" weight="0.00223587" />
+  <bodypart name="lupperleg" weight="0.0819" />
+  <bodypart name="llowerleg" weight="0.056394" />
+  <bodypart name="lfoot" weight="0.0054492" />
+
+  <bodypart name="rhip" weight="0.00223587" />
+  <bodypart name="rupperleg" weight="0.0819" />
+  <bodypart name="rlowerleg" weight="0.056394" />
+  <bodypart name="rfoot" weight="0.0054492" />
+  
+  
+  <joint part1="torso" part2="head">
+    <anchor index="0" x="0" y="0" z="1.0"/>
+    <anchor index="1" x="0" y="0" z="0"/>
+  </joint>
+
+  <joint part1="torso" part2="lowertorso">
+    <anchor index="0" x="0" y="0" z="-0.525"/>
+    <anchor index="1" x="0" y="0" z="0"/>
+  </joint>
+
+
+  <joint name="larm1" perceptor="laj1_2" effector="lae1_2" ujindex="0" axisx="1" axisy="0" axisz="0" part1="torso" part2="larm2">
+    <anchor index="0" x="-1.0575" y="0" z="0.437" />
+    <anchor index="1" x="0" y="0" z="0" />
+  </joint>
+  
+  <joint name="larm2" perceptor="laj1_2" effector="lae1_2" ujindex="1" axisx="0" axisy="1" axisz="0" part1="larm1" part2="lshoulder">
+    <anchor index="0" x="0" y="0" z="0" />
+    <anchor index="1" x="0" y="0" z="0" />
+  </joint>
+  
+  <joint name="larm3" perceptor="laj3" effector="lae3" axisx="0" axisy="0" axisz="1" part1="lshoulder" part2="lupperarm">
+    <anchor index="0" x="0" y="0" z="-0.268" />
+    <anchor index="1" x="0" y="0" z="0.253" />
+  </joint>
+
+  <joint name="larm4" perceptor="laj4" effector="lae4" axisx="1" axisy="0" axisz="0" part1="lupperarm" part2="llowerarm">
+    <anchor index="0" x="0" y="0" z="-0.253" />
+    <anchor index="1" x="0" y="0" z="0.3" />
+  </joint>
+
+
+  <joint name="rarm1" perceptor="raj1_2" effector="rae1_2" ujindex="0" axisx="1" axisy="0" axisz="0" part1="torso" part2="rarm2">
+    <anchor index="0" x="1.0575" y="0" z="0.437" />
+    <anchor index="1" x="0" y="0" z="0" />
+  </joint>
+  
+  <joint name="rarm2" perceptor="raj1_2" effector="rae1_2" ujindex="1" axisx="0" axisy="1" axisz="0" part1="rarm1" part2="rshoulder">
+    <anchor index="0" x="0" y="0" z="0" />
+    <anchor index="1" x="0" y="0" z="0" />
+  </joint>
+  
+  <joint name="rarm3" perceptor="raj3" effector="rae3" axisx="0" axisy="0" axisz="1" part1="rshoulder" part2="rupperarm">
+    <anchor index="0" x="0" y="0" z="-0.268" />
+    <anchor index="1" x="0" y="0" z="0.253" />
+  </joint>
+
+  <joint name="rarm4" perceptor="raj4" effector="rae4" axisx="1" axisy="0" axisz="0" part1="rupperarm" part2="rlowerarm">
+    <anchor index="0" x="0" y="0" z="-0.253" />
+    <anchor index="1" x="0" y="0" z="0.3" />
+  </joint>
+  
+
+  <joint name="lleg1" perceptor="llj1" effector="lle1" axisx="0" axisy="0" axisz="1" part1="lowertorso" part2="lhip">
+    <anchor index="0" x="-0.39" y="0" z="-0.275"/>
+    <anchor index="1" x="0" y="0" z="0.15"/>
+  </joint>
+
+  <joint name="lleg2" perceptor="llj2_3" effector="lle2_3" ujindex="0" axisx="1" axisy="0" axisz="0" part1="lhip" part2="lleg3">
+    <anchor index="0" x="0" y="0" z="-0.15"/>
+    <anchor index="1" x="0" y="0" z="0"/>
+  </joint>
+
+  <joint name="lleg3" perceptor="llj2_3" effector="lle2_3" ujindex="1" axisx="0" axisy="1" axisz="0" part1="lleg2" part2="lupperleg">
+    <anchor index="0" x="0" y="0" z="0"/>
+    <anchor index="1" x="0" y="0" z="0.65"/>
+  </joint>
+  
+  <joint name="lleg4" perceptor="llj4" effector="lle4" axisx="1" axisy="0" axisz="0" part1="lupperleg" part2="llowerleg">
+    <anchor index="0" x="0" y="0" z="-0.70"/>
+    <anchor index="1" x="0" y="0" z="0.482"/>
+  </joint>
+  
+  <joint name="lleg5" perceptor="llj5_6" effector="lle5_6" ujindex="0" axisx="1" axisy="0" axisz="0" part1="llowerleg" part2="lleg6">
+    <anchor index="0" x="0" y="0" z="-0.2945"/>
+    <anchor index="1" x="0" y="0" z="0"/>
+  </joint>
+
+  <joint name="lleg6" perceptor="llj5_6" effector="lle5_6" ujindex="1" axisx="0" axisy="1" axisz="0" part1="lleg5" part2="lfoot">
+    <anchor index="0" x="0" y="0" z="0"/>
+    <anchor index="1" x="0" y="0" z="0.285"/>
+  </joint>
+  
+
+  <joint name="rleg1" perceptor="rlj1" effector="rle1" axisx="0" axisy="0" axisz="1" part1="lowertorso" part2="rhip">
+    <anchor index="0" x="0.39" y="0" z="-0.275"/>
+    <anchor index="1" x="0" y="0" z="0.15"/>
+  </joint>
+
+  <joint name="rleg2" perceptor="rlj2_3" effector="rle2_3" ujindex="0" axisx="1" axisy="0" axisz="0" part1="rhip" part2="rleg3">
+    <anchor index="0" x="0" y="0" z="-0.15"/>
+    <anchor index="1" x="0" y="0" z="0"/>
+  </joint>
+
+  <joint name="rleg3" perceptor="rlj2_3" effector="rle2_3" ujindex="1" axisx="0" axisy="1" axisz="0" part1="rleg2" part2="rupperleg">
+    <anchor index="0" x="0" y="0" z="0"/>
+    <anchor index="1" x="0" y="0" z="0.65"/>
+  </joint>
+  
+  <joint name="rleg4" perceptor="rlj4" effector="rle4" axisx="1" axisy="0" axisz="0" part1="rupperleg" part2="rlowerleg">
+    <anchor index="0" x="0" y="0" z="-0.70"/>
+    <anchor index="1" x="0" y="0" z="0.482"/>
+  </joint>
+  
+  <joint name="rleg5" perceptor="rlj5_6" effector="rle5_6" ujindex="0" axisx="1" axisy="0" axisz="0" part1="rlowerleg" part2="rleg6">
+    <anchor index="0" x="0" y="0" z="-0.2945"/>
+    <anchor index="1" x="0" y="0" z="0"/>
+  </joint>
+
+  <joint name="rleg6" joint="rlj5_6" effector="rle5_6" ujindex="1" axisx="0" axisy="1" axisz="0" part1="rleg5" part2="rfoot">
+    <anchor index="0" x="0" y="0" z="0"/>
+    <anchor index="1" x="0" y="0" z="0.285"/>
+  </joint>
+</agentmodel>
+

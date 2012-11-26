@@ -1,0 +1,11 @@
+#include "scriptplayer.hh"
+
+#include "worldmodel.hh"
+#include "math.hh"
+
+#define DEBUGLEVEL 0
+#include "debug.hh"
+
+using namespace bats;
+using namespace std;
+

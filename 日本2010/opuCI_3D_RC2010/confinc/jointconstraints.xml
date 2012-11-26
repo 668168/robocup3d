@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<joints>
+      <!--
+          HEAD_1,   ///< Torso to head, X-Axis
+          
+          LLEG1,    ///< Torso to left hip, Z-Axis
+          LLEG2,    ///< Left hip to Left thigh, X-Axis
+          LLEG3,    ///< Left hip to Left thigh, Y-Axis
+          LLEG4,    ///< Left thigh to Left shank, X-Axis
+          LLEG5,    ///< Left shank to Left foot, X-Axis
+          LLEG6,    ///< Left shank to Left foot, Y-Axis
+          
+          RLEG1,    ///< Torso to right hip, Z-Axis
+          RLEG2,    ///< Right hip to Right thigh, X-Axis
+          RLEG3,    ///< Right hip to Right thigh, Y-Axis
+          RLEG4,    ///< Right thigh to Right shank, X-Axis
+          RLEG5,    ///< Right shank to Right foot, X-Axis
+          RLEG6,    ///< Right shank to Right foot, Y-Axis
+          
+          LARM1,    ///< Torso to Left shoulder, X-Axis
+          LARM2,    ///< Torso to Left shoulder, Y-Axis
+          LARM3,    ///< Left shoulder to Left upper arm, Z-Axis
+          LARM4,    ///< Left upper arm to Left lower arm, X-Axis
+          
+          RARM1,    ///< Torso to Right shoulder, X-Axis
+          RARM2,    ///< Torso to Right shoulder, Y-Axis
+          RARM3,    ///< Right shoulder to Right upper arm, Z-Axis
+          RARM4     ///< Right upper arm to Right lower arm, X-Axis
+      -->
+
+      <joint id="0"  min="0" max="0"/>     <!-- HEAD1 -->
+      <joint id="1"  min="-60" max="90"/>  <!-- LLEG1 -->
+      <joint id="2"  min="-45" max="120"/> <!-- LLEG2 -->
+      <joint id="3"  min="-45" max="75"/>  <!-- LLEG3 -->
+      <joint id="4"  min="-160" max="10"/> <!-- LLEG4 -->
+      <joint id="5"  min="-90" max="90"/>  <!-- LLEG5 -->
+      <joint id="6"  min="-45" max="45"/>  <!-- LLEG6 -->
+      <joint id="7"  min="-90" max="60"/>  <!-- RLEG1 -->
+      <joint id="8"  min="-45" max="120"/> <!-- RLEG2 -->
+      <joint id="9"  min="-75" max="45"/>  <!-- RLEG3 -->
+      <joint id="10" min="-160" max="10"/> <!-- RLEG4 -->
+      <joint id="11" min="-90" max="90"/>  <!-- RLEG5 -->
+      <joint id="12" min="-45" max="45"/>  <!-- RLEG6 -->
+      <joint id="13" min="-90" max="180"/> <!-- LARM1 -->
+      <joint id="14" min="-10" max="180"/> <!-- LARM2 -->
+      <joint id="15" min="-135" max="135"/><!-- LARM3 -->
+      <joint id="16" min="-10" max="130"/> <!-- LARM4 -->
+      <joint id="17" min="-90" max="180"/> <!-- RARM1 -->
+      <joint id="18" min="-180" max="10"/> <!-- RARM2 -->
+      <joint id="19" min="-135" max="135"/><!-- RARM3 -->
+      <joint id="20" min="-10" max="130"/> <!-- RARM4 -->
+
+</joints>

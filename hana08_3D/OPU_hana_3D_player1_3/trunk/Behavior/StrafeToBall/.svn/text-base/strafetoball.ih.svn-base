@@ -1,0 +1,6 @@
+#include "strafetoball.hh"
+
+#include "worldmodel.hh"
+
+using namespace std;
+using namespace bats;

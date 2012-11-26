@@ -1,0 +1,10 @@
+#& -l --recursive-include ../
+#-l Highlight
+#-p Precompile
+math.h	
+netinet/in.h	
+string.h	
+libxml/tree.h	`xml2-config --cflags --libs`
+libxml/parser.h	`xml2-config --cflags --libs`
+libxml/xpathInternals.h	`xml2-config --cflags --libs`
+libxml/xpath.h	`xml2-config --cflags --libs`

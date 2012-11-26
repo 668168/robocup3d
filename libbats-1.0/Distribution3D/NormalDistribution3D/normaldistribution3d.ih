@@ -1,0 +1,8 @@
+#include "normaldistribution3d.hh"
+#include <cstdlib>
+#include <cmath>
+
+#define DEBUGLEVEL 0
+#include "../../Preprocessor/debug.hh"
+
+using namespace bats;

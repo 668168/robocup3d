@@ -1,0 +1,9 @@
+#include "agentsocketcomm.hh"
+#include "../../AgentModel/agentmodel.hh"
+
+#define DEBUGLEVEL 0
+#include "../../Preprocessor/debug.hh"
+
+using namespace std;
+using namespace mvds;
+using namespace bats;

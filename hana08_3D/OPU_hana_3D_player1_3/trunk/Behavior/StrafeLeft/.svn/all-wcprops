@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/StrafeLeft
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeLeft/.dirstamp
+END
+generateGoal.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeLeft/generateGoal.cc
+END
+StrafeLeft.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeLeft/StrafeLeft.cc
+END
+getCapability.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/hana08_3D/!svn/ver/27/littlegreenbats_new/trunk/Behavior/StrafeLeft/getCapability.cc
+END
+getCurrentState.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeLeft/getCurrentState.cc
+END
+strafeleft.hh
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeLeft/strafeleft.hh
+END
+strafeleft.ih
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/StrafeLeft/strafeleft.ih
+END

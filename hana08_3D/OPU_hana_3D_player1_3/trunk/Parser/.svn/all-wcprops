@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser
+END
+parser0.cc
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/parser0.cc
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/.dirstamp
+END
+initialize.cc
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/initialize.cc
+END
+parser.hh
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/parser.hh
+END
+parser.ih
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/parser.ih
+END
+static.cc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/static.cc
+END
+generate.cc
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/generate.cc
+END
+parse.cc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Parser/parse.cc
+END

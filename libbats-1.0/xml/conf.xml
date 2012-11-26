@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<conf xmlns:xi="http://www.w3.org/2003/XInclude">  
+  <player-class id="nao">
+    <xi:include href="nao_mdl.xml"/>
+  </player-class>
+
+  <player id="0" class="nao" />
+  <player id="1" class="nao" />
+  <player id="2" class="nao" />
+  <player id="3" class="nao" />
+  <player id="4" class="nao" />
+  <player id="5" class="nao" />
+  <player id="6" class="nao" />
+  <player id="7" class="nao" />
+  <player id="8" class="nao" />
+  <player id="9" class="nao" />
+  <player id="10" class="nao" />
+  <player id="11" class="nao" />
+</conf>    
+
+

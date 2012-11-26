@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/PrimitiveBehavior/MoveUniversalJoint
+END
+.dirstamp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/PrimitiveBehavior/MoveUniversalJoint/.dirstamp
+END
+moveuniversaljoint.hh
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/PrimitiveBehavior/MoveUniversalJoint/moveuniversaljoint.hh
+END
+MoveUniversalJoint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/PrimitiveBehavior/MoveUniversalJoint/MoveUniversalJoint.cc
+END
+run.cc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/hana08_3D/!svn/ver/7/littlegreenbats_new/trunk/Behavior/PrimitiveBehavior/MoveUniversalJoint/run.cc
+END

@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior
+END
+BhvBasicTurn.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicTurn.h
+END
+BhvLeadingPass.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvLeadingPass.h
+END
+BhvDepthPass.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvDepthPass.h
+END
+BhvBasicWalk.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicWalk.cpp
+END
+BhvDirectPass.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvDirectPass.cpp
+END
+BhvDribble.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvDribble.cpp
+END
+SoccerBehavior.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/SoccerBehavior.h
+END
+BhvBehindBallSetup.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBehindBallSetup.cpp
+END
+BhvBasicWalk.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicWalk.h
+END
+BhvDirectPass.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvDirectPass.h
+END
+BhvBasicPass.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicPass.cpp
+END
+BhvDribble.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvDribble.h
+END
+BhvBehindBallSetup.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBehindBallSetup.h
+END
+BhvFocusBall.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvFocusBall.cpp
+END
+BhvCatchBall.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvCatchBall.cpp
+END
+BhvBasicPass.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicPass.h
+END
+BhvFocusBall.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvFocusBall.h
+END
+BhvBasicStandup.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicStandup.cpp
+END
+BhvCatchBall.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvCatchBall.h
+END
+BhvBasicKick.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicKick.cpp
+END
+BhvBasicStandup.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicStandup.h
+END
+BhvBasicKick.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicKick.h
+END
+BhvBasicTurn.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvBasicTurn.cpp
+END
+BhvLeadingPass.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvLeadingPass.cpp
+END
+BhvDepthPass.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/BhvDepthPass.cpp
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Behavior/CMakeLists.txt
+END

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE confdoc [
+<!ENTITY head_1 "0"> <!-- , /// Torso to head, X-Axis (not used) -->
+<!ENTITY lleg1 "1"> <!-- , /// -90 - 60. Torso to left hip, Z-Axis (twist left/right) -->
+<!ENTITY lleg2 "2"> <!-- , /// -45 - 120. Left hip to Left thigh, X-Axis (backward/forward) -->
+<!ENTITY lleg3 "3"> <!-- , /// -75 - 45. Left hip to Left thigh, Y-Axis (spread/close) -->
+<!ENTITY lleg4 "4"> <!-- , /// -160 - 0. Left thigh to Left shank, X-Axis (bend/stretch) -->
+<!ENTITY lleg5 "5"> <!-- , /// -90 - 90. Left shank to Left foot, X-Axis (forward/backward) -->
+<!ENTITY lleg6 "6"> <!-- , /// -45 - 45. Left shank to Left foot, Y-Axis (left/right) -->
+
+<!ENTITY rleg1 "7"> <!-- , /// -90 - 60. Torso to right hip, Z-Axis (twist left/right) -->
+<!ENTITY rleg2 "8"> <!-- , /// -45 - 120. Right hip to Right thigh, X-Axis (backward/forward) -->
+<!ENTITY rleg3 "9"> <!-- , /// -75 - 45. Right hip to Right thigh, Y-Axis (spread/close) -->
+<!ENTITY rleg4 "10"> <!-- , /// -160 - 0. Right thigh to Right shank, X-Axis (bend/stretch) -->
+<!ENTITY rleg5 "11"> <!-- , /// -90 - 90. Right shank to Right foot, X-Axis (forward/backward) -->
+<!ENTITY rleg6 "12"> <!-- , /// -45 - 45. Right shank to Right foot, Y-Axis (left/right) -->
+
+<!ENTITY larm1 "13"> <!-- , /// -90 - 180. Torso to Left shoulder, X-Axis (forward/backward) -->
+<!ENTITY larm2 "14"> <!-- , /// -180 - 0. Torso to Left shoulder, Y-Axis (out/in) -->
+<!ENTITY larm3 "15"> <!-- , /// -135 - 135. Left shoulder to Left upper arm, Z-Axis (twist left/right) -->
+<!ENTITY larm4 "16"> <!-- , /// -10 - 130. Left upper arm to Left lower arm, X-Axis -->
+
+<!ENTITY rarm1 "17"> <!-- , /// -90 - 180. Torso to Right shoulder, X-Axis (forward/backward) -->
+<!ENTITY rarm2 "18"> <!-- , /// -180 - 0. Torso to Right shoulder, Y-Axis (out/in) -->
+<!ENTITY rarm3 "19"> <!-- , /// -135 - 135. Right shoulder to Right upper arm, Z-Axis (twist left/right) -->
+<!ENTITY rarm4 "20"> <!--  /// -10 - 130. Right upper arm to Right lower arm, X-Axis -->
+
+<!ENTITY wait "21"> <!--  /// Wait n seconds -->
+]>
+	<!--<conf xmlns:xi="http://www.w3.org/2003/XInclude">-->
+<player-class id="defender" xmlns:xi="http://www.w3.org/2003/XInclude">
+	<xi:include href="movejointbehaviors.xml" />
+	<xi:include href="confinc/Getup5.xml" />
+	<xi:include href="confinc/GetupFromBack5.xml" />
+	<xi:include href="confinc/WaveArms.xml" />
+	<xi:include href="confinc/Wait.xml" />
+	<xi:include href="confinc/WalkAndTurn.xml"/>
+	<xi:include href="confinc/Walk9.xml"/>
+	<xi:include href="confinc/SideStep6.xml"/>
+	<xi:include href="confinc/Step7.xml"/>
+	<xi:include href="confinc/Turn4.xml"/>
+	<xi:include href="confinc/KickRight3.xml" />
+	<xi:include href="confinc/KickLeft3.xml" />
+	<xi:include href="confinc/KickRight4.xml" />
+	<xi:include href="confinc/KickLeft4.xml" />
+	<xi:include href="confinc/KickRight5.xml" />
+	<xi:include href="confinc/KickLeft5.xml" />
+	<xi:include href="confinc/KickRight6.xml" />
+	<xi:include href="confinc/KickLeft6.xml" />
+	<xi:include href="confinc/OmnidirectionalWalk3.xml"/>
+	<xi:include href="defender.xml" />
+	<xi:include href="basicbehavior.xml" />
+
+	<behaviors>
+		<behavior type="BeamTo" id="beamto">
+			<param>
+				<where x="-3.8" y="0.1" z="0" />
+				<!-- x, y = coordinates, z = orientation -->
+			</param>
+			<slot index="0-0">
+				<behavior refid="beam" />
+			</slot>
+			<slot index="0-1">
+				<behavior refid="standby" />
+			</slot>
+		</behavior>
+	</behaviors>
+
+</player-class>
+

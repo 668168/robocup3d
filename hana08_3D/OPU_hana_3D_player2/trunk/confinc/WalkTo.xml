@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>	
+      <behavior type="WalkTo" id="walkto">
+        <slot index="0-0">
+          <behavior refid="walk_s"/>
+        </slot>
+      </behavior><!-- WalkTo -->

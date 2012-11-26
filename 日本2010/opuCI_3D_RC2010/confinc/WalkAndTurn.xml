@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE confdoc [
+<!ENTITY head_1 "0"> <!-- , /// Torso to head, X-Axis (not used) -->
+<!ENTITY lleg1 "1"> <!-- , /// Torso to left hip, Z-Axis (twist left/right) -->
+<!ENTITY lleg2 "2"> <!-- , /// Left hip to Left thigh, X-Axis (backward/forward) -->
+<!ENTITY lleg3 "3"> <!-- , /// Left hip to Left thigh, Y-Axis (spread/close) -->
+<!ENTITY lleg4 "4"> <!-- , /// Left thigh to Left shank, X-Axis (bend/stretch) -->
+<!ENTITY lleg5 "5"> <!-- , /// Left shank to Left foot, X-Axis (forward/backward) -->
+<!ENTITY lleg6 "6"> <!-- , /// Left shank to Left foot, Y-Axis (left/right) -->
+<!ENTITY rleg1 "7"> <!-- , /// Torso to right hip, Z-Axis (twist left/right) -->
+<!ENTITY rleg2 "8"> <!-- , /// Right hip to Right thigh, X-Axis (backward/forward) -->
+<!ENTITY rleg3 "9"> <!-- , /// Right hip to Right thigh, Y-Axis (spread/close) -->
+<!ENTITY rleg4 "10"> <!-- , /// Right thigh to Right shank, X-Axis (bend/stretch) -->
+<!ENTITY rleg5 "11"> <!-- , /// Right shank to Right foot, X-Axis (forward/backward) -->
+<!ENTITY rleg6 "12"> <!-- , /// Right shank to Right foot, Y-Axis (left/right) -->
+<!ENTITY larm1 "13"> <!-- , /// Torso to Left shoulder, X-Axis (forward/backward) -->
+<!ENTITY larm2 "14"> <!-- , /// Torso to Left shoulder, Y-Axis (out/in) -->
+<!ENTITY larm3 "15"> <!-- , /// Left shoulder to Left upper arm, Z-Axis (twist left/right) -->
+<!ENTITY larm4 "16"> <!-- , /// Left upper arm to Left lower arm, X-Axis -->
+<!ENTITY rarm1 "17"> <!-- , /// Torso to Right shoulder, X-Axis (forward/backward) -->
+<!ENTITY rarm2 "18"> <!-- , /// Torso to Right shoulder, Y-Axis (out/in) -->
+<!ENTITY rarm3 "19"> <!-- , /// Right shoulder to Right upper arm, Z-Axis (twist left/right) -->
+<!ENTITY rarm4 "20"> <!--  /// Right upper arm to Right lower arm, X-Axis -->
+<!ENTITY wait "21"> <!--  /// Wait n seconds -->
+]>
+
+
+<behaviors>
+
+<behavior type="Sine2" id="walkandturn_s2">
+  <param>
+    <fixedSettings>
+      <!-- stepping motion -->
+      &lleg3;: 25.2287 0.4 -2.37376 34.7888;
+      &rleg3;: 25.2287 0.4 0.767829 34.7888;
+      &lleg4;: -25.2287 0.4 -2.37376 -34.7888, -23.4254 0.4 -2.28807 -35.6587;
+      &rleg4;: -25.2287 0.4 0.767829 -34.7888, -23.4254 0.4 0.853526 -35.6587;
+      &lleg5;: 23.4254 0.4 -2.28807 35.6587;
+      &rleg5;: 23.4254 0.4 0.853526 35.6587;
+      &lleg2;: -10.6017 0.4 2.04843 0.103318;
+      &rleg2;: 10.6017 0.4 5.19002 0.103318;
+      &lleg6;: 6.16937 0.4 2.28852 -0.338583;
+      &rleg6;: -6.16937 0.4 5.43011 0.338583;
+
+      <!-- arm setting -->
+      &larm1;: 0 0.4 0 -90;
+      &rarm1;: 0 0.4 0 -90;
+      &rarm3;: 0 0.4 0  90;
+      &larm3;: 0 0.4 0 -90;
+    </fixedSettings>
+
+    <variableSettings1>
+      <!-- walk forward -->
+      &lleg3;: -38.4579 0.4 -0.890862 -8.93967;
+      &rleg3;: -38.4579 0.4 2.25073 -8.93967;
+      &lleg4;: 2.93861 0.4 -11.6853 18.4317;
+      &rleg4;: 2.93861 0.4 -8.5437 18.4317;
+      &lleg5;: -34.4194 0.4 -10.1574 3.16708;
+      &rleg5;: -34.4194 0.4 -7.01579 3.16708;
+    </variableSettings1>
+
+    <variableSettings2>
+      <!-- turn rightside -->
+      &lleg1;: -9.20288 0.4 -1.33325 -0.317507;
+      &rleg1;: 6.33897 0.4 2.76811 -1.43484;
+      &lleg2;: -3.07533 0.4 -2.19815 0.215936;
+      &rleg2;: 1.30666 0.4 0.648548 1.38407;
+      &lleg6;: 3.38361 0.4 -2.31852 0.846162;
+      &rleg6;: -2.51162 0.4 -1.04986 -1.52287;
+
+    </variableSettings2>
+
+    <variableSettings3>
+      <!-- turn leftside -->
+      &rleg1;: -9.20288 0.4 1.80834 -0.317507;
+      &lleg1;: 6.33897 0.4 -0.373482 -1.43484;
+      &rleg2;: 3.07533 0.4 0.943442 -0.215936;
+      &lleg2;: -1.30666 0.4 3.79014 -1.38407;
+      &rleg6;: -3.38361 0.4 0.823072 -0.846162;
+      &lleg6;: 2.51162 0.4 2.09173 1.52287;
+
+    </variableSettings3>
+
+    <variableSettings4>
+      <!-- backward -->
+      &lleg3;: -28.4998 0.4 2.59257 -12.1244;
+      &rleg3;: -28.4998 0.4 5.73416 -12.1244;
+      &lleg4;: 1.70243 0.4 1.9447 3.35029;
+      &rleg4;: 1.70243 0.4 5.08629 3.35029;
+      &lleg5;: 3.68296 0.4 7.97532 3.9311;
+      &rleg5;: 3.68296 0.4 11.1169 3.9311;
+    </variableSettings4>
+
+    <startupTime>2</startupTime>
+    <shutdownTime>1</shutdownTime>
+    <gain>0.1</gain>
+      
+    </param>
+    
+    <slot index="0-0">
+    </slot>
+    <slot index="0-1">
+            <behavior refid="moveLeftHipTo"/>
+    </slot>
+    <slot index="0-2">
+            <behavior refid="moveLeftThighXTo"/>
+    </slot>
+    <slot index="0-3">
+            <behavior refid="moveLeftThighYTo"/>
+    </slot>
+    <slot index="0-4">
+            <behavior refid="moveLeftKneeTo"/>
+    </slot>
+    <slot index="0-5">
+            <behavior refid="moveLeftAnkleXTo"/>
+    </slot>
+    <slot index="0-6">
+            <behavior refid="moveLeftAnkleYTo"/>
+    </slot>
+    <slot index="0-7">
+            <behavior refid="moveRightHipTo"/>
+    </slot>
+    <slot index="0-8">
+            <behavior refid="moveRightThighXTo"/>
+    </slot>
+    <slot index="0-9">
+            <behavior refid="moveRightThighYTo"/>
+    </slot>
+    <slot index="0-10">
+            <behavior refid="moveRightKneeTo"/>
+    </slot>
+    <slot index="0-11">
+            <behavior refid="moveRightAnkleXTo"/>
+    </slot>
+    <slot index="0-12">
+            <behavior refid="moveRightAnkleYTo"/>
+    </slot>
+    <slot index="0-13">
+            <behavior refid="moveLeftShoulderXTo"/>
+    </slot>
+    <slot index="0-14">
+            <behavior refid="moveLeftShoulderYTo"/>
+    </slot>
+    <slot index="0-15">
+            <behavior refid="moveLeftShoulderZTo"/>
+    </slot>
+    <slot index="0-16">
+            <behavior refid="moveLeftElbowTo"/>
+    </slot>
+    <slot index="0-17">
+            <behavior refid="moveRightShoulderXTo"/>
+    </slot>
+    <slot index="0-18">
+            <behavior refid="moveRightShoulderYTo"/>
+    </slot>
+    <slot index="0-19">
+            <behavior refid="moveRightShoulderZTo"/>
+    </slot>
+    <slot index="0-20">
+            <behavior refid="moveRightElbowTo"/>
+    </slot>
+  
+  </behavior>
+
+</behaviors>

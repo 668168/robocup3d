@@ -1,0 +1,190 @@
+#include "Agent.h"
+#include "../Agent_Roles/RoleCenterMidFielder.h"
+#include "../Agent_Roles/RoleLeftDefensive.h"
+#include "../Agent_Roles/RoleRightDefensive.h"
+#include "../Agent_Roles/RoleRightForward.h"
+
+using namespace std;
+ 
+ boost::shared_ptr <SoccerRole> Agent::role;
+Agent::Agent()
+:flag(false),flag1(false),flag2(false),rotateFlag(true)
+{
+    front=0;
+    rear=0;
+    F = new FallDownRecognition();
+}
+ 
+Agent::~Agent()
+{
+}
+
+
+void Agent::options(int argc, char* argv[])
+{
+   for( int i = 0; i < argc; i++)
+   {
+       if ( strcmp( argv[i], "--help" ) == 0 )
+       {
+          std::cout << "\nusage: Delta3D [options]"           << std::endl;
+          std::cout << "\noptions:"                           << std::endl;
+          std::cout << " --help      prints this message."    << std::endl;
+          std::cout << " --host=IP   IP of the server."       << std::endl;
+          std::cout << " --unum mUnum Player Uniform Number." << std::endl;
+          std::cout << "\n";
+          exit(0);
+       }
+       else if ( strncmp( argv[i], "--host", 6 ) == 0 )
+       {
+          string tmp=argv[i];
+          if ( tmp.length() <= 7 ) // minimal sanity check
+          {
+             std::cout << "\nusage: Delta3D [options]"            << std::endl;
+             std::cout << "\noptions:"                            << std::endl;
+             std::cout << " --help      prints this  message."    << std::endl;
+             std::cout << " --host=IP   IP of the server."        << std::endl;
+             std::cout << " --unum mUnum Player Uniform Number."  << std::endl;
+             std::cout << "\n";
+             exit(0);
+          }
+          Connection::instance().setServer(tmp.substr(7));
+       }
+       if ( strcmp( argv[i], "--unum" ) == 0 )
+       {
+          WorldModel::instance().setUnum(argv[i+1]); ///For Player Uniform Numberdelta3d.
+       }
+   }
+}
+
+std::string Agent::getActionType()
+{
+    return mActionType;
+}
+
+void Agent::setActionType(std::string& action)
+{
+    mActionType=action;
+}
+
+void Agent::connect()
+{
+    ///Creat Robot
+    TeamPlayer::instance().init();
+    
+    ///set agents formation
+    Formation::instance();
+    sleep(1);
+    
+    ///beam agents
+    TeamPlayer::instance().beam();
+
+    ///set Walk Params
+    Kinematic::instance().init();
+    
+    StandUp::instance().standupFinished=true;
+}
+
+void Agent::sense()
+{
+     string msg;
+     Connection::instance().getMessage(msg);
+     
+     WorldModel::instance().update(msg);
+     cout << "^^^^^^^^^^^^^^^^"<<endl<<msg<<endl<<"^^^^^^^^^^^^^^^^^^^^^^^^";
+
+     Effectors::instance().updateJointAngle(Kinematic::instance().getLink());
+     std::cout<<"Polar Ball Position is:"<<WorldModel::instance().getPolarBallPos().distance<<" "<<WorldModel::instance().getPolarBallPos().theta<<" "<<WorldModel::instance().getPolarBallPos().phi;
+}
+
+void Agent::think()
+{
+   
+  
+  
+    Formation& formation = Formation::instance();  
+    //Strategy::instance().createRole();
+
+      if(!Agent::role)
+     {
+         TPlayerTypeMap::const_iterator  iter = 
+                         formation.mPlayerTypeMap.find(WorldModel::i().getUnum());
+         if(iter == formation.mPlayerTypeMap.end())
+         {
+           std::cout <<"error not find player"<<WorldModel::i().getUnum()
+                     <<"  in formation"<<std::endl;
+//           return false;
+         }
+         if( (* iter).second == PT_GOALKEEPER )
+         {
+           Agent::role = boost::shared_ptr<SoccerRole>(RoleGoalie::create());
+           std::cout<< "RoleGoalie set"<<std::endl;
+         }
+         else if ((* iter).second == PT_CENTER_MIDFIELDER )
+         {
+           Agent::role = boost::shared_ptr<SoccerRole>(RoleCenterMidFielder::create());
+           std::cout<< "RoleDefensive set"<<std::endl;
+         }
+	 else if ((* iter).second == PT_LEFT_DEFENDER )
+         {
+           Agent::role = boost::shared_ptr<SoccerRole>(RoleLeftDefensive::create());
+           std::cout<< "RoleDefensive set"<<std::endl;
+         }
+	 else if ((* iter).second == PT_RIGHT_DEFENDER )
+         {
+           Agent::role = boost::shared_ptr<SoccerRole>(RoleRightDefensive::create());
+           std::cout<< "RoleDefensive set"<<std::endl;
+         }
+	 else if ((* iter).second == PT_LEFT_ATTACKER )
+         {
+           Agent::role = boost::shared_ptr<SoccerRole>(RoleLeftForward::create());
+           std::cout<< "RoleDefensive set"<<std::endl;
+         }
+         else if((* iter).second == PT_RIGHT_ATTACKER )
+         {
+           Agent::role = boost::shared_ptr<SoccerRole>(RoleRightForward::create());
+           std::cout<< "RoleForward set"<<std::endl;
+         }
+         else
+         {
+           std::cout<< "Error role not set"<<std::endl;
+         }
+     }
+
+     TeamPlayer::instance().think();
+}
+double getAngle (Vector3f target)
+{
+  Vector2f myPos ( WorldModel::instance().getMyPos().x(),WorldModel::instance().getMyPos().y());
+  Vector2f tmp   ( target.x(),target.y());
+  return ( degNormalizeAngle( getVector2fAngleDeg (tmp - myPos))- degNormalizeAngle( WorldModel::instance().getMyPos().z()));
+  
+}
+void Agent::act()   ///set Walk Params
+{ 
+  
+  std::cout <<" pos 1 : "<<getAngle(Vector3f(0,1,0))<<" pos 2 = "<< getAngle(Vector3f(-2,1,0))<<" pos 3 = "<< getAngle(Vector3f(-2,-1,0))<<" pos 4 = "<< getAngle(Vector3f(0,-1,0))<<std::endl;
+      //Strategy::instance().executeRole();
+//       if(role)
+//       {
+//          role->execute();
+// 	        Vector3f pos1(5,-1,0),pos2(8.999,1.499,0);
+//        std::cout<<"is in penalti 1 : "<<Strategy::instance().isInOppPenaltyArea(pos1)<<" is in penalti 2 :"<<Strategy::instance().isInOppPenaltyArea(pos2)<<std::endl;
+// 
+//          std::cout<<"role "<<role->name()<<" is executed"<<std::endl;
+//       }
+      std::cout<<std::endl<<" const ballpos = "<<WorldModel::instance().getConstBallPos()<<" realBallPos : "<<WorldModel::instance().getBallPos()<<std::endl;
+      string s1 = Effectors::instance().mActionCommand+AngularMotor::instance().str();
+      //cout << "#################################"<<endl<<s1<<endl<<"###########################";
+      Connection::instance().sendMessage(s1 );
+      AngularMotor::instance().clear();
+
+}
+
+// if(rear>9)
+//        rear=0;
+//       if (front>9)
+//        front=0;
+//       queue[rear]=Effectors::instance().mActionCommand+AngularMotor::instance().str();
+//       rear++;
+//       Connection::instance().sendMessage(queue[front]);
+//       front++;

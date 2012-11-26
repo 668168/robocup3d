@@ -1,0 +1,20 @@
+; -*- mode: lisp; -*-
+
+(RSG 0 1)
+(
+; add lights
+ (nd Transform
+       (setLocalPos -10 10 10)
+       (nd Light
+	     (setDiffuse 1.0 1.0 1.0 1.0)
+	     (setSpecular 0.1 0.1 0.1 1.0)
+	     (setAmbient 0.5 0.5 0.5 1.0)
+	     )
+       )
+
+; create the arena
+(nd Transform
+      (setLocalPos 0 0 -2)
+      (importScene rsg/boxspheres/arena.rsg)
+      )
+)

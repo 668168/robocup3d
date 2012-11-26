@@ -1,0 +1,21 @@
+#include "kickto.ih"
+
+Behavior::ConfidenceInterval KickTo::getCapability(rf<State> s, rf<Goal> g)
+{
+  WorldModel& wm = WorldModel::getInstance();
+  
+  Vector3D ballPos = wm.getObjectPosition(Types::BALL).getMu();
+
+//  Vector3D targetPos = g->getVector("Pos");
+
+  if(ballPos.length() < 0.5){
+//	std::cout << "KickTo:(0.5, 0.2)" << std::endl;
+	return ConfidenceInterval(0.6, 0.2);
+  }
+  else{
+//	std::cout << "KickTo:(0.0, 0.0)" << std::endl;
+	return ConfidenceInterval(0.0, 0.0);
+  }
+//  return ballPos.length() <= 0.5 ? ConfidenceInterval(0.5, 0.2) : ConfidenceInterval(0.0, 0.0);
+//  return distToGoal <= 7.5 ? ConfidenceInterval(0.5, 0.2) : ConfidenceInterval(0.0, 0.0);
+}

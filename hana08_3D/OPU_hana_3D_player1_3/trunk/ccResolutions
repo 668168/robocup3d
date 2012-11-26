@@ -1,0 +1,49 @@
+#& -l --args "-g -Wall" --recursive-include .
+#-l Highlight
+#-p Precompile
+sys/select.h	
+signal.h	
+math.h	
+netinet/in.h	
+string.h	
+libxml/tree.h	`xml2-config --cflags --libs`
+libxml/parser.h	`xml2-config --cflags --libs`
+libxml/xpathInternals.h	`xml2-config --cflags --libs`
+libxml/xpath.h	`xml2-config --cflags --libs`
+
+# wxWidgets stuff
+#wx/wx.h	`wx-config --cflags --libs`
+#wx/glcanvas.h	`wx-config --libs gl`
+#wx/thread.h	`wx-config --cflags --libs`
+#wx/string.h	`wx-config --cflags --libs`
+
+ft2build.h	`freetype-config --cflags --libs`
+
+# GL stuff
+GL/gl.h	-lGL -lGLU
+GL/glu.h	-L/tmp/robocup/lib -L/usr/lib -lGL -lGLU
+GL/glut.h	-I/home/student2001/sgdijk/robocup/usr/include -L/home/student2001/sgdijk/robocup/usr/lib -I/tmp/robocup/include -L/tmp/robocup/lib -L/usr/lib -lglut
+GL/glui.h		-lglui
+GL/glext.h	
+GL/glx.h	
+
+# libpng
+png.h	-lpng
+
+# libjpeg
+jpeglib.h	-ljpeg
+
+sys/types.h	
+sys/socket.h	
+sys/time.h	
+time.h	
+netdb.h	
+arpa/inet.h	
+unistd.h	
+fcntl.h	
+emmintrin.h	
+values.h	
+xmmintrin.h	
+pthread.h		-lpthread
+ext/hash_map	
+libxml/xinclude.h	

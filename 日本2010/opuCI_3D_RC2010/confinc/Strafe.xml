@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<behaviors>
+
+      <behavior type="StrafeLeft" id="strafeleft">
+        <slot index="0-0">
+          <behavior refid="trippleleft_s" commit="1"/>
+        </slot>
+      </behavior>
+
+      <behavior type="StrafeRight" id="straferight">
+        <slot index="0-0">
+          <behavior refid="trippleright_s" commit="1"/>
+        </slot>
+      </behavior>
+
+</behaviors>

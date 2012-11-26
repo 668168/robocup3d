@@ -1,0 +1,537 @@
+/*
+    <one line to give the program's name and a brief idea of what it does.>
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
+
+#include "Walk.h"
+
+
+//#include <zeitgeist/scriptserver/scriptserver.h>
+//#include <zeitgeist/logserver/logserver.h>
+
+
+using namespace std;
+using namespace salt;
+using namespace boost;
+//using namespace zeitgeist;
+
+//float Walk::mWalkingSlowGain;
+
+Walk::Walk() :
+    IsIKfailNow(false),
+    mSlowGain(0.085f),
+    mWalkingSlowGain(0.085f)
+{
+   
+   mEffect     = boost::shared_ptr<Effectors> (& Effectors::instance());
+   mTrajectory = boost::shared_ptr<Trajectory>(& Trajectory::instance());
+   mRobot      = boost::shared_ptr<Kinematic> (& Kinematic::instance());
+   wm          = boost::shared_ptr<WorldModel>(& WorldModel::instance());
+   configureOmniDirection(0.0,100.0,SIDE_FORWARD);
+}
+
+Walk::~Walk()
+{
+
+}
+
+Walk& Walk::instance()
+{
+    static Walk sWalk;
+    return sWalk;
+}
+void Walk::ApplyTrajectory(bool lefthold ,salt::Matrix move)
+{
+     float speed = mSpeed ;
+     if(abs(speed) < 0.01) speed =0.0;
+     mTorsoMatrix.Pos().x() = mTorsoMatrix.Pos().x() * (speed /100.0);
+     //mMoveFootMatrix.Pos().x() = mMoveFootMatrix.Pos().x() + move
+
+     std::cout <<"speed :"<<speed <<" torso : "<<
+                mTorsoMatrix.Pos()<<" hold : "<<mHoldFootMatrix.Pos()<<
+                " move  : "<<mMoveFootMatrix.Pos()<<std::endl;
+
+    if (! mRobot->IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold))
+    {
+        IsIKfailNow = true;
+        return ;
+    }
+
+    ApplyJVel(lefthold);
+    if (! mRobot->IK_leg(mTorsoMatrix, mMoveFootMatrix, ! lefthold))
+    {
+        IsIKfailNow = true;
+        return ;
+    }
+    ApplyJVel(! lefthold);
+    IsIKfailNow = false;
+}
+
+void Walk::set(bool isPrepare)
+{
+   ModelParams modelparams;
+   WalkParams  walkparams;
+   if(isPrepare)
+   {
+      setParam(modelparams,walkparams,true);
+   }
+}
+
+void Walk::setParam(ModelParams modelParams,WalkParams walkParams,bool isPrepare)
+{
+    if(isPrepare)
+    {
+       mPhase              = PREPARE;
+       mPhaseCycle         = 0;
+       mPhaseStartCycle    = wm->getCurrentCycle();
+       mLeftFirstMove      = true;//false;
+       mTotalStep          = 0;
+       IsIKfailNow         = false;
+    }
+    mTrajectory->initModelParams(modelParams);
+    mTrajectory->setParams(walkParams);
+
+    generalTrajectory();
+}
+
+bool Walk::generalTrajectory()
+{
+    if (! mTrajectory->general())
+    {
+        std::cout
+            << "(Walk) ERROR: Trajectory general failed.\n";
+        return false;
+    }
+
+    return true;
+}
+
+void Walk::Execute(double ang,double speed,ESide type)
+{   
+//     mWalkingSlowGain=0.07;
+    if(speed == 0.0) speed = 0.00001;
+    configureOmniDirection(ang,speed,type);
+    Walking();
+    cout<<"in Walk::Execute mPhase = "<<mPhase<<endl;
+    switch (mPhase)
+    {
+        case PREPARE:
+            Prepare();
+            break;
+        case FIRST_STEP:
+            FirstStep();
+            break;
+        case NORMAL_STEP:
+            NormalStep();
+            break;
+        case LAST_STEP:
+            LastStep();
+            break;
+        default:
+            break;
+    }
+    /** swing arms */
+    SwingArms();
+}
+
+bool Walk::configureOmniDirection(double ang,double speed,ESide type)
+{
+    WalkParams  param1;
+    ModelParams param2;
+    mSlowGain = mWalkingSlowGain;
+    if(ang >15.0)
+       return false;
+    mTurnAngle = ang;
+    mSpeed     = speed;
+    switch (type)
+    {
+         case SIDE_BACKWARD:
+              param1.mDs3D[1]     = -1.0f *(mSpeed * 0.14f /100.0);  //max = 0.14
+              param1.mDs3D[0]     = 0.0f;
+              param1.Xsd          = mSpeed * 0.06f /100.0;  //max = 0.06
+              param1.Xed          = mSpeed * 0.06f /100.0;  //max = 0.06
+               param1.TurnAngle    = mTurnAngle;
+              param2.FootOffset_X = 0.055;
+              mTrajectory->Qb     = 0.2f;
+              mTrajectory->Qf     = 0.2f;
+              break;
+         case SIDE_FORWARD:
+              param1.mDs3D[1]     = mSpeed * 0.14f /100.0;  //max = 0.14
+              param1.mDs3D[0]     = 0.0f;
+//               if(mSpeed==5)
+//               {
+//                   param1.Xsd          = 0.0f;//mSpeed * 0.07f /100.0;  //max = 0.07
+//                   param1.Xed          = 0.0f;//mSpeed * 0.07f /100.0;  //max = 0.07
+//               }
+//               else
+//               {
+                  param1.Xsd          = mSpeed * 0.06f /100.0;  //max = 0.07
+                  param1.Xed          = mSpeed * 0.06f /100.0;  //max = 0.07
+//               }
+              param1.TurnAngle    = mTurnAngle;
+//               param2.FootOffset_X = 0.055;
+//               mTrajectory->Qb     = 0.2f;
+//               mTrajectory->Qf     = 0.2f;
+              break;
+         case SIDE_LEFT:  
+              param1.mDs3D[1]     = 0.00f;  
+              param1.mDs3D[0]     = -1.0f * (0.065 );//mSpeed * 0.1f /100.0);  //max = 0.1
+              param2.FootOffset_X = 0.08;
+              mTrajectory->Qb     = 0.08f; 
+              mTrajectory->Qf     = 0.08f;
+	      param1.Hao=0.03;
+	      param1.Xsd          =  0.03f;  //max = 0.07
+              param1.Xed          =  0.03f;  //max = 0.07
+              break;
+        case SIDE_RIGHT:
+              param1.mDs3D[1]     = 0.00f;
+              param1.mDs3D[0]     = 0.065;  //max = 0.14
+              param2.FootOffset_X = 0.08;
+              mTrajectory->Qb     = 0.08f; 
+              mTrajectory->Qf     = 0.08f;
+	      param1.Hao=0.03;
+	      param1.Xsd          =  0.03f;  //max = 0.07
+              param1.Xed          =  0.03f;  //max = 0.07
+              break; 
+        default:
+              break;
+    }
+    cout<< "mDs3d[1] : "<< param1.mDs3D[1] << endl;
+    if (mWalkSide != type  &&
+       (type == SIDE_LEFT || type == SIDE_RIGHT||
+        mWalkSide == SIDE_LEFT || mWalkSide == SIDE_RIGHT))
+    {
+       if ( !IsStopDone())
+       {
+           Stop();
+           return true;
+       }
+       else
+       {
+           mWalkSide =type;
+           setParam(param2,param1,true);
+       }
+    }
+    else
+    {
+       setParam(param2,param1,false);
+    }
+    return true;
+}
+
+void Walk::Walking()
+{
+    if (mPhase == PREPARE && IsPrepareDone())
+    {
+        mPhase = FIRST_STEP;
+        mPhaseStartCycle = wm->getCurrentCycle();
+        mPhaseCycle = 0;
+    }
+
+    if ( (mPhase == FIRST_STEP && IsFirstStepDone()) ||
+         (mPhase == NORMAL_STEP && IsNormalStepDone())
+       )
+    {
+        if(mWalkSide == SIDE_FORWARD || mWalkSide == SIDE_BACKWARD) 
+        {
+            mPhase = NORMAL_STEP;
+            mPhaseStartCycle = wm->getCurrentCycle();
+            mPhaseCycle = round(mTrajectory->getTc()/0.02f);
+            mTotalStep += 1;
+        }
+        else
+        {
+           mPhase = FIRST_STEP;
+           mPhaseStartCycle = wm->getCurrentCycle();
+           mPhaseCycle = 0;
+        }
+    }
+
+}
+
+void Walk::Stop()
+{
+
+    if (mPhase == PREPARE && IsPrepareDone())
+    {
+        mPhase = STOP;
+        return;
+    }
+    mSlowGain = 0.5f;
+    if ( (mPhase == FIRST_STEP && IsFirstStepDone()) ||
+         (mPhase == NORMAL_STEP && IsNormalStepDone())
+       )
+    {
+        mPhase = LAST_STEP;
+        mPhaseStartCycle = wm->getCurrentCycle();
+        mPhaseCycle = 0;
+        mTotalStep += 1;
+    }
+
+    if (mPhase == LAST_STEP && IsLastStepDone())
+    {
+        mPhase = STOP;
+        mPhaseStartCycle = wm->getCurrentCycle();
+        mPhaseCycle = 0;
+    }
+
+    if (mPhase == STOP)
+    {
+        mEffect->mIsDone = true;
+    }
+
+}
+
+bool Walk::IsStopDone()
+{
+    return ((mPhase == PREPARE && IsPrepareDone()) || mPhase == STOP);
+}
+void Walk::Prepare()
+{
+    float t = 0.0f;
+
+    mSlowGain = 0.3f;
+    bool lefthold = true;
+    mTrajectory->getStartTrajectoryMatrix(t, mTorsoMatrix,
+        mHoldFootMatrix, mMoveFootMatrix, lefthold);
+    salt::Matrix move;
+    move.Identity();
+    ApplyTrajectory(true,move);
+}
+
+
+void Walk::FirstStep()
+{
+    mPhaseCycle = wm->getCurrentCycle() - mPhaseStartCycle;
+    mPhaseTime = float(mPhaseCycle) * 0.02f;
+
+    if ((mPhaseTime < 0.0f) || (mPhaseTime > mTrajectory->getTs()))
+    {
+        return ;
+    }
+
+    bool lefthold = !mLeftFirstMove;
+    mTrajectory->getStartTrajectoryMatrix(mPhaseTime, mTorsoMatrix,
+        mHoldFootMatrix, mMoveFootMatrix, lefthold);
+    if((mWalkSide == SIDE_LEFT || mWalkSide == SIDE_RIGHT) && IsFirstStepDone())
+       mLeftFirstMove = ! mLeftFirstMove;
+    salt::Matrix move;
+    move.Identity();
+    ApplyTrajectory(lefthold,move);
+}
+
+void Walk::NormalStepSide()
+{
+    mPhaseCycle = wm->getCurrentCycle() - mPhaseStartCycle;
+    mPhaseTime = float(mPhaseCycle) * 0.02f;
+
+    if ((mPhaseTime < 0.0f )|| (mPhaseTime > mTrajectory->getTs()))
+    {
+        return ;
+    }
+
+    bool lefthold = !mLeftFirstMove;
+    mTrajectory->getStartTrajectoryMatrix(mPhaseTime, mTorsoMatrix,
+        mHoldFootMatrix, mMoveFootMatrix, lefthold);
+     if(IsFirstStepDone())
+       mLeftFirstMove = !mLeftFirstMove;
+    salt::Matrix move;
+    move.Identity();
+
+    ApplyTrajectory(lefthold,move);
+}
+
+bool Walk::IsFirstStepDone()
+{
+    return mPhaseCycle >= round(mTrajectory->getTs()/0.02f);
+}
+
+void Walk::NormalStep()
+{
+    mPhaseCycle = wm->getCurrentCycle() + round(mTrajectory->getTc()/0.02f) -
+                  mPhaseStartCycle;
+    mPhaseTime = float(mPhaseCycle) * 0.02f;
+
+   // mSlowGain = 0.2f;
+
+    if (mPhaseTime < mTrajectory->getTc() || mPhaseTime > 2 * mTrajectory->getTc())
+    {
+        return ;
+    }
+
+    bool lefthold = IsLeftFootHold();
+
+    mTrajectory->getTrajectoryMatrix(mPhaseTime, mTorsoMatrix,
+          mHoldFootMatrix, mMoveFootMatrix, lefthold);
+    salt::Matrix move;
+    move.Identity();
+    ApplyTrajectory(lefthold,move);
+}
+
+bool Walk::IsNormalStepDone()
+{
+     return mPhaseCycle >= 2.0f *  round(mTrajectory->getTc()/0.02f) - 1;
+}
+
+/** It seems that there is something wrong in this function
+ *  which result in furling the last foot with problem
+ */
+void Walk::LastStep()
+{
+    mPhaseCycle = wm->getCurrentCycle() - mPhaseStartCycle;
+    mPhaseTime = float(mPhaseCycle) * 0.02f;
+
+    float t = mPhaseTime;
+    bool lefthold = IsLeftFootHold();
+    mSlowGain = 0.50;
+    if (t <= mTrajectory->getTd())
+    {
+        t += mTrajectory->getTc();
+
+        mTrajectory->getTrajectoryMatrix(t, mTorsoMatrix,
+            mHoldFootMatrix, mMoveFootMatrix, lefthold);
+    }
+    else
+    {
+        t -= mTrajectory->getTd();
+        if ((t < 0.0f) || t > mTrajectory->getTe()) return ;
+
+        mTrajectory->getEndTrajectoryMatrix(t, mTorsoMatrix,
+            mHoldFootMatrix, mMoveFootMatrix, lefthold);
+    }
+    salt::Matrix move;
+    move.Identity();
+    ApplyTrajectory(lefthold,move);
+}
+
+bool Walk::IsLastStepDone()
+{
+    return mPhaseCycle >= round( (mTrajectory->getTe() + mTrajectory->getTd())/0.02f );
+}
+
+
+///naowalk
+void Walk::ApplyJVel(bool left)
+{
+    boost::shared_array<float> IKJointAngle = mRobot->getIKJointAngle();
+    if (left) // left foot
+    {
+        mEffect->mJointVel[JID_LLEG_1] = (IKJointAngle[JID_LLEG_1] -
+                                         mEffect->mJointAngle[JID_LLEG_1]) / mSlowGain;
+
+        mEffect->mJointVel[JID_LLEG_2] = (IKJointAngle[JID_LLEG_2] -
+                                         mEffect->mJointAngle[JID_LLEG_2]) / mSlowGain;
+
+        mEffect->mJointVel[JID_LLEG_3] = (IKJointAngle[JID_LLEG_3] -
+                                         mEffect->mJointAngle[JID_LLEG_3]) / mSlowGain;
+
+        mEffect->mJointVel[JID_LLEG_4] = (IKJointAngle[JID_LLEG_4] -
+                                         mEffect->mJointAngle[JID_LLEG_4]) / mSlowGain;
+
+        mEffect->mJointVel[JID_LLEG_5] = (IKJointAngle[JID_LLEG_5] -
+                                         mEffect->mJointAngle[JID_LLEG_5]) / mSlowGain;
+
+        mEffect->mJointVel[JID_LLEG_6] = (IKJointAngle[JID_LLEG_6] -
+                                         mEffect->mJointAngle[JID_LLEG_6]) / mSlowGain;
+    }
+    else // right foot
+    {
+        mEffect->mJointVel[JID_RLEG_1] = (IKJointAngle[JID_RLEG_1] -
+                                         mEffect->mJointAngle[JID_RLEG_1]) / mSlowGain;
+
+        mEffect->mJointVel[JID_RLEG_2] = (IKJointAngle[JID_RLEG_2] - 
+                                         mEffect->mJointAngle[JID_RLEG_2]) / mSlowGain;
+
+        mEffect->mJointVel[JID_RLEG_3] = (IKJointAngle[JID_RLEG_3] -
+                                         mEffect->mJointAngle[JID_RLEG_3]) / mSlowGain;
+
+        mEffect->mJointVel[JID_RLEG_4] = (IKJointAngle[JID_RLEG_4] -
+                                         mEffect->mJointAngle[JID_RLEG_4]) / mSlowGain;
+
+        mEffect->mJointVel[JID_RLEG_5] = (IKJointAngle[JID_RLEG_5] -
+                                         mEffect->mJointAngle[JID_RLEG_5]) / mSlowGain;
+
+        mEffect->mJointVel[JID_RLEG_6] = (IKJointAngle[JID_RLEG_6] -
+                                         mEffect->mJointAngle[JID_RLEG_6]) / mSlowGain;
+    }
+}
+
+/** //NOTE the IK check of angle has been calculated in 'Prepare'
+ *  here is time-costed, they should be stored.
+*/
+bool Walk::IsPrepareDone()
+{
+    float t = 0.0f;
+
+    bool lefthold = true;
+    mTrajectory->getStartTrajectoryMatrix(t, mTorsoMatrix,
+        mHoldFootMatrix, mMoveFootMatrix, lefthold);
+
+    float ld, rd;
+    boost::shared_array<float> IKJointAngle = mRobot->getIKJointAngle();
+    if (! mRobot->IK_leg(mTorsoMatrix, mHoldFootMatrix, lefthold)) return false;
+    ld = gRadToDeg(gAbs(mEffect->mJointAngle[JID_LLEG_4] - IKJointAngle[JID_LLEG_4]));
+
+    if (! mRobot->IK_leg(mTorsoMatrix, mMoveFootMatrix, ! lefthold)) return false;
+    rd = gRadToDeg(gAbs(mEffect->mJointAngle[JID_RLEG_4] - IKJointAngle[JID_RLEG_4]));
+
+    return (ld < 1.5 && rd < 1.5);
+}
+
+void Walk::SwingArms()
+{
+    mEffect->calculateVel(JID_LARM_1, -90.0, 5);
+    mEffect->calculateVel(JID_RARM_1, -90.0, 5);
+
+
+    if (mPhase != NORMAL_STEP) return ;
+
+    float tc    = mTrajectory->getTc();
+    float angle = (mPhaseCycle * 0.02f - tc) / tc * 60 - 30;
+    float delta = -90;
+
+    if (! IsLeftFootHold()) angle *= -1;
+    mEffect->calculateVel(JID_LARM_1,  angle+delta, 5);
+    mEffect->calculateVel(JID_RARM_1, -angle+delta, 5);
+}
+
+bool Walk::setWalkPhase(Walk::TPhase phase)
+{
+    mPhase              = phase;
+    mPhaseCycle         = 0;
+    mPhaseStartCycle    = wm->getCurrentCycle();
+    mLeftFirstMove      = true;//false;
+    mTotalStep          = 0;
+    IsIKfailNow         = false;
+    return true;
+}
+///turn
+/*case SIDE_FORWARD:
+                     param1.mDs3D[1]     =  0.00000000001f;
+                     param1.mDs3D[0]     =  0.0f;
+                     param1.TurnAngle    = 10;
+                     param2.FootOffset_X = 0.055;
+                     mTrajectory->Qb     =0.2f;
+                     mTrajectory->Qf     =0.2f;
+                     setParam(param2,param1);
+
+used in apply trajectory
+	mTorsoMatrix.Pos().y()=0.0f;
+        mTorsoMatrix.Pos().x()=0.0f;
+*/
+
+

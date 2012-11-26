@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation
+END
+Formation.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/Formation.cpp
+END
+Player.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/Player.h
+END
+Formation.h
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/Formation.h
+END
+TeamPlayer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/TeamPlayer.cpp
+END
+TeamPlayer.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/TeamPlayer.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/CMakeLists.txt
+END
+Player.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/deltabase_deltabase/!svn/ver/18/trunk/trunk/KDevelop3/src/Formation/Player.cpp
+END
